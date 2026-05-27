@@ -1,0 +1,2554 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Fitshop Hall/Tirol – Verkaufs-SOP 2026</title>
+<style>
+  /* ============================================================
+     PAGED MEDIA – using @page margin boxes for running headers/footers
+     ============================================================ */
+  @page {
+    size: A4;
+    margin: 22mm 16mm 18mm 16mm;
+
+    @top-left {
+      content: element(runningHeaderLeft);
+      vertical-align: bottom;
+      padding-bottom: 4mm;
+    }
+    @top-right {
+      content: element(runningHeaderRight);
+      vertical-align: bottom;
+      padding-bottom: 4mm;
+      font-family: 'Helvetica', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: #6b6b6b;
+    }
+    @bottom-left {
+      content: "Fitshop Hall/Tirol  ·  Intern & Vertraulich";
+      font-family: 'Helvetica', Arial, sans-serif;
+      font-size: 7pt;
+      color: #999;
+      vertical-align: top;
+      padding-top: 4mm;
+      border-top: 1px solid #e0e0e0;
+    }
+    @bottom-center {
+      content: "fitshop";
+      font-family: 'Helvetica', Arial, sans-serif;
+      font-size: 7.5pt;
+      color: #e31e24;
+      font-weight: 700;
+      vertical-align: top;
+      padding-top: 4mm;
+      border-top: 1px solid #e0e0e0;
+    }
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Helvetica', Arial, sans-serif;
+      font-size: 7pt;
+      color: #999;
+      vertical-align: top;
+      padding-top: 4mm;
+      border-top: 1px solid #e0e0e0;
+    }
+  }
+
+  /* COVER PAGE: no headers/footers */
+  @page :first {
+    margin: 0;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right { content: none; }
+  }
+
+  /* TOC page: no top header but with page footer */
+  @page toc {
+    @top-left { content: none; }
+    @top-right { content: none; }
+  }
+
+  /* Running header element */
+  .running-header-left {
+    position: running(runningHeaderLeft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid #e31e24;
+    padding-bottom: 4mm;
+    width: 178mm;
+  }
+  .running-header-right {
+    position: running(runningHeaderRight);
+    border-bottom: 2px solid transparent;
+  }
+  .running-header-left .rhl-logo {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 12pt;
+    font-weight: 900;
+    color: #e31e24;
+    letter-spacing: -0.5px;
+  }
+  .running-header-left .rhl-sub {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 7.5pt;
+    color: #6b6b6b;
+    font-weight: 500;
+  }
+
+  :root {
+    --red: #e31e24;
+    --red-dark: #c0191e;
+    --red-light: #fce8e9;
+    --anthracite: #2d2d2d;
+    --gray-dark: #3d3d3d;
+    --gray-mid: #6b6b6b;
+    --gray-light: #f5f5f5;
+    --gray-border: #e0e0e0;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 10pt;
+    color: var(--anthracite);
+    background: var(--white);
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     COVER PAGE
+     ============================================================ */
+  .cover {
+    page: cover;
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 22mm 18mm 18mm 18mm;
+    background: var(--anthracite);
+    color: white;
+    break-after: page;
+    position: relative;
+    display: block;
+  }
+  .cover-top {
+    margin-bottom: 0;
+  }
+  .cover-logo {
+    font-size: 28pt;
+    font-weight: 900;
+    color: var(--red);
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cover-logo-sub {
+    font-size: 8pt;
+    color: #aaa;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .cover-middle {
+    margin-top: 70mm;
+  }
+  .cover-eyebrow {
+    font-size: 7.5pt;
+    color: var(--red);
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .cover-title {
+    font-size: 36pt;
+    font-weight: 800;
+    color: white;
+    line-height: 1.05;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+  }
+  .cover-title-red { color: var(--red); }
+  .cover-subtitle {
+    font-size: 14pt;
+    color: #ccc;
+    font-weight: 300;
+    line-height: 1.35;
+    margin-bottom: 22px;
+  }
+  .cover-rule {
+    width: 60px; height: 4px;
+    background: var(--red);
+    margin-bottom: 22px;
+  }
+  .cover-quote {
+    font-size: 11pt;
+    color: #bbb;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 340px;
+    border-left: 3px solid var(--red);
+    padding-left: 14px;
+  }
+  .cover-bottom {
+    position: absolute;
+    bottom: 22mm;
+    left: 18mm;
+    right: 18mm;
+    border-top: 1px solid #444;
+    padding-top: 14px;
+  }
+  .cover-meta {
+    width: 100%;
+  }
+  .cover-meta td {
+    padding-right: 18px;
+    vertical-align: top;
+    font-size: 8pt;
+    line-height: 1.5;
+    color: #888;
+  }
+  .cover-meta td strong {
+    display: block;
+    color: #ccc;
+    font-size: 8.5pt;
+    margin-bottom: 1px;
+  }
+  .cover-badge {
+    background: var(--red);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+  }
+
+  /* ============================================================
+     TOC PAGE
+     ============================================================ */
+  .toc {
+    page: toc;
+    break-before: page;
+  }
+  .toc h1 {
+    font-size: 22pt;
+    font-weight: 800;
+    color: var(--anthracite);
+    margin-bottom: 4px;
+  }
+  .toc .rule {
+    width: 50px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 20px;
+  }
+  table.toc-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.toc-table td {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: top;
+  }
+  table.toc-table td.num {
+    width: 32px;
+    padding-right: 12px;
+  }
+  table.toc-table td.num span {
+    display: block;
+    background: var(--red);
+    color: white;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 9.5pt;
+    font-weight: 800;
+  }
+  table.toc-table td.label .ttl { font-size: 10pt; font-weight: 700; color: var(--anthracite); }
+  table.toc-table td.label .sub { font-size: 8pt; color: var(--gray-mid); margin-top: 1px; }
+  table.toc-table td.page {
+    width: 50px;
+    text-align: right;
+    font-size: 9pt;
+    color: var(--gray-mid);
+    font-weight: 500;
+  }
+
+  /* ============================================================
+     SECTIONS
+     ============================================================ */
+  .section {
+    break-before: page;
+  }
+  .section.no-break { break-before: auto; }
+
+  .section-eyebrow {
+    font-size: 7pt;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-size: 19pt;
+    font-weight: 800;
+    color: var(--anthracite);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+  .section-subtitle {
+    font-size: 10pt;
+    color: var(--gray-mid);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+  .section-rule {
+    width: 40px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 14px;
+  }
+
+  h2.subsection {
+    font-size: 12pt;
+    font-weight: 700;
+    color: var(--anthracite);
+    margin-top: 16px;
+    margin-bottom: 8px;
+    padding-left: 12px;
+    border-left: 4px solid var(--red);
+    line-height: 1.2;
+    break-after: avoid;
+  }
+
+  h3 { font-size: 10pt; font-weight: 700; color: var(--anthracite); margin: 10px 0 4px 0; break-after: avoid; }
+  h4 { font-size: 9pt; font-weight: 600; color: var(--gray-dark); margin: 8px 0 3px 0; break-after: avoid; }
+
+  p { margin-bottom: 7px; font-size: 9.5pt; }
+  ul, ol { padding-left: 16px; margin-bottom: 8px; }
+  li { font-size: 9.5pt; margin-bottom: 3px; line-height: 1.45; }
+
+  /* ============================================================
+     BOXES
+     ============================================================ */
+  .box {
+    background: var(--gray-light);
+    border-left: 4px solid var(--red);
+    padding: 10px 14px;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  .box-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+  }
+
+  .box-dark {
+    background: var(--anthracite);
+    color: white;
+    border-left: 4px solid var(--red);
+    padding: 11px 14px;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  .box-dark .box-title { color: var(--red); }
+  .box-dark p { color: #ddd; margin-bottom: 4px; font-size: 9.5pt; }
+
+  .highlight-quote {
+    background: var(--anthracite);
+    color: white;
+    padding: 14px 18px;
+    margin: 14px 0;
+    text-align: center;
+    break-inside: avoid;
+  }
+  .highlight-quote .q {
+    font-size: 11.5pt;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .highlight-quote .att {
+    font-size: 7.5pt;
+    color: var(--red);
+    margin-top: 7px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .red-box {
+    background: var(--red-light);
+    border: 1px solid #f0c0c0;
+    border-left: 4px solid var(--red);
+    padding: 10px 14px;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  .red-box .box-title { color: var(--red-dark); }
+
+  .green-box {
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-left: 4px solid #2e7d32;
+    padding: 10px 14px;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  .green-box .box-title { color: #1b5e20; }
+
+  .warn-box {
+    background: #fff8e1;
+    border-left: 4px solid #f9a825;
+    padding: 10px 14px;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  .warn-box .box-title { color: #e65100; }
+
+  /* ============================================================
+     TABLES
+     ============================================================ */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 9pt;
+    break-inside: auto;
+  }
+  table.data thead { display: table-header-group; }
+  table.data tr { break-inside: avoid; }
+  table.data thead th {
+    background: var(--anthracite);
+    color: white;
+    padding: 7px 9px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  table.data tbody td {
+    padding: 7px 9px;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: top;
+    font-size: 9pt;
+  }
+  table.data tbody tr:nth-child(even) { background: var(--gray-light); }
+  table.data td.red-label {
+    font-weight: 700;
+    color: var(--red);
+    white-space: nowrap;
+  }
+  table.compact { font-size: 8.5pt; }
+  table.compact thead th { font-size: 7pt; padding: 6px 8px; }
+  table.compact tbody td { padding: 5px 8px; font-size: 8pt; }
+
+  /* Force short tables to stay together to avoid 1-2-row orphan continuations */
+  table.data.keep-together { break-inside: avoid; }
+  table.data tbody tr { break-inside: avoid; }
+
+  /* ============================================================
+     TWO/THREE COLUMN LAYOUTS (using CSS tables - reliable in WeasyPrint)
+     ============================================================ */
+  table.cols {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px 0;
+    margin: 10px -8px;
+    table-layout: fixed;
+  }
+  table.cols > tbody > tr > td {
+    vertical-align: top;
+    padding: 0;
+  }
+
+  /* ============================================================
+     KUNDENTYP CARDS
+     ============================================================ */
+  .ktype {
+    border: 1px solid var(--gray-border);
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+  .ktype-head {
+    background: var(--anthracite);
+    color: white;
+    padding: 0;
+  }
+  .ktype-head-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .ktype-head-table td {
+    padding: 8px 12px;
+    vertical-align: middle;
+  }
+  .ktype-head-table td.badge {
+    background: var(--red);
+    color: white;
+    font-weight: 800;
+    font-size: 13pt;
+    width: 38px;
+    text-align: center;
+  }
+  .ktype-head-table td.label {
+    color: white;
+    padding-left: 12px;
+  }
+  .ktype-head-table td.label .name {
+    font-size: 10.5pt;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .ktype-head-table td.label .desc {
+    font-size: 8pt;
+    color: #bbb;
+    margin-top: 1px;
+  }
+  .ktype-head-table td.status {
+    text-align: right;
+    width: 110px;
+  }
+  .status-tag {
+    display: inline-block;
+    background: #fff;
+    color: var(--anthracite);
+    padding: 3px 8px;
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .status-tag.green { background: #c8e6c9; color: #1b5e20; }
+  .status-tag.blue { background: #bbdefb; color: #0d47a1; }
+  .status-tag.purple { background: #e1bee7; color: #4a148c; }
+  .status-tag.orange { background: #ffe0b2; color: #e65100; }
+  .status-tag.brown { background: #d7ccc8; color: #3e2723; }
+  .status-tag.gray { background: #cfd8dc; color: #263238; }
+
+  .ktype-body {
+    padding: 0;
+  }
+  .ktype-body-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .ktype-body-table > tbody > tr > td {
+    vertical-align: top;
+    padding: 10px 12px;
+    width: 33.33%;
+    border-right: 1px solid var(--gray-border);
+  }
+  .ktype-body-table > tbody > tr > td:last-child { border-right: none; }
+  .ktype-body-table .lbl {
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .ktype-body-table ul.arrow {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ktype-body-table ul.arrow li {
+    padding-left: 12px;
+    position: relative;
+    font-size: 8.5pt;
+    margin-bottom: 3px;
+    line-height: 1.35;
+  }
+  .ktype-body-table ul.arrow li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .ktype-body-table .quote-mini {
+    font-size: 8.5pt;
+    font-style: italic;
+    color: var(--anthracite);
+    line-height: 1.4;
+  }
+  .ktype-body-table .danger {
+    font-size: 8.5pt;
+    color: var(--red);
+    line-height: 1.4;
+  }
+
+  /* COMPACT KUNDENTYP (G-J) */
+  .ktype-mini {
+    border: 1px solid var(--gray-border);
+    margin-bottom: 8px;
+    break-inside: avoid;
+  }
+  .ktype-mini-head {
+    background: var(--anthracite);
+    color: white;
+    padding: 0;
+  }
+  .ktype-mini-head-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .ktype-mini-head-table td {
+    padding: 6px 10px;
+    vertical-align: middle;
+  }
+  .ktype-mini-head-table td.badge {
+    background: var(--red);
+    color: white;
+    font-weight: 800;
+    font-size: 11pt;
+    width: 28px;
+    text-align: center;
+  }
+  .ktype-mini-head-table td.name {
+    color: white;
+    padding-left: 10px;
+  }
+  .ktype-mini-head-table .nm { font-size: 9.5pt; font-weight: 700; }
+  .ktype-mini-head-table .ds { font-size: 7.5pt; color: #bbb; }
+  .ktype-mini-body { padding: 8px 10px; font-size: 8.5pt; line-height: 1.4; }
+
+  /* ============================================================
+     STEPS LIST
+     ============================================================ */
+  .steps {
+    margin: 10px 0;
+  }
+  .step {
+    background: var(--gray-light);
+    border-left: 3px solid var(--red);
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    break-inside: avoid;
+  }
+  .step-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .step-table td {
+    vertical-align: top;
+    padding: 0;
+  }
+  .step-num {
+    width: 28px;
+    padding-right: 10px !important;
+  }
+  .step-num span {
+    display: block;
+    width: 24px; height: 24px;
+    background: var(--red);
+    color: white;
+    font-weight: 800;
+    font-size: 9pt;
+    text-align: center;
+    line-height: 24px;
+  }
+  .step-content .title { font-size: 9.5pt; font-weight: 700; margin-bottom: 2px; }
+  .step-content .desc { font-size: 8.5pt; color: var(--gray-dark); line-height: 1.4; }
+
+  /* ============================================================
+     PHASE BAR
+     ============================================================ */
+  table.phase-bar {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 12px 0;
+    break-inside: avoid;
+  }
+  table.phase-bar td {
+    background: var(--red);
+    color: white;
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 8pt;
+    font-weight: 700;
+    border-right: 2px solid white;
+    line-height: 1.2;
+  }
+  table.phase-bar td small { font-weight: 500; font-size: 7pt; }
+  table.phase-bar td:last-child { border-right: none; }
+
+  /* ============================================================
+     NO-GO / DO BOXES
+     ============================================================ */
+  table.nogo-do {
+    width: 100%;
+    border-spacing: 10px 0;
+    border-collapse: separate;
+    margin: 10px -10px;
+    table-layout: fixed;
+  }
+  table.nogo-do td {
+    vertical-align: top;
+    padding: 0;
+  }
+  .nogo {
+    background: #fff0f0;
+    border: 1px solid #f0c0c0;
+    border-top: 3px solid var(--red);
+    padding: 10px 12px;
+    break-inside: avoid;
+  }
+  .nogo .lbl {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .do {
+    background: #f0fff4;
+    border: 1px solid #a5d6a7;
+    border-top: 3px solid #2e7d32;
+    padding: 10px 12px;
+    break-inside: avoid;
+  }
+  .do .lbl {
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .nogo ul, .do ul { padding-left: 14px; margin: 0; }
+  .nogo li, .do li { font-size: 8.5pt; margin-bottom: 3px; line-height: 1.35; }
+
+  /* ============================================================
+     DIALOG BUBBLES
+     ============================================================ */
+  .dialog { margin: 10px 0; }
+  table.bubble-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 6px;
+  }
+  .bubble-table td { padding: 0; vertical-align: top; }
+  .bubble-k td.spacer-r { width: 15%; }
+  .bubble-m td.spacer-l { width: 15%; }
+  .bubble-content { width: 85%; }
+  .bubble-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+  }
+  .bubble-k .bubble-label { color: var(--gray-mid); }
+  .bubble-m .bubble-label { color: var(--red); text-align: right; }
+  .bubble-kunde {
+    background: var(--gray-light);
+    padding: 9px 13px;
+    border-left: 3px solid #999;
+    font-size: 9pt;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--anthracite);
+  }
+  .bubble-mit {
+    background: var(--anthracite);
+    color: white;
+    padding: 9px 13px;
+    border-right: 3px solid var(--red);
+    font-size: 9pt;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .dialog-meta {
+    background: var(--gray-light);
+    border-top: 3px solid var(--red);
+    padding: 7px 12px;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    break-after: avoid;
+  }
+  .dialog-meta .dm-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .dialog-meta .dm-sit {
+    font-size: 7.5pt;
+    color: var(--gray-mid);
+    margin-top: 1px;
+  }
+
+  /* ============================================================
+     EINWAND BLOCKS
+     ============================================================ */
+  .einwand {
+    background: var(--gray-light);
+    border-left: 4px solid var(--red);
+    padding: 11px 14px;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  .einwand-head {
+    display: table;
+    width: 100%;
+    margin-bottom: 7px;
+  }
+  .einwand-head .e-num {
+    display: table-cell;
+    background: var(--red);
+    color: white;
+    font-weight: 800;
+    font-size: 9pt;
+    padding: 3px 9px;
+    width: 1%;
+    white-space: nowrap;
+  }
+  .einwand-head .e-title {
+    display: table-cell;
+    padding-left: 10px;
+    font-size: 10pt;
+    font-weight: 700;
+    vertical-align: middle;
+    color: var(--anthracite);
+  }
+  .einwand .lbl-red {
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+    margin-top: 4px;
+  }
+  .einwand .e-list {
+    list-style: none; padding: 0; margin: 0 0 5px 0;
+  }
+  .einwand .e-list li {
+    padding-left: 12px;
+    position: relative;
+    font-size: 8.5pt;
+    margin-bottom: 2px;
+    line-height: 1.4;
+  }
+  .einwand .e-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .einwand .e-script {
+    background: var(--anthracite);
+    color: white;
+    padding: 7px 10px;
+    font-size: 8.5pt;
+    font-style: italic;
+    margin-top: 7px;
+    line-height: 1.4;
+  }
+  .einwand p { font-size: 8.5pt; line-height: 1.45; margin-bottom: 5px; }
+
+  /* ============================================================
+     CHECKLIST
+     ============================================================ */
+  ul.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0;
+  }
+  ul.checklist li {
+    padding: 4px 0 4px 22px;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 9pt;
+    position: relative;
+  }
+  ul.checklist li::before {
+    content: '☐';
+    position: absolute;
+    left: 0; top: 3px;
+    color: var(--red);
+    font-size: 11pt;
+  }
+
+  /* ============================================================
+     COMPACT ARROW LIST
+     ============================================================ */
+  ul.arrow-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0;
+  }
+  ul.arrow-list li {
+    padding: 4px 0 4px 16px;
+    position: relative;
+    font-size: 9pt;
+    border-bottom: 1px solid var(--gray-border);
+    line-height: 1.45;
+  }
+  ul.arrow-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0; top: 4px;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     MINI CARDS GRID (4-cards-on-row, fixed table)
+     ============================================================ */
+  table.mini-grid {
+    width: 100%;
+    border-spacing: 8px;
+    border-collapse: separate;
+    margin: 8px -8px;
+    table-layout: fixed;
+  }
+  table.mini-grid td {
+    vertical-align: top;
+    padding: 0;
+  }
+  .mini-card {
+    background: var(--gray-light);
+    border-top: 3px solid var(--red);
+    padding: 10px 12px;
+    height: 100%;
+    break-inside: avoid;
+  }
+  .mini-card.green { border-top-color: #2e7d32; }
+  .mini-card .mc-title {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 5px;
+  }
+  .mini-card.green .mc-title { color: #2e7d32; }
+  .mini-card .mc-val {
+    font-size: 8.5pt;
+    line-height: 1.45;
+    color: var(--anthracite);
+  }
+  .mini-card ul { padding-left: 12px; margin: 0; }
+  .mini-card li { font-size: 8.5pt; margin-bottom: 3px; }
+
+  /* ============================================================
+     RESULT BOXES (Kauf / Alternative / etc)
+     ============================================================ */
+  table.results {
+    width: 100%;
+    border-spacing: 6px 0;
+    border-collapse: separate;
+    margin: 10px -6px;
+    table-layout: fixed;
+  }
+  .results td {
+    vertical-align: middle;
+    color: white;
+    padding: 9px 8px;
+    text-align: center;
+  }
+  .results td .rt { font-weight: 700; font-size: 9pt; margin-bottom: 2px; display: block; }
+  .results td .rd { font-size: 7.5pt; display: block; line-height: 1.3; }
+
+  /* ============================================================
+     ENTSCHEIDUNGSBAUM (FLOWCHART) – Using TABLES
+     ============================================================ */
+  .flow-box {
+    padding: 8px 14px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 9.5pt;
+    line-height: 1.3;
+  }
+  .flow-box.dark { background: var(--anthracite); }
+  .flow-box.red { background: var(--red); }
+  .flow-box.light {
+    background: var(--gray-light);
+    color: var(--anthracite);
+    border: 1px solid var(--gray-border);
+    font-weight: 600;
+  }
+  .flow-box.gray { background: #6b6b6b; }
+  .flow-box.brown { background: #5d4037; }
+  .flow-box.green { background: #1b5e20; }
+  .flow-box.blue { background: #1565c0; }
+  .flow-box.purple { background: #6a1b9a; }
+  .flow-box.darkgray { background: #424242; }
+  .flow-box.darkergreen { background: #2e7d32; }
+  .flow-box small { display: block; font-size: 7.5pt; font-weight: 400; margin-top: 2px; }
+
+  .flow-arrow {
+    text-align: center;
+    color: var(--red);
+    font-size: 14pt;
+    line-height: 1;
+    padding: 2px 0;
+  }
+  .flow-row-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px 0;
+    margin: 0;
+    table-layout: fixed;
+  }
+  .flow-row-table > tbody > tr > td {
+    vertical-align: top;
+    padding: 0;
+  }
+  .flow-arm {
+    text-align: center;
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 0 4px 0;
+  }
+
+  /* ============================================================
+     KAUFDRUCK vs PROZESS TABLE
+     ============================================================ */
+  table.compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    break-inside: avoid;
+  }
+  table.compare thead th {
+    padding: 8px 10px;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+  }
+  table.compare thead th:first-child { background: var(--red); }
+  table.compare thead th:last-child { background: #1b5e20; }
+  table.compare tbody td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: top;
+    font-size: 9pt;
+    width: 50%;
+  }
+  table.compare tbody td:first-child { background: #fff5f5; }
+  table.compare tbody td:last-child { background: #f5fff7; }
+
+  /* ============================================================
+     UTILITY
+     ============================================================ */
+  .avoid-break { break-inside: avoid; }
+  .small { font-size: 8pt; }
+  .center { text-align: center; }
+  hr.section-rule-bottom {
+    border: none;
+    border-top: 1px solid var(--gray-border);
+    margin: 14px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Running header element rendered into @page margin box -->
+<div class="running-header-left">
+  <div>
+    <div class="rhl-logo">FITSHOP</div>
+    <div class="rhl-sub">Hall/Tirol · Verkaufs-SOP 2026</div>
+  </div>
+</div>
+<div class="running-header-right">Intern &amp; Vertraulich</div>
+
+<!-- ============================================================ COVER ============================================================ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">FITSHOP</div>
+    <div class="cover-logo-sub">Hall / Tirol · Europas Nr. 1 für Heimfitness</div>
+  </div>
+
+  <div class="cover-middle">
+    <div class="cover-eyebrow">Internes Verkaufs-Dokument · Vertraulich · 2026</div>
+    <div class="cover-title">Verkaufs-SOP<br><span class="cover-title-red">2026</span></div>
+    <div class="cover-subtitle">Vom Erstkontakt zur geführten<br>Kaufentscheidung</div>
+    <div class="cover-rule"></div>
+    <div class="cover-quote">„Nicht jeder Kunde muss heute kaufen. Aber jeder ernsthafte Kunde braucht einen klaren nächsten Schritt."</div>
+  </div>
+
+  <div class="cover-bottom">
+    <table class="cover-meta">
+      <tr>
+        <td><strong>Standort</strong>Hall in Tirol</td>
+        <td><strong>Team</strong>Daniel · Jonas · Angie · Norbert</td>
+        <td><strong>Fläche</strong>ca. 280 m² Showroom</td>
+        <td><strong>Version</strong>1.0 · Mai 2026</td>
+        <td style="text-align:right; width:1%;"><span class="cover-badge">Intern &amp; Vertraulich</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ============================================================ TOC ============================================================ -->
+<div class="toc">
+  <h1>Inhaltsverzeichnis</h1>
+  <div class="rule"></div>
+
+  <table class="toc-table">
+    <tr><td class="num"><span>1</span></td><td class="label"><div class="ttl">Executive Summary</div><div class="sub">Warum eine saubere Verkaufssystematik mehr bringt als mehr Frequenz</div></td><td class="page">3</td></tr>
+    <tr><td class="num"><span>2</span></td><td class="label"><div class="ttl">Grundprinzip des Fitshop-Verkaufsprozesses</div><div class="sub">Beratung vs. Hard Selling vs. geführter Entscheidungsprozess</div></td><td class="page">5</td></tr>
+    <tr><td class="num"><span>3</span></td><td class="label"><div class="ttl">Kundentypen &amp; Qualifizierungs-Mindmap</div><div class="sub">10 Kundentypen mit Erkennungszeichen, Zielen und richtigen Prozessen</div></td><td class="page">7</td></tr>
+    <tr><td class="num"><span>4</span></td><td class="label"><div class="ttl">Qualifizierungsfragen im Showroom</div><div class="sub">Bedarfsanalyse-SOP: In 5 Minuten den Kundentyp erkennen</div></td><td class="page">12</td></tr>
+    <tr><td class="num"><span>5</span></td><td class="label"><div class="ttl">Der Fitshop Entscheidungsbaum</div><div class="sub">Visueller Prozessfluss: Vom Betreten bis zum nächsten Schritt</div></td><td class="page">13</td></tr>
+    <tr><td class="num"><span>6</span></td><td class="label"><div class="ttl">Der 2-Stufen-Prozess: Heimcheck + Entscheidungscheck</div><div class="sub">Das Herzstück – warme Kunden sauber führen ohne Kaufdruck</div></td><td class="page">14</td></tr>
+    <tr><td class="num"><span>7</span></td><td class="label"><div class="ttl">Einwandbehandlung nach Einwandtyp</div><div class="sub">7 Einwände mit Diagnose, Commitment-Test und passender Antwort</div></td><td class="page">17</td></tr>
+    <tr><td class="num"><span>8</span></td><td class="label"><div class="ttl">Dialog-Leitfäden nach Kundentyp</div><div class="sub">Realistische Beispielgespräche für den Showroom-Alltag</div></td><td class="page">20</td></tr>
+    <tr><td class="num"><span>9</span></td><td class="label"><div class="ttl">Mitarbeiter-Playbook: Was tun in welcher Situation?</div><div class="sub">Situationsmatrix für den schnellen Zugriff im Alltag</div></td><td class="page">23</td></tr>
+    <tr><td class="num"><span>10</span></td><td class="label"><div class="ttl">CRM &amp; Tracking für warme Kunden</div><div class="sub">Felder, Statusoptionen und Nachfass-SOP</div></td><td class="page">24</td></tr>
+    <tr><td class="num"><span>11</span></td><td class="label"><div class="ttl">Team-Training &amp; Umsetzungsplan</div><div class="sub">4-Wochen-Einführungsplan mit wöchentlicher 30-Minuten-Routine</div></td><td class="page">25</td></tr>
+    <tr><td class="num"><span>12</span></td><td class="label"><div class="ttl">Schnellreferenz / Spickzettel</div><div class="sub">Kompakte Übersicht für den täglichen Einsatz</div></td><td class="page">26</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ TEIL 1: EXECUTIVE SUMMARY ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 1</div>
+  <div class="section-title">Executive Summary</div>
+  <div class="section-subtitle">Warum eine saubere Verkaufssystematik mehr bringt als mehr Kundenfrequenz</div>
+  <div class="section-rule"></div>
+
+  <p>Fitshop Hall/Tirol hat einen Showroom mit ca. 280 m² Fläche, testbaren Geräten und einem kompetenten Team. Was häufig fehlt, ist kein Produkt und kein Wissen – sondern eine <strong>systematische Prozessführung</strong> vom Erstkontakt bis zum Abschluss. Warme Leads entstehen täglich. Aber ohne klaren Prozess verschwinden sie in einem losen „ich melde mich".</p>
+
+  <table class="cols">
+    <tr>
+      <td>
+        <div class="red-box">
+          <div class="box-title">Das Problem ohne Prozess</div>
+          <ul>
+            <li>Mitarbeiter beraten ausführlich, aber closen nicht</li>
+            <li>Kunden gehen mit losem Angebot, kaufen nie</li>
+            <li>Hard Selling wirkt bei Tiroler Kunden abschreckend</li>
+            <li>Keine strukturierte Nachverfolgung warmer Leads</li>
+            <li>Abschlussquote bleibt weit unter Potenzial</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div class="green-box">
+          <div class="box-title">Die Lösung: Qualifizierter Prozess</div>
+          <ul>
+            <li>Kundentyp früh erkennen → richtigen Prozess wählen</li>
+            <li>Nicht jeder Kunde muss heute kaufen</li>
+            <li>Aber: jeder ernsthafte Kunde bekommt einen <strong>nächsten Schritt</strong></li>
+            <li>Warme Leads bleiben im Prozess, nicht im Nichts</li>
+            <li>Abschlussquote steigt ohne Druckverkauf</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="highlight-quote">
+    <div class="q">„Wir drängen nicht künstlich zum Kauf. Aber wir lassen warme Kunden nicht in einem losen ‚ich melde mich' verschwinden. Wir führen sie entweder zum Kauf, in einen Heimcheck-Prozess oder qualifizieren sie ehrlich als Orientierungskunden."</div>
+    <div class="att">Fitshop Hall/Tirol · Verkaufs-Grundsatz 2026</div>
+  </div>
+
+  <h2 class="subsection">Der 6-Schritte-Überblick</h2>
+
+  <table class="data keep-together">
+    <thead>
+      <tr><th style="width:24%">Schritt</th><th style="width:42%">Was passiert</th><th style="width:34%">Warum wichtig</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="red-label">1 · Bedarf verstehen</td><td>Produktkategorie, Nutzung, Raum, Budget, Zeitpunkt klären</td><td>Ohne Bedarf gibt es keine sinnvolle Empfehlung</td></tr>
+      <tr><td class="red-label">2 · Kundentyp erkennen</td><td>Sofort-Käufer, warmer Interessent, Budgetkunde, Zukunftsprojekt, Orientierung?</td><td>Falscher Prozess für den Kundentyp = verlorener Lead</td></tr>
+      <tr><td class="red-label">3 · Kaufbereitschaft einschätzen</td><td>Ist Kaufabsicht da? Ist sie heute realisierbar?</td><td>Wer nicht kaufen will, soll trotzdem im Prozess bleiben</td></tr>
+      <tr><td class="red-label">4 · Einwand richtig deuten</td><td>Echter Sacheinwand vs. Kaufdruckvermeidung vs. echtes Nein</td><td>Falsches Deuten = zu hartes Nachhaken oder vorzeitiges Aufgeben</td></tr>
+      <tr><td class="red-label">5 · Passenden Prozess wählen</td><td>Sofortabschluss, Heimcheck, Entscheidungscheck, Wiedervorlage, Orientierung</td><td>Nicht jede Situation braucht denselben Abschlussweg</td></tr>
+      <tr><td class="red-label">6 · Nächsten Schritt setzen</td><td>Konkret, verbindlich, dokumentiert</td><td>Ohne nächsten Schritt gibt es keinen Abschluss – nur gute Gespräche</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ TEIL 2: GRUNDPRINZIP ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 2</div>
+  <div class="section-title">Grundprinzip des Fitshop-Verkaufsprozesses</div>
+  <div class="section-subtitle">Beratung ist nicht das Ziel. Entscheidungsklarheit ist das Ziel.</div>
+  <div class="section-rule"></div>
+
+  <table class="mini-grid">
+    <tr>
+      <td>
+        <div class="mini-card">
+          <div class="mc-title">❌ Beratung ohne Führung</div>
+          <div class="mc-val">Kunde informiert sich, Mitarbeiter erklärt alles, Kunde sagt „danke, ich überleg's" – und kommt nie wieder. Kein Prozess, kein Follow-up, kein Abschluss.</div>
+        </div>
+      </td>
+      <td>
+        <div class="mini-card">
+          <div class="mc-title">❌ Hard Selling</div>
+          <div class="mc-val">Künstliche Verknappung, Abschluss-Druck, aufdringliches Nachfassen. Funktioniert bei Tiroler Kunden besonders schlecht und beschädigt den Ruf des Hauses nachhaltig.</div>
+        </div>
+      </td>
+      <td>
+        <div class="mini-card green">
+          <div class="mc-title">✅ Geführter Entscheidungsprozess</div>
+          <div class="mc-val">Kunde wird qualifiziert. Je nach Typ in den passenden Prozess geführt. Kein Kaufdruck, aber immer ein konkreter nächster Schritt. Warm bleibt warm.</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Warum Fitnessgeräte keine Impulsware sind</h2>
+  <p>Heimfitnessgeräte sind keine spontanen Alltagskäufe. Ein Laufband kostet zwischen 500 € und 4.000 €. Eine Kraftstation noch mehr. Dazu kommen: Platzbedarf, Raumfrage, Partnerentscheidung, Nutzungsunsicherheit, Aufbauaufwand und langfristige Motivation. Kunden brauchen also häufig Zeit – und das ist legitim.</p>
+  <p>Das Problem entsteht nicht durch die Zeit, die ein Kunde braucht, sondern durch den <strong>fehlenden Prozess</strong>, der diese Zeit überbrückt. Ein Kunde, der nach der Beratung ohne konkreten nächsten Schritt geht, ist kein „warmer Lead" mehr – er ist ein verlorener Interessent.</p>
+
+  <div class="box">
+    <div class="box-title">Warum Tiroler Kunden besonders empfindlich reagieren</div>
+    <p>In Tirol funktionieren amerikanische Hard-Selling-Techniken besonders schlecht. Tiroler Kunden schätzen Ehrlichkeit, Fachkompetenz und Respekt vor ihrer Entscheidungsfreiheit. Wer zu früh auf Abschluss drängt, verliert das Vertrauen – und damit den Kunden dauerhaft. Gleichzeitig verliert man den Kunden auch, wenn man ihn nach 40 Minuten Beratung einfach gehen lässt.</p>
+  </div>
+
+  <h2 class="subsection">Die Kernunterscheidung: Kaufdruck vs. Prozessverbindlichkeit</h2>
+
+  <table class="compare">
+    <thead>
+      <tr><th>Kaufdruck (vermeiden)</th><th>Prozessverbindlichkeit (anwenden)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>„Das Angebot gilt nur heute."</td><td>„Wenn wir das Gerät heute für Sie reservieren, passt das zeitlich?"</td></tr>
+      <tr><td>„Machen Sie es jetzt, bevor es zu spät ist."</td><td>„Was wäre noch zu klären, damit Sie sich sicher entscheiden?"</td></tr>
+      <tr><td>„Ich brauche bis morgen eine Antwort."</td><td>„Dann setzen wir übermorgen kurz einen Check: Haben Sie ausmessen können?"</td></tr>
+      <tr><td>„Sie werden es bereuen, wenn Sie warten."</td><td>„Sie müssen heute nicht kaufen – aber wir führen den Prozess sauber weiter."</td></tr>
+      <tr><td>„Alle anderen greifen jetzt zu."</td><td>„Ich halte Ihre bevorzugte Konfiguration im Kopf – dann können wir schnell handeln, wenn Sie bereit sind."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-quote">
+    <div class="q">„Wir verkaufen nicht gegen den Kundenwiderstand.<br>Wir führen den Kunden aus Unsicherheit in Klarheit."</div>
+    <div class="att">Fitshop Hall/Tirol · Verkaufs-Grundsatz</div>
+  </div>
+
+  <h2 class="subsection">Die fünf Abschlusswege im Überblick</h2>
+
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>A</span></td><td class="step-content"><div class="title">Sofortabschluss</div><div class="desc">Kunde ist kaufbereit, alle Punkte sind klar. Direkt zum Auftrag führen.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>B</span></td><td class="step-content"><div class="title">Heimcheck + Entscheidungscheck</div><div class="desc">Warmer Interessent mit einem offenen Punkt. Prozess offiziell anlegen, Follow-up setzen.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>C</span></td><td class="step-content"><div class="title">Reservierung / Auftrag unter Vorbehalt</div><div class="desc">Wenn intern möglich: Modell vormerken, Partnercheck daheim, dann Bestätigung.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>D</span></td><td class="step-content"><div class="title">Wiedervorlage Zukunftsprojekt</div><div class="desc">Raum noch nicht fertig, Kauf in 3+ Monaten. Projektstatus erfassen, Datum setzen.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>E</span></td><td class="step-content"><div class="title">Orientierungsstatus</div><div class="desc">Kein konkretes Interesse, kein Budget, kein Zeitraum. Freundlich verabschieden, kein Invest in Follow-up.</div></td></tr></table></div>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 3: KUNDENTYPEN ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 3</div>
+  <div class="section-title">Kundentypen &amp; Qualifizierungs-Mindmap</div>
+  <div class="section-subtitle">10 Kundentypen mit Erkennungszeichen, Zielen und richtigen Prozessen</div>
+  <div class="section-rule"></div>
+
+  <!-- KUNDENTYP A -->
+  <div class="ktype">
+    <div class="ktype-head">
+      <table class="ktype-head-table">
+        <tr>
+          <td class="badge">A</td>
+          <td class="label"><div class="name">Sofort-Kaufkunde</div><div class="desc">Kommt mit klarer Kaufabsicht, will testen und entscheiden</div></td>
+          <td class="status"><span class="status-tag green">Abschluss heute</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ktype-body">
+      <table class="ktype-body-table">
+        <tr>
+          <td>
+            <div class="lbl">Erkennungszeichen</div>
+            <ul class="arrow">
+              <li>Nennt konkrete Produktkategorie oder Modell</li>
+              <li>Hat sich bereits informiert</li>
+              <li>Fragt nach Lieferung, Aufbau, Garantie, Verfügbarkeit</li>
+              <li>Vergleicht 2–3 Modelle, nicht beliebig</li>
+              <li>Konkreter Zeitraum für Umsetzung</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Richtige Vorgehensweise</div>
+            <ul class="arrow">
+              <li>Nicht überberaten – Bedarf schnell bestätigen</li>
+              <li>Klare Empfehlung aussprechen</li>
+              <li>Abschlussfrage stellen</li>
+              <li>Verfügbarkeit, Lieferung, Aufbau klären</li>
+              <li>Auftrag konkret machen</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Gefahr</div>
+            <div class="danger">Überberatung! Zu viele Optionen verunsichern den kaufbereiten Kunden. Einfach zum Abschluss führen.</div>
+            <div class="lbl" style="margin-top:8px;">Beispielfrage</div>
+            <div class="quote-mini">„Wenn wir heute das passende Modell finden und Lieferung/Aufbau passen – wollen Sie das Gerät dann grundsätzlich zeitnah umsetzen?"</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- KUNDENTYP B -->
+  <div class="ktype">
+    <div class="ktype-head">
+      <table class="ktype-head-table">
+        <tr>
+          <td class="badge">B</td>
+          <td class="label"><div class="name">Kaufbereiter Kunde mit echtem Sach-Einwand</div><div class="desc">Will kaufen, ein konkreter Punkt ist noch offen</div></td>
+          <td class="status"><span class="status-tag blue">Heimcheck</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ktype-body">
+      <table class="ktype-body-table">
+        <tr>
+          <td>
+            <div class="lbl">Erkennungszeichen</div>
+            <ul class="arrow">
+              <li>Gerät gefällt sichtbar</li>
+              <li>Stellt konkrete Detailfragen</li>
+              <li>„Eigentlich passt es", „gefällt mir gut"</li>
+              <li>„Müsste nur noch ausmessen"</li>
+              <li>Einwand ist spezifisch und lösbar</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Richtige Vorgehensweise</div>
+            <ul class="arrow">
+              <li>Einwand isolieren: „Ist wirklich nur dieser Punkt offen?"</li>
+              <li>Kaufabsicht prüfen: „Wenn der Punkt passt, machen wir es dann?"</li>
+              <li>Heimcheck / Maßcheck anlegen</li>
+              <li>Favorit + Alternative festhalten</li>
+              <li>Entscheidungscheck setzen</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Schlüsselformulierung</div>
+            <div class="quote-mini">„Sind wir grundsätzlich beim richtigen Gerät, und ist wirklich nur noch der Platz zu klären?"</div>
+            <div class="lbl" style="margin-top:8px;">Gefahr</div>
+            <div class="danger">Kunde geht mit losem „ich melde mich" wenn kein Prozess angelegt wird.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- KUNDENTYP C -->
+  <div class="ktype">
+    <div class="ktype-head">
+      <table class="ktype-head-table">
+        <tr>
+          <td class="badge">C</td>
+          <td class="label"><div class="name">Warmer Interessent – will nicht im Erstgespräch kaufen</div><div class="desc">Echtes Interesse, fühlt sich aber bei Sofortkauf gedrängt</div></td>
+          <td class="status"><span class="status-tag purple">2-Stufen-Prozess</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ktype-body">
+      <table class="ktype-body-table">
+        <tr>
+          <td>
+            <div class="lbl">Erkennungszeichen</div>
+            <ul class="arrow">
+              <li>Interessiert, hört zu, testet Geräte</li>
+              <li>Blockt bei verbindlichen Formulierungen</li>
+              <li>„Ich überlege noch"</li>
+              <li>„Ich spreche mit meiner Frau"</li>
+              <li>„Ich muss es wirken lassen"</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Richtige Vorgehensweise</div>
+            <ul class="arrow">
+              <li>Kaufdruck komplett rausnehmen</li>
+              <li>Prozessverbindlichkeit schaffen</li>
+              <li>Favorit + Alternative + offenen Punkt festhalten</li>
+              <li>Kundendaten aufnehmen</li>
+              <li>Entscheidungscheck vereinbaren</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Schlüsselformulierung</div>
+            <div class="quote-mini">„Sie müssen heute nicht kaufen. Aber wenn Sie grundsätzlich Interesse haben, machen wir es sauber weiter: Favorit, offener Punkt und ein kurzer Entscheidungscheck."</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- KUNDENTYP D -->
+  <div class="ktype">
+    <div class="ktype-head">
+      <table class="ktype-head-table">
+        <tr>
+          <td class="badge">D</td>
+          <td class="label"><div class="name">Budget-/Preisgrenzen-Kunde</div><div class="desc">Interesse vorhanden, aber Budgetrealität passt nicht</div></td>
+          <td class="status"><span class="status-tag orange">Budget klären</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ktype-body">
+      <table class="ktype-body-table">
+        <tr>
+          <td>
+            <div class="lbl">Erkennungszeichen</div>
+            <ul class="arrow">
+              <li>Reagiert stark auf Preis</li>
+              <li>Fragt nach günstigsten Alternativen</li>
+              <li>Vergleicht intensiv online</li>
+              <li>„Schon viel Geld für ein Heimgerät"</li>
+              <li>Vermeidet konkrete Zusage</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Preis-Einwand differenzieren</div>
+            <ul class="arrow">
+              <li><strong>a)</strong> Wirklich zu teuer → günstigeres Segment</li>
+              <li><strong>b)</strong> Wert noch nicht klar → Wertlogik erklären</li>
+              <li><strong>c)</strong> Online-Vergleich → Vergleichskriterien setzen</li>
+              <li><strong>d)</strong> Angst vor Fehlkauf → Sicherheit geben</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Schlüsselfragen</div>
+            <div class="quote-mini">„Ist der Preis grundsätzlich zu hoch oder sind Sie unsicher, ob der Mehrwert den Preis rechtfertigt?"</div>
+            <div class="quote-mini" style="margin-top:5px;">„Geht es darum, günstiger zu bleiben – oder langfristig sicher zu kaufen?"</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- KUNDENTYP E -->
+  <div class="ktype">
+    <div class="ktype-head">
+      <table class="ktype-head-table">
+        <tr>
+          <td class="badge">E</td>
+          <td class="label"><div class="name">Raum-/Zeitpunkt-Zukunftskunde</div><div class="desc">Echter Bedarf entsteht erst später – Umbau, Keller, Hausbau</div></td>
+          <td class="status"><span class="status-tag brown">Wiedervorlage</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ktype-body">
+      <table class="ktype-body-table">
+        <tr>
+          <td>
+            <div class="lbl">Erkennungszeichen</div>
+            <ul class="arrow">
+              <li>„Der Raum wird erst fertig"</li>
+              <li>„Im Herbst wird es relevant"</li>
+              <li>„Wenn der Keller fertig ist"</li>
+              <li>„Beim Umbau schauen wir dann"</li>
+              <li>Kein unmittelbarer Kauf möglich</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Richtige Vorgehensweise</div>
+            <ul class="arrow">
+              <li>Nicht als Sofortkunde behandeln</li>
+              <li>Projektzeitpunkt abfragen</li>
+              <li>Raumdaten / Fotos / Maße anfordern</li>
+              <li>Konzept- / Geräteempfehlung vorbereiten</li>
+              <li>Wiedervorlage im System setzen</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Schlüsselfragen</div>
+            <div class="quote-mini">„Wann wird der Raum ungefähr fertig?"</div>
+            <div class="quote-mini" style="margin-top:5px;">„Wollen Sie den Raum so planen, dass das Gerät später wirklich passt? Dann kann ich Ihnen vorab eine Empfehlung mit Maßen zusammenstellen."</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- KUNDENTYP F -->
+  <div class="ktype">
+    <div class="ktype-head">
+      <table class="ktype-head-table">
+        <tr>
+          <td class="badge">F</td>
+          <td class="label"><div class="name">Orientierungskunde / „nur schauen"</div><div class="desc">Keine konkrete Kaufabsicht, kein klarer Bedarf</div></td>
+          <td class="status"><span class="status-tag gray">Kein Invest</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="ktype-body">
+      <table class="ktype-body-table">
+        <tr>
+          <td>
+            <div class="lbl">Erkennungszeichen</div>
+            <ul class="arrow">
+              <li>„Wir schauen nur mal"</li>
+              <li>Keine konkrete Produktkategorie</li>
+              <li>Kein Budget, kein Zeitraum</li>
+              <li>Wenige Fragen, kein Testen</li>
+              <li>Kein Zeitdruck sichtbar</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Richtige Vorgehensweise</div>
+            <ul class="arrow">
+              <li>Freundlich abholen, kurze Orientierung</li>
+              <li>Nicht in Vollberatung gehen</li>
+              <li>2–3 gezielte Fragen stellen</li>
+              <li>Interesse wecken ohne Druck</li>
+              <li>Visitenkarte / kurze Empfehlung</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lbl">Einstiegsfrage</div>
+            <div class="quote-mini">„Gibt es ein Thema, das Sie besonders interessiert – Ausdauer, Kraft oder eher allgemeine Fitness?"</div>
+            <div class="small" style="color:var(--gray-mid); margin-top:5px;">Wenn keine Resonanz: kurze Tour, Visitenkarte, fertig. Kein Zeitverlust für Vollberatung ohne Basis.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- KUNDENTYPEN G-J kompakt -->
+  <h2 class="subsection">Weitere Kundentypen (G–J)</h2>
+  <table class="cols">
+    <tr>
+      <td>
+        <div class="ktype-mini">
+          <div class="ktype-mini-head">
+            <table class="ktype-mini-head-table">
+              <tr><td class="badge">G</td><td class="name"><div class="nm">Online-Vergleicher mit Kaufabsicht</div><div class="ds">Hat sich online informiert, kommt zum Testen/Verifizieren</div></td></tr>
+            </table>
+          </div>
+          <div class="ktype-mini-body"><strong>Ziel:</strong> Beratungsvorsprung sichern. Nicht in Preiswettbewerb abrutschen.<br><strong>Schlüssel:</strong> „Geht es Ihnen um den günstigsten Preis oder um die beste Lösung für Ihre Situation?"</div>
+        </div>
+        <div class="ktype-mini">
+          <div class="ktype-mini-head">
+            <table class="ktype-mini-head-table">
+              <tr><td class="badge">H</td><td class="name"><div class="nm">Partner-Entscheider (alleine)</div><div class="ds">Entscheidungsrelevante Person ist nicht dabei</div></td></tr>
+            </table>
+          </div>
+          <div class="ktype-mini-body"><strong>Ziel:</strong> Entscheidungsgrundlage für daheim bauen.<br><strong>Schlüssel:</strong> Einladung zum gemeinsamen zweiten Besuch + Partnercheck-Dokument mitgeben.</div>
+        </div>
+      </td>
+      <td>
+        <div class="ktype-mini">
+          <div class="ktype-mini-head">
+            <table class="ktype-mini-head-table">
+              <tr><td class="badge">I</td><td class="name"><div class="nm">Geschenk- / Familienkunde</div><div class="ds">Kauft für jemand anderen, ist kein direkter Nutzer</div></td></tr>
+            </table>
+          </div>
+          <div class="ktype-mini-body"><strong>Ziel:</strong> Nutzerprofil des Beschenkten klären.<br><strong>Schlüssel:</strong> „Wer nutzt es hauptsächlich – und wie trainiert die Person gerne?" Klare Empfehlung + Lieferung als Highlight.</div>
+        </div>
+        <div class="ktype-mini">
+          <div class="ktype-mini-head">
+            <table class="ktype-mini-head-table">
+              <tr><td class="badge">J</td><td class="name"><div class="nm">B2B-Interessent im Showroom</div><div class="ds">Hotel, Praxis, Gym, Unternehmen</div></td></tr>
+            </table>
+          </div>
+          <div class="ktype-mini-body"><strong>Ziel:</strong> B2B-Bedarf erkennen, separaten Prozess einleiten.<br><strong>Schlüssel:</strong> „Ist das für eine gewerbliche Nutzung? Dann sprechen wir gerne über ein Konzept." → Separates B2B-Angebot, Investitionsplanung.</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Kundentypen auf einen Blick – Übersichtstabelle</h2>
+  <table class="data compact">
+    <thead>
+      <tr>
+        <th style="width:14%">Typ</th>
+        <th style="width:16%">Erkennungszeichen</th>
+        <th style="width:14%">Hauptziel</th>
+        <th style="width:14%">Gefahr</th>
+        <th style="width:18%">Richtiger Prozess</th>
+        <th style="width:24%">Nächster Schritt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="red-label">A – Sofortkäufer</td><td>Konkrete Kategorie, fragt nach Lieferung</td><td>Abschluss heute</td><td>Überberatung</td><td>Direkt zur Abschlussfrage</td><td>Auftrag / Liefertermin</td></tr>
+      <tr><td class="red-label">B – Sach-Einwand</td><td>„Gefällt mir, müsste ausmessen"</td><td>Einwand lösen</td><td>Losgelassen ohne Prozess</td><td>Heimcheck anlegen</td><td>Entscheidungscheck in 2–3 Tagen</td></tr>
+      <tr><td class="red-label">C – Warmer Interessent</td><td>Interessiert, blockt Sofortkauf</td><td>Prozessverbindlichkeit</td><td>Hard Close → Vertrauensverlust</td><td>2-Stufen-Prozess</td><td>Favorit/Offener Punkt + Check</td></tr>
+      <tr><td class="red-label">D – Budgetkunde</td><td>Reagiert stark auf Preis</td><td>Wert klar machen oder Alternative</td><td>Automatischer Rabatt</td><td>Budget klären, Wertlogik</td><td>Alternative oder Wert-Bestätigung</td></tr>
+      <tr><td class="red-label">E – Zukunftsprojekt</td><td>„Raum wird erst fertig"</td><td>Lead sichern</td><td>Als Sofortkunde behandeln</td><td>Wiedervorlage / Projektplanung</td><td>Wiedervorlagetermin + Raummaße</td></tr>
+      <tr><td class="red-label">F – Orientierung</td><td>„Nur schauen", kein Budget, kein Ziel</td><td>Kein großer Invest</td><td>40 Min. Vollberatung ohne Basis</td><td>Kurze Orientierung</td><td>Visitenkarte / keine Follow-up-Pflicht</td></tr>
+      <tr><td class="red-label">G – Online-Vergleicher</td><td>Kommt nach Online-Recherche</td><td>Beratungsvorsprung</td><td>Preiswettbewerb</td><td>Differenzierung: Service/Qualität</td><td>Abschluss oder Vergleichsbasis</td></tr>
+      <tr><td class="red-label">H – Partner-Entscheider</td><td>Alleine, aber Partner entscheidet mit</td><td>Entscheidungsgrundlage</td><td>Kein Ergebnis ohne Partner</td><td>Partner-Check-Dokument</td><td>Zweiter Besuch zu zweit</td></tr>
+      <tr><td class="red-label">I – Geschenkkunde</td><td>Kauft für jemand anderen</td><td>Nutzerprofil klären</td><td>Falsches Gerät für Nutzer</td><td>Nutzer-Profil + klare Empfehlung</td><td>Abschluss mit Lieferdetails</td></tr>
+      <tr><td class="red-label">J – B2B-Interessent</td><td>Hotel, Praxis, Unternehmen</td><td>B2B-Prozess einleiten</td><td>Mit Privatkundenlogik abwickeln</td><td>B2B-Konzept / separates Angebot</td><td>B2B-Termin / Konzeptangebot</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ TEIL 4: QUALIFIZIERUNG ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 4</div>
+  <div class="section-title">Qualifizierungsfragen im Showroom</div>
+  <div class="section-subtitle">In 5 Minuten den Kundentyp erkennen und den richtigen Prozess einleiten</div>
+  <div class="section-rule"></div>
+
+  <div class="box-dark">
+    <div class="box-title">Das Ziel der Qualifizierung</div>
+    <p>Innerhalb weniger Minuten klären: Produktkategorie · Nutzung · Trainingsziel · Nutzer · Raum · Budget · Zeitpunkt · Kaufreife · Einwandwahrscheinlichkeit</p>
+  </div>
+
+  <table class="cols">
+    <tr>
+      <td>
+        <h2 class="subsection">Block 1 – Einstieg &amp; Anlass</h2>
+        <ul class="arrow-list">
+          <li>„Was führt Sie heute zu uns?"</li>
+          <li>„Geht es schon um ein konkretes Gerät oder eher um Orientierung?"</li>
+          <li>„Ist das Thema akut oder eine Planung für später?"</li>
+        </ul>
+        <h2 class="subsection">Block 2 – Nutzung</h2>
+        <ul class="arrow-list">
+          <li>„Wer nutzt das Gerät hauptsächlich?"</li>
+          <li>„Wie oft soll realistisch trainiert werden?"</li>
+          <li>„Geht es um Gesundheit, Ausdauer, Kraft, Reha oder allg. Fitness?"</li>
+          <li>„Gab es bisher ein Gerät? Warum genutzt oder nicht genutzt?"</li>
+        </ul>
+        <h2 class="subsection">Block 3 – Raum</h2>
+        <ul class="arrow-list">
+          <li>„Wo soll das Gerät stehen?"</li>
+          <li>„Ist der Raum schon fertig?"</li>
+          <li>„Sind Maße vorhanden?"</li>
+          <li>„Einschränkungen: Deckenhöhe, Türbreite, Boden, Steckdose, Lärm?"</li>
+        </ul>
+      </td>
+      <td>
+        <h2 class="subsection">Block 4 – Budget</h2>
+        <ul class="arrow-list">
+          <li>„Haben Sie grob einen Rahmen im Kopf?"</li>
+          <li>„Eher günstig bleiben oder langfristig etwas Solides?"</li>
+          <li>„Einstiegsgerät oder langfristige Lösung?"</li>
+        </ul>
+        <h2 class="subsection">Block 5 – Entscheidung</h2>
+        <ul class="arrow-list">
+          <li>„Entscheiden Sie allein oder schaut noch jemand mit?"</li>
+          <li>„Muss das Gerät optisch / platzmäßig für jemanden daheim passen?"</li>
+          <li>„Wenn wir heute das passende Gerät finden: zeitnahe Umsetzung oder erst Information?"</li>
+        </ul>
+        <h2 class="subsection">Block 6 – Kaufreife</h2>
+        <ul class="arrow-list">
+          <li>„Wollen Sie heute grundsätzlich entscheiden, wenn alles passt?"</li>
+          <li>„Oder eher eine saubere Entscheidungsgrundlage mitnehmen?"</li>
+          <li>„Was müsste geklärt sein, damit Sie sich sicher fühlen?"</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <div class="warn-box">
+    <div class="box-title">⚠ Nicht alle 6 Blöcke in jeder Situation abfragen</div>
+    <p><strong>Beim Sofort-Kaufkunden (Typ A):</strong> Block 1–2 reicht oft. Block 5 + 6 direkt mit Abschlussfrage verbinden.<br>
+    <strong>Beim Orientierungskunden (Typ F):</strong> Maximal Block 1 + 2, dann entscheiden ob Vollberatung sinnvoll ist.<br>
+    <strong>Beim Zukunftsprojekt (Typ E):</strong> Block 3 sehr ausführlich, Block 5 mit Zeitrahmen.</p>
+  </div>
+
+  <div style="break-inside: avoid;">
+  <h2 class="subsection">Qualifizierungs-Checkliste für Mitarbeiter</h2>
+  <table class="cols">
+    <tr>
+      <td>
+        <ul class="checklist">
+          <li>Produktkategorie genannt oder erklärt?</li>
+          <li>Hauptnutzer und Trainingsziel klar?</li>
+          <li>Raumsituation bekannt (fertig / geplant)?</li>
+          <li>Maße vorhanden oder ausstehend?</li>
+          <li>Budget-Rahmen grob besprochen?</li>
+        </ul>
+      </td>
+      <td>
+        <ul class="checklist">
+          <li>Allein-Entscheider oder Partner involviert?</li>
+          <li>Kaufzeitpunkt (jetzt / bald / später)?</li>
+          <li>Favorit und Alternative bestimmt?</li>
+          <li>Offener Punkt benannt?</li>
+          <li>Kundentyp A–J eingeschätzt?</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  </div>
+
+</div>
+
+<!-- ============================================================ TEIL 5: ENTSCHEIDUNGSBAUM ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 5</div>
+  <div class="section-title">Der Fitshop Entscheidungsbaum</div>
+  <div class="section-subtitle">Vom Betreten des Showrooms bis zum definierten nächsten Schritt</div>
+  <div class="section-rule"></div>
+
+  <!-- SVG FLOWCHART - explicit width/height for WeasyPrint -->
+  <div style="break-inside: avoid; text-align: center; margin: 8px 0;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760" width="500pt" height="475pt" font-family="Helvetica, Arial, sans-serif">
+
+    <!-- START NODE -->
+    <rect x="280" y="10" width="240" height="38" fill="#2d2d2d"/>
+    <text x="400" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="700">Kunde betritt den Showroom</text>
+    <line x1="400" y1="48" x2="400" y2="68" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="400,72 395,64 405,64" fill="#e31e24"/>
+
+    <!-- EINSTIEG -->
+    <rect x="240" y="78" width="320" height="32" fill="#e31e24"/>
+    <text x="400" y="98" text-anchor="middle" fill="white" font-size="12" font-weight="700">Einstieg: Begrüßung + offene Frage</text>
+    <line x1="400" y1="110" x2="400" y2="128" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="400,132 395,124 405,124" fill="#e31e24"/>
+
+    <!-- DECISION -->
+    <rect x="220" y="138" width="360" height="32" fill="#f5f5f5" stroke="#e0e0e0"/>
+    <text x="400" y="158" text-anchor="middle" fill="#2d2d2d" font-size="12" font-weight="700">„Was führt Sie heute zu uns?"</text>
+
+    <!-- BRANCH LINE -->
+    <line x1="400" y1="170" x2="400" y2="180" stroke="#e31e24" stroke-width="2"/>
+    <line x1="130" y1="180" x2="670" y2="180" stroke="#e31e24" stroke-width="2"/>
+    <line x1="130" y1="180" x2="130" y2="195" stroke="#e31e24" stroke-width="2"/>
+    <line x1="400" y1="180" x2="400" y2="195" stroke="#e31e24" stroke-width="2"/>
+    <line x1="670" y1="180" x2="670" y2="195" stroke="#e31e24" stroke-width="2"/>
+
+    <!-- BRANCH A: NUR SCHAUEN -->
+    <rect x="30" y="200" width="200" height="32" fill="#6b6b6b"/>
+    <text x="130" y="220" text-anchor="middle" fill="white" font-size="11" font-weight="700">„Nur schauen"</text>
+    <line x1="130" y1="232" x2="130" y2="246" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="130,250 125,242 135,242" fill="#e31e24"/>
+
+    <rect x="30" y="254" width="200" height="46" fill="#f5f5f5" stroke="#e0e0e0"/>
+    <text x="130" y="272" text-anchor="middle" fill="#2d2d2d" font-size="10">Kurze Orientierung</text>
+    <text x="130" y="287" text-anchor="middle" fill="#2d2d2d" font-size="10">2–3 Qualifizierungsfragen</text>
+    <line x1="130" y1="300" x2="130" y2="314" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="130,318 125,310 135,310" fill="#e31e24"/>
+
+    <rect x="30" y="322" width="98" height="48" fill="#1b5e20"/>
+    <text x="79" y="340" text-anchor="middle" fill="white" font-size="10" font-weight="700">Interesse</text>
+    <text x="79" y="354" text-anchor="middle" fill="white" font-size="10" font-weight="700">geweckt</text>
+    <text x="79" y="366" text-anchor="middle" fill="white" font-size="9">→ Beratung</text>
+
+    <rect x="132" y="322" width="98" height="48" fill="#6b6b6b"/>
+    <text x="181" y="340" text-anchor="middle" fill="white" font-size="10" font-weight="700">Kein</text>
+    <text x="181" y="354" text-anchor="middle" fill="white" font-size="10" font-weight="700">Interesse</text>
+    <text x="181" y="366" text-anchor="middle" fill="white" font-size="9">→ Visitenkarte</text>
+
+    <!-- BRANCH B: KONKRETE KATEGORIE -->
+    <rect x="280" y="200" width="240" height="32" fill="#e31e24"/>
+    <text x="400" y="220" text-anchor="middle" fill="white" font-size="11" font-weight="700">Konkrete Kategorie / Bedarf</text>
+    <line x1="400" y1="232" x2="400" y2="246" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="400,250 395,242 405,242" fill="#e31e24"/>
+
+    <rect x="280" y="254" width="240" height="60" fill="#f5f5f5" stroke="#e0e0e0"/>
+    <text x="400" y="272" text-anchor="middle" fill="#2d2d2d" font-size="10">Qualifizierung (Blöcke 1–6)</text>
+    <text x="400" y="287" text-anchor="middle" fill="#2d2d2d" font-size="10">Geräte zeigen &amp; testen</text>
+    <text x="400" y="302" text-anchor="middle" fill="#2d2d2d" font-size="10">Favorit bestimmen</text>
+    <line x1="400" y1="314" x2="400" y2="328" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="400,332 395,324 405,324" fill="#e31e24"/>
+
+    <rect x="280" y="336" width="240" height="34" fill="#2d2d2d"/>
+    <text x="400" y="357" text-anchor="middle" fill="white" font-size="10.5" font-weight="700">„Sind wir beim richtigen Gerät?"</text>
+
+    <line x1="400" y1="370" x2="400" y2="382" stroke="#e31e24" stroke-width="2"/>
+    <line x1="335" y1="382" x2="465" y2="382" stroke="#e31e24" stroke-width="2"/>
+    <line x1="335" y1="382" x2="335" y2="396" stroke="#e31e24" stroke-width="2"/>
+    <line x1="465" y1="382" x2="465" y2="396" stroke="#e31e24" stroke-width="2"/>
+
+    <text x="320" y="394" text-anchor="middle" fill="#e31e24" font-size="9" font-weight="700">JA</text>
+    <text x="480" y="394" text-anchor="middle" fill="#6b6b6b" font-size="9" font-weight="700">NEIN</text>
+
+    <polygon points="335,402 330,394 340,394" fill="#e31e24"/>
+    <polygon points="465,402 460,394 470,394" fill="#6b6b6b"/>
+
+    <rect x="280" y="406" width="110" height="38" fill="#1b5e20"/>
+    <text x="335" y="424" text-anchor="middle" fill="white" font-size="9.5" font-weight="700">Kaufreife prüfen</text>
+    <text x="335" y="437" text-anchor="middle" fill="white" font-size="9">Abschluss/Heimcheck</text>
+
+    <rect x="410" y="406" width="110" height="38" fill="#424242"/>
+    <text x="465" y="424" text-anchor="middle" fill="white" font-size="9.5" font-weight="700">Zurück zur</text>
+    <text x="465" y="437" text-anchor="middle" fill="white" font-size="9">Bedarfsklärung</text>
+
+    <!-- BRANCH C: ZUKUNFTSPROJEKT -->
+    <rect x="570" y="200" width="200" height="32" fill="#5d4037"/>
+    <text x="670" y="216" text-anchor="middle" fill="white" font-size="10.5" font-weight="700">Zukunftsprojekt /</text>
+    <text x="670" y="229" text-anchor="middle" fill="white" font-size="10.5" font-weight="700">Raum nicht fertig</text>
+    <line x1="670" y1="232" x2="670" y2="246" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="670,250 665,242 675,242" fill="#e31e24"/>
+
+    <rect x="570" y="254" width="200" height="60" fill="#f5f5f5" stroke="#e0e0e0"/>
+    <text x="670" y="272" text-anchor="middle" fill="#2d2d2d" font-size="10">Projektstatus erfassen</text>
+    <text x="670" y="287" text-anchor="middle" fill="#2d2d2d" font-size="10">Raumdaten / Maße</text>
+    <text x="670" y="302" text-anchor="middle" fill="#2d2d2d" font-size="10">Zeitpunkt klären</text>
+    <line x1="670" y1="314" x2="670" y2="328" stroke="#e31e24" stroke-width="2"/>
+    <polygon points="670,332 665,324 675,324" fill="#e31e24"/>
+
+    <rect x="570" y="336" width="200" height="38" fill="#5d4037"/>
+    <text x="670" y="354" text-anchor="middle" fill="white" font-size="10" font-weight="700">Wiedervorlage</text>
+    <text x="670" y="367" text-anchor="middle" fill="white" font-size="9">im System setzen</text>
+
+    <!-- EINWAND SECTION -->
+    <rect x="30" y="480" width="740" height="36" fill="#e31e24"/>
+    <text x="400" y="502" text-anchor="middle" fill="white" font-size="13" font-weight="700">Einwand erscheint → Einwand-Check</text>
+
+    <!-- 6 EINWAND BOXES -->
+    <g font-size="9.5">
+      <rect x="30" y="528" width="118" height="50" fill="#f5f5f5" stroke="#e31e24" stroke-width="2"/>
+      <text x="89" y="546" text-anchor="middle" fill="#2d2d2d" font-weight="700">Maße fehlen</text>
+      <text x="89" y="562" text-anchor="middle" fill="#e31e24">→ Heimcheck</text>
+
+      <rect x="155" y="528" width="118" height="50" fill="#f5f5f5" stroke="#e31e24" stroke-width="2"/>
+      <text x="214" y="546" text-anchor="middle" fill="#2d2d2d" font-weight="700">Partner fehlt</text>
+      <text x="214" y="562" text-anchor="middle" fill="#e31e24">→ Partnercheck</text>
+
+      <rect x="280" y="528" width="118" height="50" fill="#f5f5f5" stroke="#e31e24" stroke-width="2"/>
+      <text x="339" y="546" text-anchor="middle" fill="#2d2d2d" font-weight="700">Preis / Budget</text>
+      <text x="339" y="562" text-anchor="middle" fill="#e31e24">→ Wertlogik</text>
+
+      <rect x="405" y="528" width="118" height="50" fill="#f5f5f5" stroke="#e31e24" stroke-width="2"/>
+      <text x="464" y="546" text-anchor="middle" fill="#2d2d2d" font-weight="700">Online-Vergleich</text>
+      <text x="464" y="562" text-anchor="middle" fill="#e31e24">→ Differenzierung</text>
+
+      <rect x="530" y="528" width="118" height="50" fill="#f5f5f5" stroke="#e31e24" stroke-width="2"/>
+      <text x="589" y="546" text-anchor="middle" fill="#2d2d2d" font-weight="700">„Ich überlege"</text>
+      <text x="589" y="562" text-anchor="middle" fill="#e31e24">→ konkretisieren</text>
+
+      <rect x="655" y="528" width="118" height="50" fill="#f5f5f5" stroke="#e31e24" stroke-width="2"/>
+      <text x="714" y="546" text-anchor="middle" fill="#2d2d2d" font-weight="700">Raum später</text>
+      <text x="714" y="562" text-anchor="middle" fill="#e31e24">→ Wiedervorlage</text>
+    </g>
+
+    <!-- ABSCHLUSSWEGE -->
+    <rect x="30" y="620" width="740" height="36" fill="#2d2d2d"/>
+    <text x="400" y="642" text-anchor="middle" fill="white" font-size="13" font-weight="700">Abschlusswege – Immer ein klarer nächster Schritt</text>
+
+    <rect x="30" y="668" width="142" height="58" fill="#1b5e20"/>
+    <text x="101" y="688" text-anchor="middle" fill="white" font-weight="700" font-size="11">Sofortkauf</text>
+    <text x="101" y="706" text-anchor="middle" fill="white" font-size="9">Auftrag /</text>
+    <text x="101" y="719" text-anchor="middle" fill="white" font-size="9">Liefertermin</text>
+
+    <rect x="180" y="668" width="142" height="58" fill="#1565c0"/>
+    <text x="251" y="688" text-anchor="middle" fill="white" font-weight="700" font-size="11">Heimcheck</text>
+    <text x="251" y="706" text-anchor="middle" fill="white" font-size="9">+ Entscheidungs-</text>
+    <text x="251" y="719" text-anchor="middle" fill="white" font-size="9">check</text>
+
+    <rect x="330" y="668" width="142" height="58" fill="#6a1b9a"/>
+    <text x="401" y="688" text-anchor="middle" fill="white" font-weight="700" font-size="11">Reservierung</text>
+    <text x="401" y="706" text-anchor="middle" fill="white" font-size="9">Unter Vorbehalt</text>
+
+    <rect x="480" y="668" width="142" height="58" fill="#5d4037"/>
+    <text x="551" y="688" text-anchor="middle" fill="white" font-weight="700" font-size="11">Wiedervorlage</text>
+    <text x="551" y="706" text-anchor="middle" fill="white" font-size="9">Zukunftsprojekt</text>
+
+    <rect x="630" y="668" width="142" height="58" fill="#424242"/>
+    <text x="701" y="688" text-anchor="middle" fill="white" font-weight="700" font-size="11">Orientierung</text>
+    <text x="701" y="706" text-anchor="middle" fill="white" font-size="9">Kein Follow-up</text>
+    <text x="701" y="719" text-anchor="middle" fill="white" font-size="9">nötig</text>
+  </svg>
+  </div>
+
+  <h2 class="subsection">Die Logik als kompakte Text-SOP</h2>
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>1</span></td><td class="step-content"><div class="title">Einstieg: Begrüßung + offene Frage</div><div class="desc">„Was führt Sie heute zu uns?" – Antwort entscheidet die Richtung.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>2</span></td><td class="step-content"><div class="title">„Nur schauen": kurze Orientierung, 2–3 Qualifizierungsfragen</div><div class="desc">Interesse vorhanden → Mini-Bedarfsanalyse. Kein Interesse → Visitenkarte, fertig.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>3</span></td><td class="step-content"><div class="title">Konkrete Kategorie / Bedarf: Qualifizierung Block 1–6</div><div class="desc">Geräte zeigen, testen lassen, Favorit bestimmen. Dann Bestätigungsfrage.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>4</span></td><td class="step-content"><div class="title">Bestätigungsfrage: „Sind wir grundsätzlich beim richtigen Gerät?"</div><div class="desc">JA → Kaufreife prüfen, Abschluss oder Heimcheck. NEIN → zurück zur Bedarfsklärung.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>5</span></td><td class="step-content"><div class="title">Zukunftsprojekt: Raumdaten, Maße, Zeitpunkt erfassen</div><div class="desc">Wiedervorlage setzen, Kontakt aufnehmen. Keine Sofortkauflogik anwenden.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>6</span></td><td class="step-content"><div class="title">Einwand erscheint → Einwand-Check</div><div class="desc">Maße → Heimcheck · Partner → Partnercheck · Preis → Wertlogik · Online → Differenzierung · „überlege" → konkretisieren · Raum später → Wiedervorlage</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>7</span></td><td class="step-content"><div class="title">Klarer nächster Schritt</div><div class="desc">Sofortkauf · Heimcheck + Entscheidungscheck · Reservierung · Wiedervorlage · Orientierung – nie ein loses „melden Sie sich".</div></td></tr></table></div>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 6: 2-STUFEN-PROZESS ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 6 – Das Herzstück</div>
+  <div class="section-title">Der 2-Stufen-Prozess</div>
+  <div class="section-subtitle">Heimcheck + Entscheidungscheck – warme Kunden führen ohne Kaufdruck</div>
+  <div class="section-rule"></div>
+
+  <div class="box-dark">
+    <div class="box-title">Grundgedanke</div>
+    <p>Für Kunden mit echtem Interesse, die im Erstgespräch nicht kaufen wollen: kein Hard Close. Stattdessen wird der Kaufprozess offiziell in zwei Stufen geführt. Der Entscheidungscheck ist kein nerviges Nachfassen – sondern Teil der Beratung.</p>
+  </div>
+
+  <table class="cols">
+    <tr>
+      <td>
+        <div style="background: var(--red); color: white; padding: 8px 12px; font-weight: 700; font-size: 10pt; text-align: center;">STUFE 1 · Showroom-Beratung</div>
+        <div style="border: 1px solid var(--gray-border); border-top: none; padding: 10px 12px;">
+          <ul class="arrow-list">
+            <li>Bedarf klären (alle 6 Blöcke)</li>
+            <li>Geräte testen lassen</li>
+            <li>Favorit bestimmen</li>
+            <li>Alternative bestimmen</li>
+            <li>Offenen Punkt definieren</li>
+            <li>Kundendaten erfassen</li>
+            <li>Heimcheck offiziell anlegen</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div style="background: var(--anthracite); color: white; padding: 8px 12px; font-weight: 700; font-size: 10pt; text-align: center;">STUFE 2 · Entscheidungscheck</div>
+        <div style="border: 1px solid var(--gray-border); border-top: none; padding: 10px 12px;">
+          <ul class="arrow-list">
+            <li>Offene Punkte abgleichen</li>
+            <li>Maße / Partner / Budget / Status klären</li>
+            <li>Final entscheiden: Kauf / Alternative / warten / kein Kauf</li>
+            <li>Kein Kaufdruck – aber klares Ergebnis</li>
+            <li>Status im CRM aktualisieren</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Der 10-Schritte-Ablauf</h2>
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>1</span></td><td class="step-content"><div class="title">Kundentyp erkennen</div><div class="desc">Ist der Kunde ein warmer Interessent (Typ B/C)? Echtes Interesse, aber nicht kaufbereit heute?</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>2</span></td><td class="step-content"><div class="title">Kaufdruck rausnehmen</div><div class="desc">„Sie müssen heute nicht kaufen. Aber ich würde das nicht als loses Angebot beenden."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>3</span></td><td class="step-content"><div class="title">Prozess erklären</div><div class="desc">„Wir machen es sauber: Favorit, Alternative, offener Punkt, Entscheidungscheck in 2–3 Tagen."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>4</span></td><td class="step-content"><div class="title">Favorit + Alternative festhalten</div><div class="desc">Modellname, Preis, wichtigste Merkmale notieren. Favorit = Wunschlösung. Alternative = Plan B.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>5</span></td><td class="step-content"><div class="title">Offenen Punkt dokumentieren</div><div class="desc">Was genau muss noch geklärt werden? Maße? Partner? Budget? Raum? Konkret formulieren.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>6</span></td><td class="step-content"><div class="title">Kundendaten aufnehmen</div><div class="desc">Name, Telefon oder E-Mail. Framing: „Damit ich Sie beim Check direkt erreichen kann."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>7</span></td><td class="step-content"><div class="title">Entscheidungscheck-Zeitfenster setzen</div><div class="desc">„In 2–3 Tagen melde ich mich kurz. Haben Sie bis dann die Maße genommen?" – Konkretes Datum.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>8</span></td><td class="step-content"><div class="title">CRM / Wiedervorlage eintragen</div><div class="desc">Alle Felder ausfüllen: Typ, Favorit, Alternative, offener Punkt, Datum Entscheidungscheck.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>9</span></td><td class="step-content"><div class="title">Follow-up / Check durchführen</div><div class="desc">Kurzer Anruf oder Message: „Haben Sie ausmessen können?" – nicht: „Haben Sie sich entschieden?"</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>10</span></td><td class="step-content"><div class="title">Abschluss oder nächste Entscheidung</div><div class="desc">Kauf · Alternative · Warten mit neuem Termin · Bewusstes Nein – immer mit Status im CRM.</div></td></tr></table></div>
+  </div>
+
+  <h2 class="subsection">Mini-Script: Heimcheck einleiten</h2>
+
+  <div class="dialog">
+    <table class="bubble-table bubble-k"><tr>
+      <td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Ja, das Gerät gefällt mir gut. Ich müsste nur noch schauen, ob der Platz wirklich reicht. Ich meld mich dann."</div></td>
+      <td class="spacer-r"></td>
+    </tr></table>
+    <table class="bubble-table bubble-m"><tr>
+      <td class="spacer-l"></td>
+      <td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Gut, das klingt schon konkret. Lassen wir das nicht bei einem losen ‚ich meld mich'. Wir machen es sauber: Ihr Favorit ist das Modell X, der Plan B wäre Y, und der offene Punkt sind die Maße. Ich trage das kurz ein und melde mich in 2–3 Tagen. Haben Sie bis dann die Gelegenheit, kurz nachzumessen?"</div></td>
+    </tr></table>
+    <table class="bubble-table bubble-k"><tr>
+      <td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Ja, das kann ich bis dann machen."</div></td>
+      <td class="spacer-r"></td>
+    </tr></table>
+    <table class="bubble-table bubble-m"><tr>
+      <td class="spacer-l"></td>
+      <td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Perfekt. Dann brauche ich noch kurz Ihre Nummer, damit ich Sie direkt erreiche. Und die Maße, auf die wir achten müssen, gebe ich Ihnen auf einem Zettel mit."</div></td>
+    </tr></table>
+  </div>
+
+  <h2 class="subsection">Dos &amp; Don'ts im Heimcheck-Gespräch</h2>
+  <table class="nogo-do">
+    <tr>
+      <td>
+        <div class="nogo">
+          <div class="lbl">❌ Nicht sagen (No-Go)</div>
+          <ul>
+            <li>„Melden Sie sich einfach wenn Sie bereit sind."</li>
+            <li>„Können wir Sie nochmal anrufen?" (passiv)</li>
+            <li>„Das Gerät wartet auf Sie." (hohl)</li>
+            <li>„Das Angebot gilt nur heute." (wenn nicht wahr)</li>
+            <li>„Wir haben gerade viele Interessenten dafür." (Druck)</li>
+            <li>„Überlegen Sie nicht zu lang." (nervt Tiroler Kunden)</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div class="do">
+          <div class="lbl">✅ Besser so (Do)</div>
+          <ul>
+            <li>„Lassen wir das nicht als loses Angebot offen."</li>
+            <li>„Ich melde mich in 2–3 Tagen – nur um den Punkt abzuhaken."</li>
+            <li>„Favorit ist X, Plan B ist Y. Das halte ich für Sie fest."</li>
+            <li>„Was muss daheim noch geklärt werden, damit Sie sicher sind?"</li>
+            <li>„Sie müssen heute nicht kaufen – aber wir führen es sauber weiter."</li>
+            <li>„Ich gebe Ihnen die genauen Maße mit, die Sie messen müssen."</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Typische Kundenreaktionen &amp; passende Antworten</h2>
+  <table class="data keep-together">
+    <thead>
+      <tr><th style="width:28%">Kundenreaktion</th><th style="width:22%">Was es bedeutet</th><th style="width:50%">Passende Antwort</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>„Das ist mir zu verbindlich."</td><td>Kaufdruck-Widerstand</td><td>„Das ist kein Kaufversprechen – nur ein sauberer Check. Sie entscheiden nach dem Ausmessen."</td></tr>
+      <tr><td>„Ich gebe Ihnen keine Nummer."</td><td>Privatsphäre / Misstrauen</td><td>„Kein Problem – dann gebe ich Ihnen meine Karte. Wenn Sie ausgemessen haben, melden Sie sich gerne."</td></tr>
+      <tr><td>„Ich weiß nicht, wann ich messen kann."</td><td>Kaufbereitschaft gering</td><td>„Kein Druck. Ich melde mich in einer Woche kurz – wenn Sie noch nicht gemessen haben, ist das auch okay."</td></tr>
+      <tr><td>„Meine Frau muss auch zustimmen."</td><td>Partner-Einwand</td><td>„Natürlich. Was wird für sie wahrscheinlich der wichtigste Punkt sein – Platz, Preis oder Optik? Dann bereite ich das vor."</td></tr>
+      <tr><td>„Okay, schreiben Sie es auf."</td><td>Prozess akzeptiert</td><td>Daten aufnehmen, Favorit notieren, Maßzettel mitgeben, Datum setzen.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ TEIL 7: EINWANDBEHANDLUNG ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 7</div>
+  <div class="section-title">Einwandbehandlung nach Einwandtyp</div>
+  <div class="section-subtitle">7 häufige Einwände mit Diagnose, Commitment-Test und richtiger Reaktion</div>
+  <div class="section-rule"></div>
+
+  <div class="einwand">
+    <div class="einwand-head">
+      <span class="e-num">E1</span><span class="e-title">„Ich muss nochmal ausmessen."</span>
+    </div>
+    <table class="cols"><tr>
+      <td>
+        <div class="lbl-red">Mögliche Bedeutungen</div>
+        <ul class="e-list">
+          <li>Echter Sacheinwand (Platz ist wirklich offen)</li>
+          <li>Angst vor Fehlkauf</li>
+          <li>Ausstieg ohne direktes Nein zu sagen</li>
+          <li>Zeit gewinnen wollen</li>
+        </ul>
+        <div class="lbl-red">Diagnosefragen</div>
+        <ul class="e-list">
+          <li>„Abgesehen vom Platz: passt das Gerät für Sie?"</li>
+          <li>„Wenn der Platz passt, wäre das dann Ihr Favorit?"</li>
+          <li>„Ist wirklich nur der Platz offen oder gibt es noch etwas?"</li>
+        </ul>
+      </td>
+      <td>
+        <div class="lbl-red">Vorgehensweise</div>
+        <p><strong>Bei echtem Sacheinwand:</strong> Maßcheck anlegen, Favorit + kompakte Alternative notieren, genaue Messpunkte auf Zettel mitgeben, Entscheidungscheck in 2–3 Tagen setzen.</p>
+        <p><strong>Bei Ausweichmanöver:</strong> Echten Einwand suchen. „Was wäre noch wichtig neben dem Platz?" Dann je nach Antwort in richtigen Zweig führen.</p>
+        <div class="e-script">„Dann machen wir keinen Kaufdruck draus, aber einen sauberen Maßcheck. Favorit ist X, Plan B ist Y. Welche Maße müssen Sie bei sich messen?"</div>
+      </td>
+    </tr></table>
+  </div>
+
+  <div class="einwand">
+    <div class="einwand-head">
+      <span class="e-num">E2</span><span class="e-title">„Ich muss mit meiner Frau / meinem Mann sprechen."</span>
+    </div>
+    <table class="cols"><tr>
+      <td>
+        <div class="lbl-red">Mögliche Bedeutungen</div>
+        <ul class="e-list">
+          <li>Echter Mitentscheider fehlt</li>
+          <li>Kaufdruck vermeiden</li>
+          <li>Preis / Platz / Optik unsicher</li>
+          <li>Eigene Unsicherheit delegieren</li>
+        </ul>
+        <div class="lbl-red">Diagnosefragen</div>
+        <ul class="e-list">
+          <li>„Was wird für Ihre Frau wahrscheinlich der wichtigste Punkt sein: Platz, Preis oder Optik?"</li>
+          <li>„Für Sie persönlich wäre das Modell passend?"</li>
+          <li>„Wenn diese Punkte daheim passen, wäre das dann die Lösung?"</li>
+        </ul>
+      </td>
+      <td>
+        <div class="lbl-red">Vorgehensweise</div>
+        <p>Entscheidungsgrundlage für daheim bauen. Nicht nur Produktname mitgeben. Partnercheck-Dokument (Maße, Preis, Modellfotos). Einladung zum zweiten gemeinsamen Besuch.</p>
+        <div class="e-script">„Sie müssen das nicht alleine entscheiden. Dann halten wir fest, was daheim wirklich geklärt werden muss – und ich mache eine kurze Entscheidungshilfe fertig, die Sie mitnehmen können."</div>
+      </td>
+    </tr></table>
+  </div>
+
+  <div class="einwand">
+    <div class="einwand-head">
+      <span class="e-num">E3</span><span class="e-title">„Ich muss wegen dem Preis nochmal überlegen."</span>
+    </div>
+    <table class="cols"><tr>
+      <td>
+        <div class="lbl-red">Differenzierung (wichtig!)</div>
+        <ul class="e-list">
+          <li><strong>a)</strong> Echtes Budgetproblem → günstigeres Segment</li>
+          <li><strong>b)</strong> Wert noch nicht klar → Wertlogik erklären</li>
+          <li><strong>c)</strong> Online-Vergleich → Kriterien setzen</li>
+          <li><strong>d)</strong> Angst vor Fehlkauf → Sicherheit geben</li>
+        </ul>
+      </td>
+      <td>
+        <div class="lbl-red">Schlüsselfragen</div>
+        <ul class="e-list">
+          <li>„Ist der Preis grundsätzlich zu hoch oder sind Sie unsicher, ob der Mehrwert den Preis rechtfertigt?"</li>
+          <li>„Geht es darum, günstiger zu bleiben oder langfristig sicher zu kaufen?"</li>
+        </ul>
+        <div class="e-script">Budget ernst nehmen, Wertlogik erklären, Alternative anzeigen. Kein Automatikrabatt.</div>
+      </td>
+    </tr></table>
+  </div>
+
+  <div class="einwand">
+    <div class="einwand-head">
+      <span class="e-num">E4</span><span class="e-title">„Ich schaue nochmal online."</span>
+    </div>
+    <table class="cols"><tr>
+      <td>
+        <div class="lbl-red">Mögliche Bedeutungen</div>
+        <ul class="e-list">
+          <li>Preisvergleich (oft unbewusst)</li>
+          <li>Unsicherheit über das richtige Gerät</li>
+          <li>Fehlende Differenzierung vom Online-Kanal</li>
+          <li>Glaubt, online ist automatisch günstiger</li>
+        </ul>
+        <div class="lbl-red">Diagnosefrage</div>
+        <p style="font-style: italic;">„Geht es darum, genau dieses Modell günstiger zu finden, oder sind Sie noch unsicher ob es das richtige Gerät ist?"</p>
+      </td>
+      <td>
+        <div class="lbl-red">Vorgehensweise</div>
+        <p>Nicht defensiv werden. Vergleichskriterien setzen: Nutzungsklasse, Garantie, Lieferung, Aufbau, Service, Beratung, Verfügbarkeit. Anbieten, den Vergleich gemeinsam fair einzuordnen. Nicht in endlosen Preiswettbewerb abrutschen.</p>
+        <div class="e-script">„Online werden Sie Geräte finden, die ähnlich aussehen. Was Sie dort nicht bekommen: Testmöglichkeit, Beratung, direkter Service und Aufbau vor Ort."</div>
+      </td>
+    </tr></table>
+  </div>
+
+  <div class="einwand">
+    <div class="einwand-head">
+      <span class="e-num">E5</span><span class="e-title">„Der Raum ist noch nicht fertig."</span>
+    </div>
+    <table class="cols"><tr>
+      <td>
+        <div class="lbl-red">Diagnosefragen</div>
+        <ul class="e-list">
+          <li>„Wann wird der Raum ungefähr fertig?"</li>
+          <li>„Geht es schon um konkrete Planung oder grobe Orientierung?"</li>
+          <li>„Wollen Sie den Raum so planen, dass das Gerät wirklich reinpasst?"</li>
+        </ul>
+      </td>
+      <td>
+        <div class="lbl-red">Vorgehensweise</div>
+        <p>Als Projektlead erfassen. Raumcheck / Konzeptidee anbieten. Wiedervorlage zu konkretem Datum setzen. Keine Sofortkauflogik.</p>
+        <div class="e-script">„Dann ist es sinnvoll, das frühzeitig zu planen – damit der Raum auch wirklich für das Gerät ausgelegt ist. Ich mache Ihnen eine kurze Empfehlung mit Maßen."</div>
+      </td>
+    </tr></table>
+  </div>
+
+  <table class="cols"><tr>
+    <td>
+      <div class="einwand">
+        <div class="einwand-head">
+          <span class="e-num">E6</span><span class="e-title">„Ich überlege nochmal."</span>
+        </div>
+        <div class="lbl-red">Diagnosefragen</div>
+        <p style="font-style:italic;">„Was genau müssen Sie noch überlegen: Preis, Platz, Nutzung oder Modell?"<br>„Was müsste klarer sein, damit Sie sich sicher fühlen?"</p>
+        <div class="lbl-red">Vorgehensweise</div>
+        <p>Einwand konkretisieren. Nie mit „melden Sie sich" beenden. Je nach Antwort in Heimcheck, Partnercheck oder Budget-Klärung führen.</p>
+      </div>
+    </td>
+    <td>
+      <div class="einwand">
+        <div class="einwand-head">
+          <span class="e-num">E7</span><span class="e-title">„Ich melde mich."</span>
+        </div>
+        <div class="lbl-red">Antwortlogik</div>
+        <div class="nogo" style="margin-bottom:7px; padding: 8px 11px;">
+          <div class="lbl">❌ Nicht so</div>
+          <p style="font-size:8.5pt;margin:0;">„Ja, passt. Bis dann."</p>
+        </div>
+        <div class="do" style="padding: 8px 11px;">
+          <div class="lbl">✅ So</div>
+          <p style="font-size:8.5pt;font-style:italic;margin:0;">„Alles klar. Bevor Sie gehen: Lassen Sie uns kurz festhalten, ob wir beim richtigen Gerät sind oder ob noch etwas offen ist."</p>
+        </div>
+      </div>
+    </td>
+  </tr></table>
+</div>
+
+<!-- ============================================================ TEIL 8: DIALOGE ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 8</div>
+  <div class="section-title">Dialog-Leitfäden nach Kundentyp</div>
+  <div class="section-subtitle">Realistische Beispielgespräche für den Showroom-Alltag in Hall/Tirol</div>
+  <div class="section-rule"></div>
+
+  <div class="dialog-meta">
+    <div class="dm-title">Dialog A – Sofort-Kaufkunde</div>
+    <div class="dm-sit">Situation: Herr M., kommt direkt zu Laufbändern, hat sich informiert</div>
+  </div>
+  <div class="dialog">
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Grüß Gott. Ich suche ein Laufband für daheim. Habe mir schon einiges angeschaut."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Grüß Gott! Gut, dann sind Sie hier richtig – wir haben die komplette Bandbreite auf Lager und zum Testen. Was ist für Sie das Wichtigste: Nutzungsintensität, Platzbedarf oder eher eine bestimmte Ausstattung?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Ich laufe 3–4 mal die Woche, ca. 45 Minuten. Der Raum ist da, Maße hab ich schon. Ich muss nur noch zwischen zwei Modellen entscheiden."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Welche Modelle haben Sie im Kopf? Dann schauen wir gleich, welches für Ihre Nutzung sinnvoller ist – und Sie können beide kurz testen."</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Modell A oder Modell B. Preislich liegen die nicht weit auseinander."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Bei Ihrer Nutzung würde ich klar zu Modell B tendieren – die Dämpfung ist für 45-Minuten-Läufe deutlich angenehmer. Testen Sie es kurz. Wenn das für Sie passt und Lieferung und Aufbau okay sind, können wir das heute noch in die Wege leiten."</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Ja, das klingt gut. Wann wäre eine Lieferung möglich?"</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Das klären wir gleich konkret. Wenn Sie nach dem Test sagen, es passt, nehmen wir das direkt auf."</div></td></tr></table>
+  </div>
+
+  <div class="dialog-meta">
+    <div class="dm-title">Dialog C – Warmer Interessent (blockt Sofortkauf)</div>
+    <div class="dm-sit">Situation: Frau K., testet Crosstrainer, sagt am Ende: „Ich überlege noch."</div>
+  </div>
+  <div class="dialog">
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Das Gerät gefällt mir eigentlich schon. Aber ich muss das noch einmal sacken lassen. Ich melde mich dann."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Das verstehe ich. Bevor Sie gehen, eine kurze Frage: Wenn Sie sagen, es gefällt Ihnen – was wäre denn der einzige Punkt, der noch offen ist? Preis, Platz oder brauchen Sie noch eine Meinung von jemandem?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Eigentlich nur der Platz. Ob das in unser Wohnzimmer reinpasst. Mein Mann müsste das auch noch anschauen."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Das sind zwei lösbare Punkte. Das müssen wir nicht als loses Angebot beenden. Ich halte kurz fest: Ihr Favorit ist dieser Crosstrainer, die kompaktere Alternative wäre Modell Y. Ich gebe Ihnen die genauen Stellmaße mit, damit Sie daheim schnell nachmessen können. Und Ihren Mann können Sie gerne direkt mitbringen – dann klären wir das zu zweit. Darf ich kurz Ihre Nummer nehmen, damit ich in 3–4 Tagen kurz nachfrage?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Ja, das klingt gut. Ich gebe Ihnen meine Nummer."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Perfekt. Dann bekommen Sie gleich den Maßzettel mit. Und in 3–4 Tagen melde ich mich – nicht um Druck zu machen, sondern nur um zu hören, ob die Maße passen."</div></td></tr></table>
+  </div>
+
+  <div class="dialog-meta">
+    <div class="dm-title">Dialog D – Budget-Einwand</div>
+    <div class="dm-sit">Situation: Herr P., schaut Ergometer an, reagiert auf Preis von 1.200 €</div>
+  </div>
+  <div class="dialog">
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Das ist schon ziemlich viel Geld für ein Heimgerät. Online gibt es doch auch günstigere."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Das stimmt, online gibt es Geräte ab 300 Euro. Die Frage ist, was Sie wirklich brauchen. Für wie oft trainieren Sie – und wie lange am Stück?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„3–4 mal die Woche, 30–40 Minuten."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Dann brauchen Sie ein Gerät, das für diese Intensität ausgelegt ist. Ein 300-Euro-Gerät ist für 1–2 mal pro Woche, kurze Einheiten. Für Ihre Nutzung würde das schnell laut, unbequem oder kaputt werden. Das ist nicht gespart, das ist zweimal bezahlt. Ich kann Ihnen aber ein Gerät zeigen, das für Ihre Intensität gemacht ist und unter 900 Euro liegt – das wäre der sinnvolle Einstieg."</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Okay, das klingt vernünftig. Zeigen Sie mir das mal."</div></td><td class="spacer-r"></td></tr></table>
+  </div>
+
+  <div class="dialog-meta">
+    <div class="dm-title">Dialog E – Zukunftsprojekt</div>
+    <div class="dm-sit">Situation: Herr und Frau S. bauen Haus, Fitnesskeller geplant für Frühjahr</div>
+  </div>
+  <div class="dialog">
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Wir bauen gerade. Im Frühjahr haben wir einen Fitnesskeller. Schauen wir schon mal, was es so gibt."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Super, dass Sie schon jetzt schauen – dann kann man den Raum gleich sinnvoll planen. Ist der Keller schon im Rohbau oder noch in der Planung?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Noch in der Planung, Rohbau kommt im Herbst."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Dann macht es Sinn, jetzt schon die Maße der Geräte zu kennen, damit der Raum richtig geplant wird. Was soll rein – Ausdauer, Kraft oder beides?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Laufband und vielleicht eine Kraftstation."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Gut. Dann machen wir folgendes: Ich zeige Ihnen passende Kombis, gebe Ihnen die Aufstellmaße mit, und wenn der Rohbau steht, melden Sie sich kurz – dann machen wir ein konkretes Konzept für Ihren Keller. Darf ich kurz Ihren Kontakt nehmen?"</div></td></tr></table>
+  </div>
+
+  <div class="dialog-meta">
+    <div class="dm-title">Dialog F – Orientierungskunde</div>
+    <div class="dm-sit">Situation: Ehepaar, betritt Laden, „wir schauen nur"</div>
+  </div>
+  <div class="dialog">
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Wir schauen nur mal."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Kein Problem, schauen Sie sich gern um. Geht es Ihnen eher um Ausdauer oder Kraft, oder noch gar nicht sicher?"</div></td></tr></table>
+    <table class="bubble-table bubble-k"><tr><td class="bubble-content"><div class="bubble-label">Kunde</div><div class="bubble-kunde">„Gar nicht sicher eigentlich. Wir wissen nicht genau was wir suchen."</div></td><td class="spacer-r"></td></tr></table>
+    <table class="bubble-table bubble-m"><tr><td class="spacer-l"></td><td class="bubble-content"><div class="bubble-label">Mitarbeiter</div><div class="bubble-mit">„Das ist ganz normal. Dann schauen Sie sich in Ruhe um – wenn eine Frage auftaucht, bin ich da. Hier ist meine Karte, falls Sie nachher oder daheim noch etwas wissen wollen."</div></td></tr></table>
+  </div>
+
+  <div class="green-box">
+    <div class="box-title">Merksatz für Typ F</div>
+    <p>Kein Aufwand für Vollberatung ohne Basis. Freundlicher Erstkontakt, Visitenkarte, fertig. Zeit in kaufbereite Kunden investieren.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 9: PLAYBOOK ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 9</div>
+  <div class="section-title">Mitarbeiter-Playbook</div>
+  <div class="section-subtitle">Was tun in welcher Situation? – Schnelle Situationsmatrix</div>
+  <div class="section-rule"></div>
+
+  <table class="data compact">
+    <thead>
+      <tr>
+        <th style="width:16%">Situation</th>
+        <th style="width:8%">Wirkt wie</th>
+        <th style="width:14%">Ziel</th>
+        <th style="width:18%">Nicht tun ❌</th>
+        <th style="width:22%">Besser tun ✅</th>
+        <th style="width:22%">Beispielsatz</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="red-label">Sagt „nur schauen"</td><td>F</td><td>Qualifizieren</td><td>Sofort Vollberatung starten</td><td>2–3 offene Fragen, Interesse messen</td><td>„Geht es eher um Ausdauer oder Kraft?"</td></tr>
+      <tr><td class="red-label">Sagt „ich will ein Laufband"</td><td>A/B</td><td>Abschluss vorbereiten</td><td>Alle 20 Modelle erklären</td><td>Bedarfsblock 1–4, dann 2 Empfehlungen</td><td>„Für Ihre Nutzung wäre das klar Modell X."</td></tr>
+      <tr><td class="red-label">Testet lange, dann „ich überlege"</td><td>B/C</td><td>Einwand konkretisieren</td><td>„Kein Problem, melden Sie sich."</td><td>Einwand benennen, Heimcheck einleiten</td><td>„Was genau müssen Sie noch klären – Platz, Preis oder Partner?"</td></tr>
+      <tr><td class="red-label">Begeistert, muss ausmessen</td><td>B</td><td>Heimcheck anlegen</td><td>Nur Angebot per Mail schicken</td><td>Favorit + Alt. festhalten, Maßzettel, Check-Datum</td><td>„Dann machen wir daraus keinen losen Lead, sondern einen Maßcheck."</td></tr>
+      <tr><td class="red-label">Nennt Partner</td><td>C/H</td><td>Partnercheck vorbereiten</td><td>„Kommen Sie zu zweit wieder." (ohne Prozess)</td><td>Entscheidungsgrundlage bauen, Einladung zu zweit</td><td>„Was wird für Ihre Frau der wichtigste Punkt sein?"</td></tr>
+      <tr><td class="red-label">Findet Preis hoch</td><td>D</td><td>Einwand differenzieren</td><td>Sofort Rabatt anbieten</td><td>Budget vs. Wert klären, Alternative zeigen</td><td>„Geht es um den Preis selbst oder um Unsicherheit ob der Wert stimmt?"</td></tr>
+      <tr><td class="red-label">Nennt Online-Vergleich</td><td>D/G</td><td>Differenzierung</td><td>In Preiskampf gehen</td><td>Kriterien setzen: Service, Aufbau, Garantie, Qualität</td><td>„Was online günstiger aussieht, ist oft eine andere Nutzungsklasse."</td></tr>
+      <tr><td class="red-label">Raum in 3 Monaten</td><td>E</td><td>Lead sichern</td><td>Als Sofortkunden behandeln</td><td>Projektstatus erfassen, Wiedervorlage setzen</td><td>„Dann planen wir das frühzeitig richtig. Darf ich Kontakt nehmen?"</td></tr>
+      <tr><td class="red-label">Blockt Datenaufnahme</td><td>C/F</td><td>Vertrauen schaffen</td><td>Auf Daten bestehen</td><td>Alternative: eigene Karte geben, kein Druck</td><td>„Kein Problem – hier ist meine Karte, wenn Sie Fragen haben."</td></tr>
+      <tr><td class="red-label">Will keinen Entscheidungscheck</td><td>C/F</td><td>Loslassen und dokumentieren</td><td>Nerviges Nachhaken ankündigen</td><td>Kurz festhalten, Visitenkarte, CRM-Status setzen</td><td>„Dann haben Sie hier meine Karte – wenn sich etwas ergibt, melden Sie sich."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ TEIL 10: CRM ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 10</div>
+  <div class="section-title">CRM &amp; Tracking für warme Kunden</div>
+  <div class="section-subtitle">Einfache Datenerfassung – kein aufwendiges System, aber klare Struktur</div>
+  <div class="section-rule"></div>
+
+  <table class="cols">
+    <tr>
+      <td>
+        <h2 class="subsection">Tracking-Felder</h2>
+        <table class="data compact">
+          <thead><tr><th style="width:40%">Feld</th><th>Beispiel / Optionen</th></tr></thead>
+          <tbody>
+            <tr><td class="red-label">Datum</td><td>27.05.2026</td></tr>
+            <tr><td class="red-label">Mitarbeiter</td><td>Daniel / Jonas / Angie / Norbert</td></tr>
+            <tr><td class="red-label">Kundenname</td><td>Frei</td></tr>
+            <tr><td class="red-label">Kontakt</td><td>Tel / E-Mail</td></tr>
+            <tr><td class="red-label">Produktkategorie</td><td>Laufband / Ergometer / Crosstrainer / Kraft / Sonstige</td></tr>
+            <tr><td class="red-label">Favorit (Modell)</td><td>Modellname + Preis</td></tr>
+            <tr><td class="red-label">Alternative</td><td>Modellname + Preis</td></tr>
+            <tr><td class="red-label">Kundentyp</td><td>A / B / C / D / E / F / G / H / I / J</td></tr>
+            <tr><td class="red-label">Offener Punkt</td><td>Maße / Partner / Budget / Raum / Nutzung</td></tr>
+            <tr><td class="red-label">Einwandtyp</td><td>E1 – E7</td></tr>
+            <tr><td class="red-label">Kaufreife 1–5</td><td>1 = Orientierung · 5 = Kaufbereit</td></tr>
+            <tr><td class="red-label">Nächster Schritt</td><td>Heimcheck / Check-Anruf / 2. Besuch / Wiedervorlage</td></tr>
+            <tr><td class="red-label">Check-Datum</td><td>30.05.2026</td></tr>
+            <tr><td class="red-label">Angebotswert</td><td>€-Betrag</td></tr>
+            <tr><td class="red-label">Status</td><td>siehe rechts</td></tr>
+            <tr><td class="red-label">Abschluss</td><td>Ja / Nein / Offen</td></tr>
+            <tr><td class="red-label">Verlustgrund</td><td>Budget / Online / Partner / Raum / kein Feedback</td></tr>
+          </tbody>
+        </table>
+      </td>
+      <td>
+        <h2 class="subsection">Status-Optionen</h2>
+        <div class="steps">
+          <div class="step" style="border-left-color:#9e9e9e;"><table class="step-table"><tr><td class="step-num"><span style="background:#9e9e9e;">—</span></td><td class="step-content"><div class="title">Orientierung</div><div class="desc">Kein konkretes Interesse, kein Follow-up nötig</div></td></tr></table></div>
+          <div class="step" style="border-left-color:#1565c0;"><table class="step-table"><tr><td class="step-num"><span style="background:#1565c0;">B</span></td><td class="step-content"><div class="title">Beratung offen</div><div class="desc">Beratung läuft, kein Status gesetzt</div></td></tr></table></div>
+          <div class="step"><table class="step-table"><tr><td class="step-num"><span>H</span></td><td class="step-content"><div class="title">Heimcheck angelegt</div><div class="desc">Offener Punkt dokumentiert, Follow-up geplant</div></td></tr></table></div>
+          <div class="step" style="border-left-color:#6a1b9a;"><table class="step-table"><tr><td class="step-num"><span style="background:#6a1b9a;">E</span></td><td class="step-content"><div class="title">Entscheidungscheck geplant</div><div class="desc">Datum gesetzt, Check ausstehend</div></td></tr></table></div>
+          <div class="step" style="border-left-color:#e65100;"><table class="step-table"><tr><td class="step-num"><span style="background:#e65100;">A</span></td><td class="step-content"><div class="title">Angebot konkret</div><div class="desc">Angebot erstellt, Entscheidung aussteht</div></td></tr></table></div>
+          <div class="step" style="border-left-color:#1b5e20;"><table class="step-table"><tr><td class="step-num"><span style="background:#1b5e20;">✓</span></td><td class="step-content"><div class="title">Kauf abgeschlossen</div><div class="desc">Auftrag bestätigt</div></td></tr></table></div>
+          <div class="step" style="border-left-color:#5d4037;"><table class="step-table"><tr><td class="step-num"><span style="background:#5d4037;">Z</span></td><td class="step-content"><div class="title">Warten auf Raum</div><div class="desc">Zukunftsprojekt, Wiedervorlage gesetzt</div></td></tr></table></div>
+          <div class="step" style="border-left-color:#424242;"><table class="step-table"><tr><td class="step-num"><span style="background:#424242;">✗</span></td><td class="step-content"><div class="title">Verloren</div><div class="desc">Budget / Online / Rückmeldung ausgeblieben</div></td></tr></table></div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">CRM-SOP: Wann und wie?</h2>
+  <table class="data keep-together">
+    <thead>
+      <tr><th style="width:30%">Frage</th><th>Antwort</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="red-label">Wann wird ein Kunde eingetragen?</td><td>Sobald ein Favorit bestimmt wurde und mindestens ein offener Punkt existiert. Orientierungskunden (Typ F ohne Interesse) werden nicht eingetragen.</td></tr>
+      <tr><td class="red-label">Wie oft wird nachgefasst?</td><td>Einmal zum gesetzten Check-Datum. Danach einmal ohne Rückmeldung. Dann Status auf „verloren / kein Feedback".</td></tr>
+      <tr><td class="red-label">Wie vermeiden wir nerviges Nachfassen?</td><td>Nur anrufen wenn ein konkreter Anlass da ist (Check-Datum war vereinbart). Frage: „Haben Sie ausmessen können?" – nicht „Haben Sie sich schon entschieden?"</td></tr>
+      <tr><td class="red-label">Wie wird eine Chance geschlossen?</td><td>Entweder mit Kauf, bewusstem Nein oder klarem „zu einem späteren Zeitpunkt". Kein Lead bleibt ewig offen – alle 4 Wochen Status prüfen.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ TEIL 11: TRAINING ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 11</div>
+  <div class="section-title">Team-Training &amp; Umsetzungsplan</div>
+  <div class="section-subtitle">4-Wochen-Einführung für Daniel, Jonas, Angie und Norbert</div>
+  <div class="section-rule"></div>
+
+  <table class="mini-grid">
+    <tr>
+      <td>
+        <div class="mini-card">
+          <div class="mc-title">Woche 1 – Grundlagen</div>
+          <div class="mc-val">
+            <ul>
+              <li>Kundentypen A–J lernen und kennen</li>
+              <li>Qualifizierungsfragen (Blöcke 1–6) trainieren</li>
+              <li>Einwand E1 „Ausmessen" üben (Rollenspiel)</li>
+              <li>Heimcheck-Formular kennenlernen</li>
+              <li>Erste 5 warme Kunden dokumentieren</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="mini-card">
+          <div class="mc-title">Woche 2 – Prozess einüben</div>
+          <div class="mc-val">
+            <ul>
+              <li>2-Stufen-Prozess im Alltag anwenden</li>
+              <li>CRM-Felder vollständig ausfüllen</li>
+              <li>Erste 10 Heimchecks anlegen</li>
+              <li>Entscheidungscheck-Calls durchführen</li>
+              <li>Erfahrungen im Team besprechen</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="mini-card">
+          <div class="mc-title">Woche 3 – Einwandtraining</div>
+          <div class="mc-val">
+            <ul>
+              <li>Einwand E2 „Partner" trainieren</li>
+              <li>Einwand E3 „Preis" trainieren</li>
+              <li>Entscheidungscheck-Calls auswerten</li>
+              <li>Conversion-Fälle analysieren</li>
+              <li>No-Go-Sätze erkennen und ersetzen</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="mini-card">
+          <div class="mc-title">Woche 4 – Review &amp; Optimierung</div>
+          <div class="mc-val">
+            <ul>
+              <li>Erste Zahlen prüfen: Heimchecks, Abschlüsse</li>
+              <li>Verlustgründe analysieren</li>
+              <li>Beste Formulierungen sammeln</li>
+              <li>SOP an Realität anpassen</li>
+              <li>Neues Ziel für den nächsten Monat setzen</li>
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Wöchentliche 30-Minuten-Routine (empfohlen Montag morgen)</h2>
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>1</span></td><td class="step-content"><div class="title">1 verlorene Chance analysieren (5 Min.)</div><div class="desc">Wo ist der Kunde rausgefallen? Was hätten wir anders machen können? Kein Schuldzuweisen – Lernen.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>2</span></td><td class="step-content"><div class="title">1 gutes Gespräch teilen (5 Min.)</div><div class="desc">Was hat funktioniert? Welche Formulierung war gut? Was können alle mitnehmen?</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>3</span></td><td class="step-content"><div class="title">1 Einwand kurz trainieren (10 Min.)</div><div class="desc">Rollenspiel: Einer spielt Kunden mit bekanntem Einwand, der andere reagiert nach SOP.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>4</span></td><td class="step-content"><div class="title">1 Satz verbessern (5 Min.)</div><div class="desc">Welcher Satz aus der letzten Woche hat sich unnatürlich angefühlt? Wie formulieren wir ihn besser?</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>5</span></td><td class="step-content"><div class="title">Follow-up-Liste prüfen (5 Min.)</div><div class="desc">Wer hat einen Entscheidungscheck fällig? Wer ist als Heimcheck eingetragen und noch nicht zurückgemeldet?</div></td></tr></table></div>
+  </div>
+
+  <div class="box">
+    <div class="box-title">Wichtiger Hinweis zum Team-Einsatz</div>
+    <p>Diese SOP ist kein Skript zum Auswendiglernen. Sie ist ein Orientierungsrahmen. Jeder Mitarbeiter soll die Logik dahinter verstehen – nicht jeden Satz identisch wiederholen. Authentizität ist wichtiger als perfekter Wortlaut.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 12: SCHNELLREFERENZ ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 12</div>
+  <div class="section-title">Schnellreferenz / Spickzettel</div>
+  <div class="section-subtitle">Kompakte Übersicht für den täglichen Einsatz im Showroom</div>
+  <div class="section-rule"></div>
+
+  <table class="cols">
+    <tr>
+      <td>
+        <h2 class="subsection">Kundentypen kurz</h2>
+        <table class="data compact">
+          <thead><tr><th>Typ</th><th>Kurzname</th><th>Nächster Schritt</th></tr></thead>
+          <tbody>
+            <tr><td class="red-label">A</td><td>Sofortkäufer</td><td>Abschluss heute</td></tr>
+            <tr><td class="red-label">B</td><td>Sacheinwand</td><td>Heimcheck anlegen</td></tr>
+            <tr><td class="red-label">C</td><td>Warmer Interessent</td><td>2-Stufen-Prozess</td></tr>
+            <tr><td class="red-label">D</td><td>Budgetkunde</td><td>Wertlogik / Alternative</td></tr>
+            <tr><td class="red-label">E</td><td>Zukunftsprojekt</td><td>Wiedervorlage</td></tr>
+            <tr><td class="red-label">F</td><td>Orientierung</td><td>Visitenkarte</td></tr>
+            <tr><td class="red-label">G</td><td>Online-Vergleicher</td><td>Differenzierung</td></tr>
+            <tr><td class="red-label">H</td><td>Partner fehlt</td><td>Partnercheck-Dok.</td></tr>
+            <tr><td class="red-label">I</td><td>Geschenkkunde</td><td>Nutzerprofil + Kauf</td></tr>
+            <tr><td class="red-label">J</td><td>B2B</td><td>B2B-Konzept</td></tr>
+          </tbody>
+        </table>
+      </td>
+      <td>
+        <h2 class="subsection">Wichtigste Diagnose-Fragen</h2>
+        <ul class="arrow-list">
+          <li>„Was führt Sie heute zu uns?"</li>
+          <li>„Ist das ein konkretes Gerät oder Orientierung?"</li>
+          <li>„Wo soll das Gerät stehen?"</li>
+          <li>„Wer nutzt es und wie oft?"</li>
+          <li>„Haben Sie grob einen Rahmen im Kopf?"</li>
+          <li>„Entscheiden Sie allein oder schaut jemand mit?"</li>
+          <li>„Wenn alles passt: ist das eher eine zeitnahe Sache?"</li>
+          <li>„Was müsste geklärt sein, damit Sie sich sicher fühlen?"</li>
+        </ul>
+
+        <h2 class="subsection">Wichtigste Einwand-Fragen</h2>
+        <ul class="arrow-list">
+          <li>„Abgesehen von [Einwand]: passt das Gerät für Sie?"</li>
+          <li>„Wenn [Einwand] geklärt ist, ist das dann Ihr Favorit?"</li>
+          <li>„Ist wirklich nur [Einwand] offen oder gibt es noch etwas?"</li>
+          <li>„Was wird für Ihre Frau / Ihren Mann der wichtigste Punkt sein?"</li>
+          <li>„Ist der Preis zu hoch – oder der Wert noch nicht klar?"</li>
+          <li>„Wann wird der Raum fertig?"</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">No-Go-Sätze vs. bessere Alternativen</h2>
+  <table class="nogo-do">
+    <tr>
+      <td>
+        <div class="nogo">
+          <div class="lbl">❌ No-Go-Sätze</div>
+          <ul>
+            <li>„Melden Sie sich einfach irgendwann."</li>
+            <li>„Können wir Sie nochmal anrufen?" (passiv)</li>
+            <li>„Überlegen Sie es sich."</li>
+            <li>„Kommen Sie einfach irgendwann wieder."</li>
+            <li>„Das Angebot gilt nur heute." (wenn nicht wahr)</li>
+            <li>Künstliche Verknappung ohne echten Grund</li>
+            <li>„Alle anderen kaufen das gerade."</li>
+            <li>„Warten Sie nicht zu lang."</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div class="do">
+          <div class="lbl">✅ Besser so</div>
+          <ul>
+            <li>„Sind wir grundsätzlich beim richtigen Modell?"</li>
+            <li>„Ist wirklich nur dieser Punkt offen?"</li>
+            <li>„Sie müssen heute nicht kaufen – aber wir führen den Prozess sauber weiter."</li>
+            <li>„Dann machen wir daraus einen Heimcheck, kein loses Angebot."</li>
+            <li>„Wenn der Punkt geklärt ist, was wäre dann der nächste Schritt?"</li>
+            <li>„Geht es um Preis, Platz, Nutzung oder Modell?"</li>
+            <li>„Ich gebe Ihnen die Maße mit, die Sie messen müssen."</li>
+            <li>„In 2–3 Tagen melde ich mich kurz – nur für den Check."</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Heimcheck einleiten – 10-Schritte-Script</h2>
+  <div class="box-dark">
+    <div class="box-title">Wann Heimcheck einleiten?</div>
+    <p><strong>Wenn:</strong> Echtes Interesse · Gerät gefällt grundsätzlich · Ein konkreter Punkt offen · Kunde will nicht sofort kaufen</p>
+    <p><strong>Nicht wenn:</strong> Keine Kaufabsicht · Kein Budget · Reines Orientierungsgespräch</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>1</span></td><td class="step-content"><div class="title">Kaufdruck raus: „Sie müssen heute nicht kaufen."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>2</span></td><td class="step-content"><div class="title">Prozess ankündigen: „Aber wir beenden das nicht als loses Angebot."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>3</span></td><td class="step-content"><div class="title">Favorit bestätigen: „Ihr Favorit ist also Modell X, richtig?"</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>4</span></td><td class="step-content"><div class="title">Alternative nennen: „Als Plan B haben wir Modell Y, falls [Grund]."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>5</span></td><td class="step-content"><div class="title">Offenen Punkt benennen: „Der einzige offene Punkt ist [Einwand]."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>6</span></td><td class="step-content"><div class="title">Maßzettel mitgeben: „Hier sind die genauen Maße, die Sie prüfen müssen."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>7</span></td><td class="step-content"><div class="title">Daten aufnehmen: „Darf ich kurz Ihre Nummer nehmen?"</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>8</span></td><td class="step-content"><div class="title">Datum setzen: „Ich melde mich in [2–3 Tage] kurz – nur für den Check."</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>9</span></td><td class="step-content"><div class="title">CRM eintragen: Alle Felder ausfüllen, Status = „Heimcheck angelegt"</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>10</span></td><td class="step-content"><div class="title">Follow-up: „Haben Sie ausmessen können?" (nicht: „Haben Sie sich entschieden?")</div></td></tr></table></div>
+  </div>
+
+  <h2 class="subsection">Ergebnisse nach dem Check</h2>
+  <table class="results">
+    <tr>
+      <td style="background:#1b5e20;"><span class="rt">✅ Kauf</span><span class="rd">Punkte geklärt, Auftrag aufnehmen</span></td>
+      <td style="background:#1565c0;"><span class="rt">🔄 Alternative</span><span class="rd">Plan B wird bevorzugt, Auftrag Plan B</span></td>
+      <td style="background:#6a1b9a;"><span class="rt">⏳ Neuer Check</span><span class="rd">Neuer Punkt offen, nächstes Datum setzen</span></td>
+      <td style="background:#424242;"><span class="rt">✗ Bewusstes Nein</span><span class="rd">Status schließen, Verlustgrund notieren</span></td>
+    </tr>
+  </table>
+
+  <div class="highlight-quote">
+    <div class="q">„Unser Ziel ist nicht, jeden Kunden zum Kauf zu drängen.<br>Unser Ziel ist, dass kein ernsthafter Interessent in einem losen ‚ich melde mich' verschwindet."</div>
+    <div class="att">Fitshop Hall/Tirol · 2026</div>
+  </div>
+</div>
+
+</body>
+</html>
