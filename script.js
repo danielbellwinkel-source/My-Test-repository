@@ -16,6 +16,20 @@
 
   const total = slides.length;
 
+  // ----- Proportional scaling -----
+  // The slide is authored at a fixed 1280x720. We scale it to fit the
+  // viewport so the layout never overflows on smaller screens.
+  function fitToViewport() {
+    const margin = 48; // breathing room around the slide
+    const scaleW = (window.innerWidth - margin) / 1280;
+    const scaleH = (window.innerHeight - margin) / 720;
+    let scale = Math.min(scaleW, scaleH);
+    if (scale > 1) scale = 1; // never enlarge beyond native size
+    document.documentElement.style.setProperty('--scale', scale.toFixed(4));
+  }
+  fitToViewport();
+  window.addEventListener('resize', fitToViewport);
+
   function goTo(index) {
     if (scrollMode) return;
     slides[current].classList.remove('active');

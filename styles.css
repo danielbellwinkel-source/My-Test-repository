@@ -87,27 +87,45 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 0 100px;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0;
   gap: 0;
 }
 
+/* The slide keeps a fixed 1280x720 internal coordinate system and is
+   scaled proportionally to the viewport via --scale (set in script.js).
+   This guarantees the content never overflows, regardless of screen size. */
 .slide {
-  width: var(--slide-w);
-  height: var(--slide-h);
+  width: 1280px;
+  height: 720px;
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
   display: none;
   flex-direction: column;
   box-shadow: 0 8px 48px rgba(0,0,0,0.28);
+  transform: scale(var(--scale, 1));
+  transform-origin: top center;
+  /* collapse the empty space the transform leaves below the box */
+  margin-bottom: calc(-1 * (1 - var(--scale, 1)) * 720px);
 }
 
-.slide.active { display: flex; }
+.slide.active {
+  display: flex;
+  /* center the (scaled) active slide vertically in the viewport */
+  margin-top: calc((100vh - var(--scale, 1) * 720px) / 2);
+}
 
 /* Scroll mode — alle Slides untereinander */
+body.scroll-mode #presentation {
+  justify-content: flex-start;
+  padding: 24px 0 80px;
+}
 body.scroll-mode .slide {
   display: flex !important;
-  margin-bottom: 24px;
+  margin-top: 0;
+  margin-bottom: calc(-1 * (1 - var(--scale, 1)) * 720px + 24px);
 }
 body.scroll-mode #nav-bar { display: none; }
 
@@ -194,9 +212,9 @@ body.scroll-mode #nav-bar { display: none; }
 
 .display-md {
   font-family: var(--font-display);
-  font-size: 38px;
+  font-size: 33px;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.12;
   color: var(--color-text);
 }
 .display-md em {
@@ -333,7 +351,7 @@ body.scroll-mode #nav-bar { display: none; }
   background: var(--color-white);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
-  padding: 24px 22px;
+  padding: 18px 20px;
   box-shadow: var(--shadow);
 }
 
@@ -457,7 +475,7 @@ body.scroll-mode #nav-bar { display: none; }
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 14px;
+  padding: 8px 13px;
   border-radius: 8px;
   border: 1px solid var(--color-line);
   background: var(--color-white);
@@ -493,8 +511,9 @@ body.scroll-mode #nav-bar { display: none; }
 .ba-arrow {
   display: flex;
   justify-content: center;
-  margin: 6px 0;
+  margin: 1px 0;
   color: var(--color-muted);
+  font-size: 12px;
 }
 
 .ba-divider {
@@ -683,33 +702,19 @@ body.scroll-mode #nav-bar { display: none; }
 .h-full { height: 100%; }
 .flex-1 { flex: 1; }
 
-/* ===== PRINT ===== */
+/* ===== PRINT =====
+   For PDF export the slide must render at full 1280x720 with no scaling. */
 @media print {
   html { background: white; }
   #nav-bar { display: none !important; }
-  #presentation { padding: 0; gap: 0; }
+  #presentation { padding: 0; gap: 0; min-height: 0; display: block; }
   .slide {
     display: flex !important;
+    transform: none !important;
+    margin: 0 !important;
     page-break-after: always;
     break-after: page;
     box-shadow: none;
-    margin: 0;
   }
   @page { size: 1280px 720px landscape; margin: 0; }
-}
-
-/* ===== RESPONSIVE SCALE ===== */
-@media (max-width: 1360px) {
-  :root { --slide-w: 960px; --slide-h: 540px; }
-  .display-xl { font-size: 54px; }
-  .display-lg { font-size: 36px; }
-  .display-md { font-size: 28px; }
-  .mockup-headline { font-size: 17px; }
-}
-
-@media (max-width: 1020px) {
-  :root { --slide-w: 100vw; --slide-h: calc(100vw * 0.5625); }
-  .display-xl { font-size: 42px; }
-  .display-lg { font-size: 28px; }
-  .display-md { font-size: 22px; }
 }
