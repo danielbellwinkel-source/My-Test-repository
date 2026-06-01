@@ -6,15 +6,14 @@ Eine hochwertige HTML-Präsentation für das Meeting mit Pilatesraum by MaLu.
 
 ### 1. Screenshots einfügen
 
-Lege die Screenshots in den `assets`-Ordner:
+Lege die 4 Screenshots direkt in den Hauptordner (neben `index.html`):
 
 | Dateiname | Inhalt |
 |---|---|
-| `assets/instagram-profile.png` | Instagram-Profil (Biografie, Follower, Highlights) |
-| `assets/instagram-grid.png` | Instagram-Beitragsraster |
-| `assets/website-home.png` | Website Startseite |
-| `assets/website-offer.png` | Website Angebote & Preise |
-| `assets/website-mobile.png` | Website mobile Ansicht (optional) |
+| `instagram-profile.png` | Instagram-Profil (Biografie, Follower, Highlights) |
+| `instagram-grid.png` | Instagram-Beitragsraster |
+| `website-home.png` | Website Startseite |
+| `website-offer.png` | Website Angebote & Preise |
 
 Wenn eine Datei fehlt, zeigt die Präsentation einen dezenten Platzhalter.
 
@@ -55,12 +54,10 @@ Oder einfach per Doppelklick auf die Datei.
 ├── styles.css       Design & Farben
 ├── script.js        Navigation & Interaktion
 ├── README.md        Diese Anleitung
-└── assets/
-    ├── instagram-profile.png
-    ├── instagram-grid.png
-    ├── website-home.png
-    ├── website-offer.png
-    └── website-mobile.png
+├── instagram-profile.png
+├── instagram-grid.png
+├── website-home.png
+└── website-offer.png
 ```
 
 ## Design
