@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilatesraum by MaLu — Präsentation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION BAR
+===================================================== -->
+<nav id="nav-bar">
+  <button class="nav-btn" id="btn-prev" title="Vorherige Folie" aria-label="Vorherige">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <span id="slide-counter">1 / 9</span>
+  <button class="nav-btn" id="btn-next" title="Nächste Folie" aria-label="Nächste">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <button class="nav-btn" id="btn-scroll" title="Scroll-Modus" aria-label="Scroll-Modus">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </button>
+</nav>
+
+<!-- =====================================================
+     PRESENTATION
+===================================================== -->
+<div id="presentation">
+
+
+<!-- ===================================================
+     SLIDE 1 — TITEL
+=================================================== -->
+<section class="slide active" id="slide-1">
+  <div class="slide-top-bar"></div>
+
+  <!-- Soft background decoration -->
+  <div style="position:absolute;top:-80px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,79,200,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(123,79,200,0.05) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <!-- Logo -->
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+
+  <div class="slide-number">01 / 10</div>
+
+  <!-- Center content -->
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:0 100px;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;max-width:680px;gap:0;">
+
+      <div class="label" style="margin-bottom:28px;letter-spacing:0.22em;">Pilatesraum by MaLu · Köln Weiden</div>
+
+      <h1 class="display-xl" style="margin-bottom:6px;">
+        Pilatesraum<br>by <em>MaLu</em>
+      </h1>
+
+      <div class="thin-line" style="margin:24px auto;"></div>
+
+      <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:400;font-style:italic;color:var(--color-muted);line-height:1.5;max-width:520px;margin-bottom:24px;">
+        Ein kurzer Blick darauf, wie neue Menschen<br>leichter den ersten Schritt machen können.
+      </p>
+
+      <p class="body-sm" style="font-size:13px;color:var(--color-muted);letter-spacing:0.04em;">
+        Nicht alles neu. Nur den Start klarer machen.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Bottom accent bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;border-top:1px solid var(--color-line);">
+    <span style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-muted);">Aachener Straße 1214 · Köln</span>
+    <span style="font-size:11px;color:var(--color-muted);">pilatesraum.net</span>
+    <span style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-muted);">Boutique · Premium · BASI®</span>
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 2 — DER ECHTE WEG HEUTE
+=================================================== -->
+<section class="slide" id="slide-2">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">02 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <!-- Headline -->
+    <div style="margin-bottom:36px;">
+      <div class="label" style="margin-bottom:10px;">Der Weg heute</div>
+      <h2 class="display-md">Das sieht eine neue Person <em>heute</em></h2>
+    </div>
+
+    <!-- Flow -->
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px;">
+
+      <!-- Screenshot thumbnails row -->
+      <div class="flow-row" style="gap:0;margin-bottom:8px;">
+
+        <!-- Step 1: Instagram -->
+        <div class="flow-step">
+          <div class="step-thumb screenshot-box" style="width:110px;height:70px;border-radius:8px;">
+            <img src="instagram-profile.png" alt="Instagram Profil" onerror="this.style.display='none'">
+            <div class="placeholder-label"><span class="filename">instagram-<br>profile.png</span></div>
+          </div>
+          <div class="step-label" style="font-size:10px;margin-top:6px;">Instagram</div>
+          <div class="step-sub">Sie entdecken euch</div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <!-- Step 2: Profil -->
+        <div class="flow-step">
+          <div class="step-thumb screenshot-box" style="width:110px;height:70px;border-radius:8px;">
+            <img src="instagram-grid.png" alt="Instagram Grid" onerror="this.style.display='none'">
+            <div class="placeholder-label"><span class="filename">instagram-<br>grid.png</span></div>
+          </div>
+          <div class="step-label" style="font-size:10px;margin-top:6px;">Profil</div>
+          <div class="step-sub">Sie schauen sich um</div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <!-- Step 3: Website -->
+        <div class="flow-step">
+          <div class="step-thumb screenshot-box" style="width:110px;height:70px;border-radius:8px;">
+            <img src="website-home.png" alt="Website Home" onerror="this.style.display='none'">
+            <div class="placeholder-label"><span class="filename">website-<br>home.png</span></div>
+          </div>
+          <div class="step-label" style="font-size:10px;margin-top:6px;">Website</div>
+          <div class="step-sub">Sie klicken auf den Link</div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <!-- Step 4: Angebote -->
+        <div class="flow-step">
+          <div class="step-thumb screenshot-box" style="width:110px;height:70px;border-radius:8px;">
+            <img src="website-offer.png" alt="Angebote" onerror="this.style.display='none'">
+            <div class="placeholder-label"><span class="filename">website-<br>offer.png</span></div>
+          </div>
+          <div class="step-label" style="font-size:10px;margin-top:6px;">Angebote & Preise</div>
+          <div class="step-sub">Mehrere Optionen auf einmal</div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <!-- Step 5: Entscheidung -->
+        <div class="flow-step">
+          <div class="step-thumb" style="width:110px;height:70px;border-radius:8px;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;border:1.5px dashed #D6C2F0;">
+            <span style="font-size:22px;">?</span>
+          </div>
+          <div class="step-label" style="font-size:10px;margin-top:6px;color:#C4883A;">Entscheidung</div>
+          <div class="step-sub" style="color:#C4883A;">Wie starte ich am besten?</div>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="thin-line-full"></div>
+
+      <!-- Context text -->
+      <div style="display:flex;align-items:flex-start;gap:40px;margin-top:8px;">
+        <p class="body-text" style="font-size:14px;max-width:420px;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.5;">
+          Ich habe mir angeschaut, was eine neue Person sieht, bevor sie euch anfragt oder bucht.
+        </p>
+        <div style="flex:1;display:flex;gap:20px;">
+          <div class="callout" style="max-width:200px;">
+            <div class="callout-dot"></div>
+            <span class="callout-text">Das Profil wirkt direkt hochwertig und ruhig.</span>
+          </div>
+          <div class="callout warn" style="max-width:200px;">
+            <div class="callout-dot warn"></div>
+            <span class="callout-text">Der erste Schritt könnte noch klarer sein.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 3 — WAS AM INSTAGRAM STARK IST
+=================================================== -->
+<section class="slide" id="slide-3">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">03 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <div style="margin-bottom:16px;">
+      <div class="label" style="margin-bottom:8px;">Was gut funktioniert</div>
+      <h2 class="display-md">Euer Profil wirkt ruhig,<br>hochwertig und <em>fachlich</em></h2>
+    </div>
+
+    <div style="flex:1;display:flex;gap:40px;align-items:stretch;min-height:0;">
+
+      <!-- Screenshot links -->
+      <div style="position:relative;flex-shrink:0;width:255px;">
+        <div class="screenshot-box" style="height:460px;width:255px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.1);">
+          <img src="instagram-profile.png" alt="Instagram Profil" style="object-position:top;" onerror="this.style.display='none'">
+          <div class="placeholder-label">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A877F" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="filename">instagram-profile.png</span>
+            <span class="hint">Screenshot hier einfügen</span>
+          </div>
+        </div>
+
+        <!-- Annotation lines (decorative SVG) -->
+        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;" viewBox="0 0 280 420" preserveAspectRatio="none">
+          <!-- Arrow to top area (Bio) -->
+          <line x1="280" y1="80" x2="310" y2="80" stroke="#7B4FC8" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+          <circle cx="278" cy="80" r="3" fill="#7B4FC8" opacity="0.7"/>
+          <!-- Arrow to middle area (content) -->
+          <line x1="280" y1="200" x2="310" y2="200" stroke="#7B4FC8" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+          <circle cx="278" cy="200" r="3" fill="#7B4FC8" opacity="0.7"/>
+          <!-- Arrow to grid -->
+          <line x1="280" y1="340" x2="310" y2="320" stroke="#7B4FC8" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.6"/>
+          <circle cx="278" cy="340" r="3" fill="#7B4FC8" opacity="0.7"/>
+        </svg>
+      </div>
+
+      <!-- Callouts rechts -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding-left:36px;">
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;">✦</div>
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Erster Eindruck</span>
+          </div>
+          <div class="card-sm" style="padding:14px 16px;">
+            <p style="font-size:15px;font-weight:500;color:var(--color-text);margin-bottom:3px;">Ruhig, hochwertig, klar</p>
+            <p class="body-sm">Das Profil strahlt sofort Premium aus — die Bildsprache und die Stimmung passen perfekt zu einem Boutique-Pilatesstudio.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;">✦</div>
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Fachwissen</span>
+          </div>
+          <div class="card-sm" style="padding:14px 16px;">
+            <p style="font-size:15px;font-weight:500;color:var(--color-text);margin-bottom:3px;">BASI® & DPV sichtbar</p>
+            <p class="body-sm">Zertifizierung und Mitgliedschaft im Deutschen Pilatesverband geben sofort Vertrauen. Das ist nicht selbstverständlich.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:12px;">✦</div>
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Ästhetik</span>
+          </div>
+          <div class="card-sm" style="padding:14px 16px;">
+            <p style="font-size:15px;font-weight:500;color:var(--color-text);margin-bottom:3px;">Bildwelt und Ton stimmen</p>
+            <p class="body-sm">Der Stil der Beiträge — anatomische Grafiken, Studio-Aufnahmen, ruhige Farben — passt zusammen und wirkt durchdacht.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 4 — WO NEUE MENSCHEN HÄNGEN BLEIBEN
+=================================================== -->
+<section class="slide" id="slide-4">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">04 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <div style="margin-bottom:16px;">
+      <div class="label" style="margin-bottom:8px;">Wo es noch hängen bleiben kann</div>
+      <h2 class="display-md">Der erste Schritt ist <em>noch nicht</em><br>sofort klar</h2>
+    </div>
+
+    <div style="flex:1;display:flex;gap:40px;align-items:stretch;min-height:0;">
+
+      <!-- Screenshot links -->
+      <div style="position:relative;flex-shrink:0;width:255px;">
+        <div class="screenshot-box" style="height:460px;width:255px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.1);">
+          <img src="instagram-profile.png" alt="Instagram Profil" style="object-position:top;" onerror="this.style.display='none'">
+          <div class="placeholder-label">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A877F" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="filename">instagram-profile.png</span>
+            <span class="hint">Screenshot hier einfügen</span>
+          </div>
+        </div>
+
+        <!-- Annotation lines (orange for questions) -->
+        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;" viewBox="0 0 280 420" preserveAspectRatio="none">
+          <line x1="280" y1="100" x2="310" y2="110" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="278" cy="100" r="3" fill="#C4883A" opacity="0.8"/>
+          <line x1="280" y1="190" x2="310" y2="210" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="278" cy="190" r="3" fill="#C4883A" opacity="0.8"/>
+          <line x1="280" y1="290" x2="310" y2="320" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="278" cy="290" r="3" fill="#C4883A" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <!-- Callouts rechts -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;padding-left:36px;">
+
+        <div class="callout warn" style="max-width:100%;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:14px;font-weight:600;color:var(--color-text);margin-bottom:2px;">„Was soll ich als Anfängerin zuerst tun?"</p>
+            <p class="body-sm">Das Profil zeigt viel — aber eine neue Person findet keinen klaren nächsten Schritt für sich.</p>
+          </div>
+        </div>
+
+        <div class="callout warn" style="max-width:100%;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:14px;font-weight:600;color:var(--color-text);margin-bottom:2px;">„Matte, Reformer oder 1:1 — was passt zu mir?"</p>
+            <p class="body-sm">Wer Pilates noch nicht kennt, weiß nicht, womit man am besten anfängt. Eine kleine Orientierungshilfe fehlt noch.</p>
+          </div>
+        </div>
+
+        <div class="callout warn" style="max-width:100%;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:14px;font-weight:600;color:var(--color-text);margin-bottom:2px;">„Wo klicke ich, wenn ich noch unsicher bin?"</p>
+            <p class="body-sm">Der Link in der Bio führt direkt auf die Website — aber ohne eine ruhige Brücke dazwischen kann es zu schnell zu viel sein.</p>
+          </div>
+        </div>
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;font-style:italic;color:var(--color-muted);line-height:1.45;max-width:420px;margin-top:2px;">
+          Das Profil wirkt schön. Aber eine neue Person muss noch selbst herausfinden, wie sie am besten startet.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 5 — WAS NACH DEM KLICK PASSIERT
+=================================================== -->
+<section class="slide" id="slide-5">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">05 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <div style="margin-bottom:16px;">
+      <div class="label" style="margin-bottom:8px;">Die Website</div>
+      <h2 class="display-md">Auf der Website kommen viele<br>Entscheidungen <em>auf einmal</em></h2>
+    </div>
+
+    <div style="flex:1;display:flex;gap:36px;align-items:stretch;min-height:0;">
+
+      <!-- Website Screenshot -->
+      <div style="position:relative;flex-shrink:0;width:270px;">
+        <div class="screenshot-box" style="height:460px;width:270px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+          <img src="website-offer.png" alt="Website Angebote" style="object-position:top;" onerror="this.style.display='none'">
+          <div class="placeholder-label">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A877F" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span class="filename">website-offer.png</span>
+            <span class="hint">Screenshot hier einfügen</span>
+          </div>
+        </div>
+
+        <!-- Orange markers on screenshot -->
+        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;" viewBox="0 0 300 400" preserveAspectRatio="none">
+          <line x1="300" y1="90" x2="330" y2="80" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="298" cy="90" r="3" fill="#C4883A" opacity="0.8"/>
+          <line x1="300" y1="190" x2="330" y2="180" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="298" cy="190" r="3" fill="#C4883A" opacity="0.8"/>
+          <line x1="300" y1="290" x2="330" y2="300" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="298" cy="290" r="3" fill="#C4883A" opacity="0.8"/>
+          <line x1="300" y1="360" x2="330" y2="360" stroke="#C4883A" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.7"/>
+          <circle cx="298" cy="360" r="3" fill="#C4883A" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <!-- Fragen / Callouts -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding-left:32px;">
+
+        <div class="callout warn" style="max-width:100%;padding:10px 14px;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:1px;">„Welches Angebot passt zu mir?"</p>
+            <p class="body-sm">Personal Training, Einzelticket, Abo — für neue Menschen ist das noch nicht leicht einzuordnen.</p>
+          </div>
+        </div>
+
+        <div class="callout warn" style="max-width:100%;padding:10px 14px;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:1px;">„Muss ich direkt ein Paket wählen?"</p>
+            <p class="body-sm">Wer zum ersten Mal bucht, fragt sich, ob es auch eine niedrigschwellige Option gibt.</p>
+          </div>
+        </div>
+
+        <div class="callout warn" style="max-width:100%;padding:10px 14px;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:1px;">„Was ist der einfachste Start?"</p>
+            <p class="body-sm">Diese Frage bleibt auf der Angebotsseite noch unbeantwortet — was es gibt, ist klar, aber nicht, was zu wem passt.</p>
+          </div>
+        </div>
+
+        <div class="callout warn" style="max-width:100%;padding:10px 14px;">
+          <div class="callout-dot warn"></div>
+          <div>
+            <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:1px;">„Was passiert, wenn ich das Falsche buche?"</p>
+            <p class="body-sm">Unsicherheit entsteht, wenn niemand sagt: Keine Sorge — wir helfen dir, den richtigen Start zu finden.</p>
+          </div>
+        </div>
+
+        <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-style:italic;color:var(--color-muted);line-height:1.4;max-width:420px;margin-top:2px;">
+          Für Menschen, die schon genau wissen, was sie wollen, ist das okay. Für neue Menschen kann es zu früh zu viel sein.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 6 — DER EINFACHERE ERSTE SCHRITT
+=================================================== -->
+<section class="slide" id="slide-6">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">06 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <div style="margin-bottom:14px;">
+      <div class="label" style="margin-bottom:8px;">Eine kleine Verbesserung</div>
+      <h2 class="display-md">Erst kurz einordnen.<br>Dann <em>passend starten.</em></h2>
+    </div>
+
+    <div style="flex:1;display:flex;gap:56px;align-items:center;min-height:0;">
+
+      <!-- HEUTE -->
+      <div class="ba-block">
+        <div class="ba-label today" style="margin-bottom:10px;">— Heute</div>
+
+        <div class="ba-step">
+          <div class="step-icon neutral">💡</div>
+          <span class="step-txt">Interesse an Pilates</span>
+        </div>
+        <div class="ba-arrow">↓</div>
+
+        <div class="ba-step">
+          <div class="step-icon neutral">📱</div>
+          <span class="step-txt">Instagram-Profil entdecken</span>
+        </div>
+        <div class="ba-arrow">↓</div>
+
+        <div class="ba-step">
+          <div class="step-icon neutral">🌐</div>
+          <span class="step-txt">Auf die Website klicken</span>
+        </div>
+        <div class="ba-arrow">↓</div>
+
+        <div class="ba-step">
+          <div class="step-icon bad">📋</div>
+          <span class="step-txt">Viele Angebote gleichzeitig</span>
+        </div>
+        <div class="ba-arrow">↓</div>
+
+        <div class="ba-step">
+          <div class="step-icon bad">🤔</div>
+          <span class="step-txt" style="color:#C4883A;font-weight:500;">Unsicherheit — was wähle ich?</span>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div style="width:1px;height:60px;background:var(--color-line);"></div>
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:600;">→</div>
+        <div style="width:1px;height:60px;background:var(--color-line);"></div>
+      </div>
+
+      <!-- BESSER -->
+      <div class="ba-block">
+        <div class="ba-label better" style="margin-bottom:10px;">— Einfacher</div>
+
+        <div class="ba-step">
+          <div class="step-icon neutral">💡</div>
+          <span class="step-txt">Interesse an Pilates</span>
+        </div>
+        <div class="ba-arrow">↓</div>
+
+        <div class="ba-step">
+          <div class="step-icon neutral">📱</div>
+          <span class="step-txt">Instagram-Profil entdecken</span>
+        </div>
+        <div class="ba-arrow">↓</div>
+
+        <div class="ba-step highlight">
+          <div class="step-icon good">✦</div>
+          <span class="step-txt" style="color:var(--color-accent);font-weight:500;">Kleine Einstiegsfrage: Was suche ich?</span>
+        </div>
+        <div class="ba-arrow" style="color:var(--color-accent);">↓</div>
+
+        <div class="ba-step highlight">
+          <div class="step-icon good">💬</div>
+          <span class="step-txt" style="color:var(--color-accent);font-weight:500;">Persönliche Empfehlung per WhatsApp</span>
+        </div>
+        <div class="ba-arrow" style="color:var(--color-accent);">↓</div>
+
+        <div class="ba-step highlight">
+          <div class="step-icon good">📅</div>
+          <span class="step-txt" style="color:var(--color-accent);font-weight:500;">Passende Buchung — ohne Raten</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="margin-top:14px;">
+      <div class="thin-line-full"></div>
+      <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-style:italic;color:var(--color-muted);line-height:1.4;margin-top:10px;">
+        Neue Menschen müssen nicht sofort alles allein entscheiden.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 7 — BEISPIEL EINSTIEGSSEITE (HERO SLIDE)
+=================================================== -->
+<section class="slide" id="slide-7">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">07 / 10</div>
+
+  <!-- Full bleed layout: left label + right mockup -->
+  <div style="flex:1;display:flex;gap:0;align-items:stretch;">
+
+    <!-- Left column: context -->
+    <div style="width:300px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;padding:72px 40px 40px 60px;gap:20px;">
+      <div class="label">Beispiel</div>
+      <h2 class="display-md" style="font-size:30px;">Eine kleine<br><em>Einstiegsseite</em></h2>
+      <div class="thin-line"></div>
+      <p class="body-text" style="font-size:13px;line-height:1.6;">
+        So könnte eine ruhige Seite aussehen, die neue Menschen sanft aufnimmt — im echten Stil von Pilatesraum by MaLu.
+      </p>
+      <div style="margin-top:8px;padding:14px;background:var(--color-accent-light);border-radius:8px;border:1px solid #D6C2F0;">
+        <p style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px;">Ziel dieser Seite</p>
+        <p style="font-size:12px;color:var(--color-text);line-height:1.5;">Neue Menschen kurz abholen und dann persönlich begleiten — nicht alleine entscheiden lassen.</p>
+      </div>
+    </div>
+
+    <!-- Right column: mockup -->
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:20px 50px 20px 20px;">
+      <div class="mockup-wrap" style="width:100%;max-width:620px;">
+
+        <!-- Banner -->
+        <div class="mockup-banner">
+          WE LOVE PILATES &nbsp;·&nbsp; WE LOVE PILATES &nbsp;·&nbsp; WE LOVE PILATES &nbsp;·&nbsp; WE LOVE PILATES
+        </div>
+
+        <!-- Nav -->
+        <div class="mockup-nav">
+          <div class="mockup-logo-txt">PILATESRAUM <span style="font-weight:300;opacity:0.6;">BY MALU</span></div>
+          <div style="display:flex;gap:16px;">
+            <span style="font-size:10px;color:var(--color-muted);letter-spacing:0.1em;text-transform:uppercase;">Angebote</span>
+            <span style="font-size:10px;color:var(--color-muted);letter-spacing:0.1em;text-transform:uppercase;">Über uns</span>
+            <span style="font-size:10px;color:var(--color-muted);letter-spacing:0.1em;text-transform:uppercase;">Kontakt</span>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="mockup-body">
+
+          <!-- Headline -->
+          <div class="label" style="margin-bottom:6px;">Neu bei uns?</div>
+          <div class="mockup-headline">Finde deinen <em>passenden Einstieg.</em></div>
+          <p class="mockup-sub">Ob Matte, Reformer oder 1:1 — wir helfen dir, den ersten Schritt zu finden, der zu deinem Körper und deinem Ziel passt.</p>
+
+          <!-- Cards -->
+          <div class="mockup-cards">
+            <div class="mockup-card selected">
+              <div class="mc-icon">🏋️</div>
+              <div class="mc-label">Reformer</div>
+            </div>
+            <div class="mockup-card">
+              <div class="mc-icon">🧘</div>
+              <div class="mc-label">Matte</div>
+            </div>
+            <div class="mockup-card">
+              <div class="mc-icon">✦</div>
+              <div class="mc-label">1:1</div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="mockup-form">
+            <div class="mockup-input">Dein Name</div>
+            <div class="mockup-input">WhatsApp-Nummer</div>
+            <div class="mockup-input">Pilates-Erfahrung</div>
+            <div class="mockup-input">Dein Ziel</div>
+          </div>
+
+          <!-- Button -->
+          <button class="mockup-btn">Einstieg anfragen</button>
+
+          <!-- Note -->
+          <p class="mockup-note">
+            Wir melden uns persönlich zurück und empfehlen dir den passenden Start.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 8 — WAS KLEIN GEÄNDERT WERDEN MÜSSTE
+=================================================== -->
+<section class="slide" id="slide-8">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">08 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <div style="margin-bottom:24px;">
+      <div class="label" style="margin-bottom:8px;">Was sich ändern würde</div>
+      <h2 class="display-md">Nur kleine Dinge, die den Start <em>klarer machen</em></h2>
+    </div>
+
+    <!-- Four cards -->
+    <div style="flex:1;display:flex;gap:18px;align-items:stretch;min-height:0;">
+
+      <!-- Card 1 -->
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:14px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;">✍️</div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px;">1 — Profiltext</p>
+          <p style="font-size:15px;font-weight:600;color:var(--color-text);margin-bottom:8px;">Den Profiltext klarer machen</p>
+          <p class="body-sm">Ein kurzer Satz für neue Menschen, damit sie sofort wissen: hier bin ich richtig — und hier ist mein nächster Schritt.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:14px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;">🔗</div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px;">2 — Bio-Link</p>
+          <p style="font-size:15px;font-weight:600;color:var(--color-text);margin-bottom:8px;">Den Link auf den einfachen Einstieg setzen</p>
+          <p class="body-sm">Statt direkt auf alle Angebote — zuerst auf eine ruhige kleine Seite, die neue Menschen abholt.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:14px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;">👋</div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px;">3 — Neu hier?</p>
+          <p style="font-size:15px;font-weight:600;color:var(--color-text);margin-bottom:8px;">Einen klaren Einstiegspunkt sichtbar machen</p>
+          <p class="body-sm">Ein Reel, ein Highlight oder eine kleine Story, die sagt: hier startest du, wenn du neu bei Pilates bist.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:14px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;">📋</div>
+        <div>
+          <p style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px;">4 — Anfragen</p>
+          <p style="font-size:15px;font-weight:600;color:var(--color-text);margin-bottom:8px;">Anfragen einfach festhalten</p>
+          <p class="body-sm">Eine klare, einfache Möglichkeit für neue Menschen, sich zu melden — und für euch, Anfragen zu behalten und zu antworten.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:16px;">
+      <div class="thin-line-full"></div>
+      <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;font-style:italic;color:var(--color-muted);line-height:1.4;margin-top:10px;">
+        Es geht nicht darum, euer Instagram neu zu erfinden. Es geht darum, neuen Menschen den Start leichter zu machen.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================================================
+     SLIDE 9 — KLEINER TEST
+=================================================== -->
+<section class="slide" id="slide-9">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">09 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:54px 56px 26px;">
+
+    <div style="margin-bottom:20px;">
+      <div class="label" style="margin-bottom:8px;">Der nächste Schritt</div>
+      <h2 class="display-md">Dann schauen wir, ob <em>echte Anfragen</em> kommen</h2>
+    </div>
+
+    <!-- Three columns: who, what, how -->
+    <div style="display:flex;gap:18px;margin-bottom:20px;">
+
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--color-line);">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-accent);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">1</div>
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Wen sprechen wir an?</span>
+        </div>
+        <p style="font-size:15px;font-weight:500;color:var(--color-text);">Menschen in Köln, die Pilates starten möchten.</p>
+        <p class="body-sm">Neue Menschen, die euer Profil kennen und den ersten Schritt noch nicht gemacht haben.</p>
+      </div>
+
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--color-line);">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-accent);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">2</div>
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Was fragen sie an?</span>
+        </div>
+        <p style="font-size:15px;font-weight:500;color:var(--color-text);">Einen passenden Pilates-Einstieg.</p>
+        <p class="body-sm">Kein festes Paket, keine direkte Buchung — sondern erst eine persönliche Empfehlung.</p>
+      </div>
+
+      <div class="card" style="flex:1;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--color-line);">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-accent);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">3</div>
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent);">Was schauen wir uns an?</span>
+        </div>
+        <p style="font-size:15px;font-weight:500;color:var(--color-text);">Anfrage → Rückmeldung → Termin → Buchung.</p>
+        <p class="body-sm">Einfache Liste. Kein kompliziertes System. Wir schauen, was wirklich passiert.</p>
+      </div>
+
+    </div>
+
+    <!-- Results row -->
+    <div style="display:flex;gap:12px;margin-bottom:16px;">
+
+      <div class="card-sm" style="flex:1;display:flex;align-items:flex-start;gap:12px;">
+        <div class="result-dot dot-neutral" style="margin-top:4px;"></div>
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:3px;">Kaum Anfragen</p>
+          <p class="body-sm">→ Nicht größer machen — zuerst verstehen, warum.</p>
+        </div>
+      </div>
+
+      <div class="card-sm" style="flex:1;display:flex;align-items:flex-start;gap:12px;">
+        <div class="result-dot dot-good" style="margin-top:4px;"></div>
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:3px;">Erste gute Anfragen</p>
+          <p class="body-sm">→ Den Weg verbessern und verfeinern.</p>
+        </div>
+      </div>
+
+      <div class="card-sm" style="flex:1;display:flex;align-items:flex-start;gap:12px;">
+        <div class="result-dot dot-great" style="margin-top:4px;"></div>
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--color-text);margin-bottom:3px;">Mehrere gute Anfragen</p>
+          <p class="body-sm">→ Regelmäßig weiterführen und ausbauen.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="thin-line-full"></div>
+
+    <!-- Closing statement -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+      <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;font-style:italic;color:var(--color-text);line-height:1.35;max-width:500px;">
+        Erst klein testen.<br>Dann entscheiden.
+      </p>
+      <div style="text-align:right;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent);margin-bottom:4px;">Pilatesraum by MaLu</p>
+        <p style="font-size:11px;color:var(--color-muted);">Aachener Straße 1214 · Köln Weiden</p>
+        <p style="font-size:11px;color:var(--color-muted);">pilatesraum.net · @pilatesraumbymalu</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ SLIDE 10 — Fairness / Angebot ============ -->
+<section class="slide" id="slide-10">
+  <div class="slide-top-bar"></div>
+  <div class="slide-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20"><rect x="3" y="6" width="14" height="2"/><rect x="3" y="10" width="14" height="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="14" y1="4" x2="14" y2="8"/></svg>
+    </div>
+    <div class="logo-text">PILATESRAUM<br>BY MALU</div>
+  </div>
+  <div class="slide-number">10 / 10</div>
+
+  <div style="flex:1;display:flex;flex-direction:column;padding:50px 56px 24px;background:#F6F1EA;">
+
+    <!-- Heading -->
+    <div style="margin-bottom:20px;">
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:400;line-height:1.1;color:#3D3A33;margin-bottom:9px;">Kleiner Test. Kein großes Risiko.</h2>
+      <p style="font-size:15px;font-weight:400;color:#6B655B;line-height:1.5;max-width:760px;">Ihr zahlt nicht für Versprechen. Ihr zahlt nur, wenn durch den Test wirklich Umsatz entsteht.</p>
+    </div>
+
+    <!-- Three cards -->
+    <div style="display:flex;gap:18px;flex:1;align-items:stretch;">
+
+      <!-- CARD 1 -->
+      <div style="flex:1;display:flex;flex-direction:column;background:#FBF8F3;border:1px solid #E5DCCE;border-radius:14px;padding:24px 22px;">
+        <div style="font-size:30px;font-family:'Cormorant Garamond',Georgia,serif;color:#C9BFAE;font-weight:500;line-height:1;margin-bottom:14px;">1</div>
+        <h3 style="font-size:17px;font-weight:600;color:#3D3A33;line-height:1.25;margin-bottom:12px;">Kleines Werbebudget</h3>
+        <p style="font-size:13.5px;color:#6B655B;line-height:1.55;margin-bottom:18px;">Ihr setzt nur einen kleinen, vorher gedeckelten Betrag für Werbung ein.</p>
+        <div style="margin-top:auto;">
+          <div style="background:#F0E9DD;border-radius:10px;padding:14px 16px;text-align:center;">
+            <p style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#A89C88;margin-bottom:4px;">Beispiel</p>
+            <p style="font-size:22px;font-weight:600;color:#3D3A33;">max. 250 €</p>
+            <p style="font-size:12px;color:#8A8170;">Werbebudget</p>
+          </div>
+          <p style="font-size:11.5px;color:#9A917F;line-height:1.5;margin-top:12px;">Das Geld geht direkt an Meta — nicht an Daniel.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div style="flex:1;display:flex;flex-direction:column;background:#FBF8F3;border:1px solid #E5DCCE;border-radius:14px;padding:24px 22px;">
+        <div style="font-size:30px;font-family:'Cormorant Garamond',Georgia,serif;color:#C9BFAE;font-weight:500;line-height:1;margin-bottom:14px;">2</div>
+        <h3 style="font-size:17px;font-weight:600;color:#3D3A33;line-height:1.25;margin-bottom:12px;">Wenn niemand kauft: 0 €</h3>
+        <p style="font-size:13.5px;color:#6B655B;line-height:1.55;margin-bottom:18px;">Wenn aus dem Test keine zahlenden neuen Kunden entstehen, zahlt ihr mir keine Setup-Gebühr.</p>
+        <div style="margin-top:auto;">
+          <div style="background:#F0E9DD;border-radius:10px;padding:18px 16px;text-align:center;">
+            <p style="font-size:34px;font-weight:600;color:#3D3A33;line-height:1;">0 €</p>
+            <p style="font-size:12px;color:#8A8170;margin-top:6px;">an Daniel</p>
+          </div>
+          <p style="font-size:11.5px;color:#9A917F;line-height:1.5;margin-top:12px;">Keine Buchung. Keine Rechnung von mir.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div style="flex:1;display:flex;flex-direction:column;background:#FBF8F3;border:1px solid #E5DCCE;border-radius:14px;padding:24px 22px;">
+        <div style="font-size:30px;font-family:'Cormorant Garamond',Georgia,serif;color:#C9BFAE;font-weight:500;line-height:1;margin-bottom:14px;">3</div>
+        <h3 style="font-size:17px;font-weight:600;color:#3D3A33;line-height:1.25;margin-bottom:12px;">Wenn Umsatz entsteht: fair teilen</h3>
+        <p style="font-size:13px;color:#6B655B;line-height:1.5;margin-bottom:14px;">Erst wird euer Werbebudget rechnerisch wieder reingeholt. Danach erhalte ich einen Anteil vom Umsatz, der durch neue Kunden aus dem Test entsteht.</p>
+        <div style="margin-top:auto;">
+          <div style="background:#3D3A33;border-radius:10px;padding:13px 14px;text-align:center;margin-bottom:10px;">
+            <p style="font-size:15px;font-weight:600;color:#FBF8F3;line-height:1.3;">25 % vom Umsatz<br><span style="font-size:12px;font-weight:400;color:#C9BFAE;">nach Werbebudget</span></p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:#7A7363;line-height:1.5;">
+            <div style="display:flex;justify-content:space-between;"><span>Werbebudget</span><span>250 €</span></div>
+            <div style="display:flex;justify-content:space-between;"><span>Neuer Umsatz</span><span>700 €</span></div>
+            <div style="display:flex;justify-content:space-between;border-top:1px solid #E5DCCE;padding-top:3px;"><span>Umsatz nach Werbebudget</span><span>450 €</span></div>
+            <div style="display:flex;justify-content:space-between;color:#3D3A33;font-weight:600;font-size:12.5px;"><span>25 % davon</span><span>112,50 €</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Closing statement -->
+    <div style="margin-top:18px;text-align:center;">
+      <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-style:italic;color:#5A5447;line-height:1.4;max-width:880px;margin:0 auto;">
+        Wenn der Test nichts bringt, bleibt euer Risiko auf das kleine Werbebudget begrenzt. Wenn er Umsatz bringt, werde ich aus dem Ergebnis bezahlt.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+</div><!-- end #presentation -->
+
+<script src="script.js"></script>
+</body>
+</html>
