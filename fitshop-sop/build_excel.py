@@ -5,6 +5,8 @@ from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import FormulaRule
+from openpyxl.chart import BarChart, LineChart, Reference
+from openpyxl.chart.label import DataLabel
 
 # ─── Farben ───────────────────────────────────────────────────────────────────
 C_RED        = "E31E24"
@@ -348,6 +350,188 @@ for vi, vg in enumerate(["Online","Preis","Kein Bedarf","Konkurrenz","Keine Ruec
     for c_idx in range(3, 7):
         ws2.cell(row=vi, column=c_idx).fill = fill(bg)
     ws2.row_dimensions[vi].height = 20
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHART-BEREICH: Leistungsentwicklung 2026
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ─── Abschnitts-Header Grafiken ───────────────────────────────────────────────
+chart_hdr_row = sep + len(["Online","Preis","Kein Bedarf","Konkurrenz","Keine Rueckmeldung"]) + 3
+ws2.merge_cells(f"A{chart_hdr_row}:F{chart_hdr_row}")
+ch = ws2.cell(row=chart_hdr_row, column=1, value="LEISTUNGSENTWICKLUNG 2026 – GRAFIKEN")
+ch.fill = fill(C_RED); ch.font = font(bold=True, color=C_WHITE, size=10)
+ch.alignment = align("left", "center"); ws2.row_dimensions[chart_hdr_row].height = 22
+
+ws2.merge_cells(f"A{chart_hdr_row+1}:F{chart_hdr_row+1}")
+ch2 = ws2.cell(row=chart_hdr_row+1, column=1,
+    value="Daten werden automatisch aus dem Lead-Tracking gezogen. Ansicht aktualisieren: Strg+Alt+F9")
+ch2.font = font(size=8, italic=True, color="999999")
+ch2.alignment = align("left", "center"); ws2.row_dimensions[chart_hdr_row+1].height = 15
+
+# ─── Hilfstabelle für Charts (weit unten, ab Zeile 110) ──────────────────────
+H_HDR = 110   # Section-Header
+H_COL = 111   # Spalten-Header
+H_START = 112 # Januarr
+H_END   = 123 # Dezember
+
+months_de = ["Januar","Februar","März","April","Mai","Juni",
+             "Juli","August","September","Oktober","November","Dezember"]
+
+employees = ["Daniel", "Jonas", "Angie", "Norbert"]
+
+# Section-Header der Hilfstabelle
+ws2.merge_cells(f"A{H_HDR}:M{H_HDR}")
+hth = ws2.cell(row=H_HDR, column=1, value="CHART-DATEN (automatisch berechnet – nicht bearbeiten)")
+hth.fill = fill(C_ANTHRAZIT); hth.font = font(bold=True, color="AAAAAA", size=8, italic=True)
+hth.alignment = align("left", "center"); ws2.row_dimensions[H_HDR].height = 16
+
+# Spalten-Header der Hilfstabelle
+# A: Monat | B: Umsatz Gesamt | C-F: Umsatz/MA | G: Abschlüsse Gesamt | H-K: Abschlüsse/MA | L: Leads | M: Kum. Umsatz
+ht_headers = ["Monat","Umsatz Ges.","Daniel EUR","Jonas EUR","Angie EUR","Norbert EUR",
+              "Abschl. Ges.","Daniel #","Jonas #","Angie #","Norbert #","Neue Leads","Kum. Umsatz"]
+for ci, h in enumerate(ht_headers, 1):
+    cell = ws2.cell(row=H_COL, column=ci, value=h)
+    cell.fill = fill(C_ANTHRAZIT); cell.font = font(bold=True, color=C_WHITE, size=8)
+    cell.alignment = align("center", "center"); cell.border = thin_border("404040")
+    ws2.column_dimensions[get_column_letter(ci)].width = max(
+        ws2.column_dimensions[get_column_letter(ci)].width or 0, 12)
+ws2.row_dimensions[H_COL].height = 20
+
+for ri, (mname, mnum) in enumerate(zip(months_de, range(1, 13)), H_START):
+    bg = C_GRAY_LIGHT if ri % 2 == 0 else C_WHITE
+    # A: Monatsname
+    ws2.cell(row=ri, column=1, value=mname).fill = fill(bg)
+    ws2.cell(row=ri, column=1).font = font(size=9, bold=True)
+    ws2.cell(row=ri, column=1).border = thin_border()
+
+    # B: Umsatz Gesamt
+    ws2.cell(row=ri, column=2, value=(
+        f'=SUMPRODUCT((YEAR({TN}!$B$4:$B$2000)=2026)*'
+        f'(MONTH({TN}!$B$4:$B$2000)={mnum})*'
+        f'({TN}!$Q$4:$Q$2000="Ja")*({TN}!$P$4:$P$2000))'
+    )).fill = fill(bg)
+    ws2.cell(row=ri, column=2).font = font(size=9); ws2.cell(row=ri, column=2).border = thin_border()
+
+    # C-F: Umsatz pro Mitarbeiter
+    for ci, emp in enumerate(employees, 3):
+        ws2.cell(row=ri, column=ci, value=(
+            f'=SUMPRODUCT((YEAR({TN}!$B$4:$B$2000)=2026)*'
+            f'(MONTH({TN}!$B$4:$B$2000)={mnum})*'
+            f'({TN}!$C$4:$C$2000="{emp}")*'
+            f'({TN}!$Q$4:$Q$2000="Ja")*({TN}!$P$4:$P$2000))'
+        )).fill = fill(bg)
+        ws2.cell(row=ri, column=ci).font = font(size=9); ws2.cell(row=ri, column=ci).border = thin_border()
+
+    # G: Abschlüsse Gesamt
+    ws2.cell(row=ri, column=7, value=(
+        f'=SUMPRODUCT((YEAR({TN}!$B$4:$B$2000)=2026)*'
+        f'(MONTH({TN}!$B$4:$B$2000)={mnum})*'
+        f'({TN}!$Q$4:$Q$2000="Ja"))'
+    )).fill = fill(bg)
+    ws2.cell(row=ri, column=7).font = font(size=9); ws2.cell(row=ri, column=7).border = thin_border()
+
+    # H-K: Abschlüsse pro Mitarbeiter
+    for ci, emp in enumerate(employees, 8):
+        ws2.cell(row=ri, column=ci, value=(
+            f'=SUMPRODUCT((YEAR({TN}!$B$4:$B$2000)=2026)*'
+            f'(MONTH({TN}!$B$4:$B$2000)={mnum})*'
+            f'({TN}!$C$4:$C$2000="{emp}")*'
+            f'({TN}!$Q$4:$Q$2000="Ja"))'
+        )).fill = fill(bg)
+        ws2.cell(row=ri, column=ci).font = font(size=9); ws2.cell(row=ri, column=ci).border = thin_border()
+
+    # L: Neue Leads
+    ws2.cell(row=ri, column=12, value=(
+        f'=SUMPRODUCT((YEAR({TN}!$B$4:$B$2000)=2026)*'
+        f'(MONTH({TN}!$B$4:$B$2000)={mnum})*({TN}!$A$4:$A$2000<>""))'
+    )).fill = fill(bg)
+    ws2.cell(row=ri, column=12).font = font(size=9); ws2.cell(row=ri, column=12).border = thin_border()
+
+    # M: Kumulierter Umsatz (laufende Summe)
+    if ri == H_START:
+        ws2.cell(row=ri, column=13, value=f'=B{ri}')
+    else:
+        ws2.cell(row=ri, column=13, value=f'=M{ri-1}+B{ri}')
+    ws2.cell(row=ri, column=13).fill = fill(bg)
+    ws2.cell(row=ri, column=13).font = font(size=9); ws2.cell(row=ri, column=13).border = thin_border()
+    ws2.row_dimensions[ri].height = 18
+
+# ─── CHART 1: Umsatz-Entwicklung (Gestapelte Säulen + Linie kumuliert) ────────
+bar1 = BarChart()
+bar1.type = "col"
+bar1.grouping = "stacked"
+bar1.title = "Umsatz-Entwicklung 2026 nach Mitarbeiter (EUR)"
+bar1.y_axis.title = "EUR (monatlich)"
+bar1.x_axis.title = "Monat"
+bar1.style = 10
+bar1.width  = 26   # cm
+bar1.height = 15   # cm
+bar1.overlap = 100
+
+# Kategorien = Monatsnamen
+cats1 = Reference(ws2, min_col=1, min_row=H_START, max_row=H_END)
+
+# Gestapelte Serien: Daniel (C), Jonas (D), Angie (E), Norbert (F)
+# min_row = H_COL (Header-Zeile) → titles_from_data=True nimmt ersten Wert als Serienbeschriftung
+data_stacked = Reference(ws2, min_col=3, max_col=6, min_row=H_COL, max_row=H_END)
+bar1.add_data(data_stacked, titles_from_data=True)
+bar1.set_categories(cats1)
+
+# Serienfarben: Daniel=Fitshop-Rot, Jonas=Blau, Angie=Grün, Norbert=Orange
+bar_colors = ["E31E24", "1565C0", "2E7D32", "E65100"]
+for i, color in enumerate(bar_colors):
+    if i < len(bar1.series):
+        bar1.series[i].graphicalProperties.solidFill = color
+        bar1.series[i].graphicalProperties.line.solidFill = color
+
+# Linie: Kumulierter Umsatz (M) → sekundäre Y-Achse
+line1 = LineChart()
+line1.grouping = "standard"
+cum_data = Reference(ws2, min_col=13, min_row=H_COL, max_row=H_END)
+line1.add_data(cum_data, titles_from_data=True)
+line1.set_categories(cats1)
+line1.y_axis.axId  = 200
+line1.y_axis.title = "Kumuliert (EUR)"
+line1.y_axis.crosses = "max"
+
+# Linienstil: anthrazit, dick, mit Marker
+if line1.series:
+    s = line1.series[0]
+    s.graphicalProperties.line.solidFill  = "2D2D2D"
+    s.graphicalProperties.line.width      = 31750   # 2.5pt
+    s.marker.symbol = "circle"
+    s.marker.size   = 6
+    s.marker.graphicalProperties.solidFill     = "2D2D2D"
+    s.marker.graphicalProperties.line.solidFill = "2D2D2D"
+    s.smooth = True
+
+bar1 += line1
+ws2.add_chart(bar1, f"A{chart_hdr_row + 2}")
+
+# ─── CHART 2: Abschlüsse pro Monat und Mitarbeiter (Gruppierte Säulen) ────────
+bar2 = BarChart()
+bar2.type = "col"
+bar2.grouping = "clustered"
+bar2.title = "Abschlüsse pro Monat nach Mitarbeiter"
+bar2.y_axis.title = "Anzahl Abschlüsse"
+bar2.x_axis.title = "Monat"
+bar2.style = 10
+bar2.width  = 22
+bar2.height = 12
+
+cats2  = Reference(ws2, min_col=1, min_row=H_START, max_row=H_END)
+data2  = Reference(ws2, min_col=8, max_col=11, min_row=H_COL, max_row=H_END)
+bar2.add_data(data2, titles_from_data=True)
+bar2.set_categories(cats2)
+
+for i, color in enumerate(bar_colors):
+    if i < len(bar2.series):
+        bar2.series[i].graphicalProperties.solidFill = color
+        bar2.series[i].graphicalProperties.line.solidFill = color
+
+# Chart 2 unter Chart 1 (Chart 1 ist ~15cm = ~21 Zeilen à ~0.7cm)
+chart2_row = chart_hdr_row + 2 + 23   # ca. 23 Zeilen tiefer als Chart 1
+ws2.add_chart(bar2, f"A{chart2_row}")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SHEET 3 – Legende
