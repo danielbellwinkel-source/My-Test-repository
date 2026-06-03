@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Fitshop Hall/Tirol – Tracking-System 2026</title>
+<style>
+  /* ============================================================ PAGED MEDIA ============================================================ */
+  @page {
+    size: A4;
+    margin: 22mm 16mm 18mm 16mm;
+    @top-left { content: element(rhl); vertical-align: bottom; padding-bottom: 4mm; }
+    @top-right {
+      content: element(rhr); vertical-align: bottom; padding-bottom: 4mm;
+      font-family: 'Helvetica', Arial, sans-serif; font-size: 7.5pt; color: #6b6b6b;
+    }
+    @bottom-left {
+      content: "Fitshop Hall/Tirol  ·  Intern & Vertraulich";
+      font-family: 'Helvetica', Arial, sans-serif; font-size: 7pt; color: #999;
+      vertical-align: top; padding-top: 4mm; border-top: 1px solid #e0e0e0;
+    }
+    @bottom-center {
+      content: "fitshop";
+      font-family: 'Helvetica', Arial, sans-serif; font-size: 7.5pt; color: #e31e24;
+      font-weight: 700; vertical-align: top; padding-top: 4mm; border-top: 1px solid #e0e0e0;
+    }
+    @bottom-right {
+      content: counter(page);
+      font-family: 'Helvetica', Arial, sans-serif; font-size: 7pt; color: #999;
+      vertical-align: top; padding-top: 4mm; border-top: 1px solid #e0e0e0;
+    }
+  }
+  @page :first {
+    margin: 0;
+    @top-left { content: none; } @top-right { content: none; }
+    @bottom-left { content: none; } @bottom-center { content: none; } @bottom-right { content: none; }
+  }
+  .rhl {
+    position: running(rhl);
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 2px solid #e31e24; padding-bottom: 4mm; width: 178mm;
+  }
+  .rhr { position: running(rhr); }
+  .rhl .logo { font-family: 'Helvetica', Arial, sans-serif; font-size: 12pt; font-weight: 900; color: #e31e24; letter-spacing: -0.5px; }
+  .rhl .sub { font-family: 'Helvetica', Arial, sans-serif; font-size: 7.5pt; color: #6b6b6b; font-weight: 500; }
+
+  :root {
+    --red: #e31e24; --red-dark: #c0191e; --red-light: #fce8e9;
+    --anthracite: #2d2d2d; --gray-dark: #3d3d3d; --gray-mid: #6b6b6b;
+    --gray-light: #f5f5f5; --gray-border: #e0e0e0; --white: #ffffff;
+    --blue: #1565c0; --green: #1b5e20; --purple: #6a1b9a; --orange: #e65100; --brown: #5d4037;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Helvetica', 'Arial', sans-serif; font-size: 10pt; color: var(--anthracite); background: var(--white); line-height: 1.5; }
+
+  /* ============================================================ COVER ============================================================ */
+  .cover {
+    page: cover; width: 210mm; height: 297mm; margin: 0; padding: 22mm 18mm 18mm 18mm;
+    background: var(--anthracite); color: white; break-after: page; position: relative; display: block;
+  }
+  .cover-logo { font-size: 28pt; font-weight: 900; color: var(--red); letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
+  .cover-logo-sub { font-size: 8pt; color: #aaa; letter-spacing: 2.5px; font-weight: 500; text-transform: uppercase; }
+  .cover-middle { margin-top: 64mm; }
+  .cover-eyebrow { font-size: 7.5pt; color: var(--red); letter-spacing: 3px; font-weight: 600; text-transform: uppercase; margin-bottom: 12px; }
+  .cover-title { font-size: 34pt; font-weight: 800; color: white; line-height: 1.05; margin-bottom: 8px; letter-spacing: -1px; }
+  .cover-title-red { color: var(--red); }
+  .cover-subtitle { font-size: 13pt; color: #ccc; font-weight: 300; line-height: 1.35; margin-bottom: 22px; }
+  .cover-rule { width: 60px; height: 4px; background: var(--red); margin-bottom: 22px; }
+  .cover-quote { font-size: 11pt; color: #bbb; font-style: italic; line-height: 1.5; max-width: 360px; border-left: 3px solid var(--red); padding-left: 14px; }
+  .cover-bottom { position: absolute; bottom: 22mm; left: 18mm; right: 18mm; border-top: 1px solid #444; padding-top: 14px; }
+  .cover-meta { width: 100%; }
+  .cover-meta td { padding-right: 16px; vertical-align: top; font-size: 8pt; line-height: 1.5; color: #888; }
+  .cover-meta td strong { display: block; color: #ccc; font-size: 8.5pt; margin-bottom: 1px; }
+  .cover-badge { background: var(--red); color: white; font-size: 7.5pt; font-weight: 700; padding: 6px 12px; text-transform: uppercase; letter-spacing: 1.5px; white-space: nowrap; }
+
+  /* ============================================================ TOC ============================================================ */
+  .toc { page: cover; break-before: page; }
+  .toc h1 { font-size: 22pt; font-weight: 800; color: var(--anthracite); margin-bottom: 4px; }
+  .toc .rule { width: 50px; height: 3px; background: var(--red); margin-bottom: 20px; }
+  table.toc-table { width: 100%; border-collapse: collapse; }
+  table.toc-table td { padding: 9px 0; border-bottom: 1px solid var(--gray-border); vertical-align: top; }
+  table.toc-table td.num { width: 32px; padding-right: 12px; }
+  table.toc-table td.num span { display: block; background: var(--red); color: white; width: 30px; height: 30px; line-height: 30px; text-align: center; font-size: 9.5pt; font-weight: 800; }
+  table.toc-table td.label .ttl { font-size: 10pt; font-weight: 700; color: var(--anthracite); }
+  table.toc-table td.label .sub { font-size: 8pt; color: var(--gray-mid); margin-top: 1px; }
+  table.toc-table td.page { width: 50px; text-align: right; font-size: 9pt; color: var(--gray-mid); font-weight: 500; }
+
+  /* ============================================================ SECTIONS ============================================================ */
+  .section { break-before: page; }
+  .section-eyebrow { font-size: 7pt; color: var(--red); font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .section-title { font-size: 19pt; font-weight: 800; color: var(--anthracite); line-height: 1.15; margin-bottom: 4px; letter-spacing: -0.3px; }
+  .section-subtitle { font-size: 10pt; color: var(--gray-mid); margin-bottom: 12px; font-weight: 400; }
+  .section-rule { width: 40px; height: 3px; background: var(--red); margin-bottom: 14px; }
+
+  h2.subsection { font-size: 12pt; font-weight: 700; color: var(--anthracite); margin-top: 16px; margin-bottom: 8px; padding-left: 12px; border-left: 4px solid var(--red); line-height: 1.2; break-after: avoid; }
+  h3 { font-size: 10pt; font-weight: 700; color: var(--anthracite); margin: 10px 0 4px 0; break-after: avoid; }
+  p { margin-bottom: 7px; font-size: 9.5pt; }
+  ul, ol { padding-left: 16px; margin-bottom: 8px; }
+  li { font-size: 9.5pt; margin-bottom: 3px; line-height: 1.45; }
+
+  /* ============================================================ BOXES ============================================================ */
+  .box { background: var(--gray-light); border-left: 4px solid var(--red); padding: 10px 14px; margin: 10px 0; break-inside: avoid; }
+  .box-title { font-size: 7.5pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 5px; }
+  .box-dark { background: var(--anthracite); color: white; border-left: 4px solid var(--red); padding: 11px 14px; margin: 10px 0; break-inside: avoid; }
+  .box-dark .box-title { color: var(--red); }
+  .box-dark p { color: #ddd; margin-bottom: 4px; font-size: 9.5pt; }
+  .highlight-quote { background: var(--anthracite); color: white; padding: 14px 18px; margin: 14px 0; text-align: center; break-inside: avoid; }
+  .highlight-quote .q { font-size: 11.5pt; font-weight: 600; font-style: italic; line-height: 1.4; }
+  .highlight-quote .att { font-size: 7.5pt; color: var(--red); margin-top: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+  .red-box { background: var(--red-light); border: 1px solid #f0c0c0; border-left: 4px solid var(--red); padding: 10px 14px; margin: 10px 0; break-inside: avoid; }
+  .red-box .box-title { color: var(--red-dark); }
+  .green-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-left: 4px solid #2e7d32; padding: 10px 14px; margin: 10px 0; break-inside: avoid; }
+  .green-box .box-title { color: #1b5e20; }
+  .warn-box { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 14px; margin: 10px 0; break-inside: avoid; }
+  .warn-box .box-title { color: #e65100; }
+
+  /* ============================================================ TABLES ============================================================ */
+  table.data { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+  table.data.keep-together { break-inside: avoid; }
+  table.data tbody tr { break-inside: avoid; }
+  table.data thead { display: table-header-group; }
+  table.data thead th { background: var(--anthracite); color: white; padding: 7px 9px; text-align: left; font-weight: 600; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.5px; }
+  table.data tbody td { padding: 7px 9px; border-bottom: 1px solid var(--gray-border); vertical-align: top; font-size: 9pt; }
+  table.data tbody tr:nth-child(even) { background: var(--gray-light); }
+  table.data td.red-label { font-weight: 700; color: var(--red); white-space: nowrap; }
+  table.compact { font-size: 8.5pt; }
+  table.compact thead th { font-size: 7pt; padding: 6px 8px; }
+  table.compact tbody td { padding: 5px 8px; font-size: 8pt; }
+  .mono { font-family: 'Courier New', monospace; font-size: 8pt; }
+
+  /* ============================================================ COLUMNS ============================================================ */
+  table.cols { width: 100%; border-collapse: separate; border-spacing: 8px 0; margin: 10px -8px; table-layout: fixed; }
+  table.cols > tbody > tr > td { vertical-align: top; padding: 0; }
+
+  /* ============================================================ STEPS ============================================================ */
+  .steps { margin: 10px 0; }
+  .step { background: var(--gray-light); border-left: 3px solid var(--red); padding: 8px 12px; margin-bottom: 5px; break-inside: avoid; }
+  .step-table { width: 100%; border-collapse: collapse; }
+  .step-table td { vertical-align: top; padding: 0; }
+  .step-num { width: 28px; padding-right: 10px !important; }
+  .step-num span { display: block; width: 24px; height: 24px; background: var(--red); color: white; font-weight: 800; font-size: 9pt; text-align: center; line-height: 24px; }
+  .step-content .title { font-size: 9.5pt; font-weight: 700; margin-bottom: 2px; }
+  .step-content .desc { font-size: 8.5pt; color: var(--gray-dark); line-height: 1.4; }
+
+  /* ============================================================ MINI GRID ============================================================ */
+  table.mini-grid { width: 100%; border-spacing: 8px; border-collapse: separate; margin: 8px -8px; table-layout: fixed; }
+  table.mini-grid td { vertical-align: top; padding: 0; }
+  .mini-card { background: var(--gray-light); border-top: 3px solid var(--red); padding: 10px 12px; height: 100%; break-inside: avoid; }
+  .mini-card.green { border-top-color: #2e7d32; }
+  .mini-card.blue { border-top-color: var(--blue); }
+  .mini-card .mc-title { font-size: 8pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 5px; }
+  .mini-card.green .mc-title { color: #2e7d32; }
+  .mini-card.blue .mc-title { color: var(--blue); }
+  .mini-card .mc-val { font-size: 8.5pt; line-height: 1.45; color: var(--anthracite); }
+  .mini-card ul { padding-left: 12px; margin: 0; }
+  .mini-card li { font-size: 8.5pt; margin-bottom: 3px; }
+
+  /* ============================================================ ARROW LIST ============================================================ */
+  ul.arrow-list { list-style: none; padding: 0; margin: 6px 0; }
+  ul.arrow-list li { padding: 4px 0 4px 16px; position: relative; font-size: 9pt; border-bottom: 1px solid var(--gray-border); line-height: 1.45; }
+  ul.arrow-list li::before { content: '→'; position: absolute; left: 0; top: 4px; color: var(--red); font-weight: 700; }
+
+  /* ============================================================ TRACKING-SPECIFIC: 3-EBENEN ============================================================ */
+  .ebene-flow { width: 100%; border-collapse: separate; border-spacing: 0; margin: 12px 0; break-inside: avoid; }
+  .ebene-flow td { vertical-align: middle; }
+  .ebene-card { padding: 12px 14px; color: white; text-align: center; }
+  .ebene-card .en { font-size: 7pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.8; margin-bottom: 3px; }
+  .ebene-card .et { font-size: 12pt; font-weight: 800; margin-bottom: 3px; }
+  .ebene-card .ed { font-size: 8pt; line-height: 1.35; opacity: 0.95; }
+  .ebene-arrow { width: 36px; text-align: center; color: var(--red); font-size: 18pt; font-weight: 700; }
+
+  /* ============================================================ LEAD-KARTE ============================================================ */
+  .lead-card { border: 2px solid var(--anthracite); margin: 10px 0; break-inside: avoid; background: white; }
+  .lc-head { background: var(--anthracite); color: white; padding: 0; }
+  .lc-head-table { width: 100%; border-collapse: collapse; }
+  .lc-head-table td { padding: 8px 12px; vertical-align: middle; }
+  .lc-logo { font-size: 13pt; font-weight: 900; color: var(--red); }
+  .lc-title { font-size: 11pt; font-weight: 800; color: white; letter-spacing: 1px; }
+  .lc-nr { text-align: right; font-size: 8pt; color: #bbb; }
+  .lc-nr .nr-box { display: inline-block; border: 1px solid #888; padding: 2px 10px; margin-left: 4px; min-width: 50px; }
+  .lc-body { padding: 10px 12px; }
+  .lc-row { width: 100%; border-collapse: collapse; margin-bottom: 7px; }
+  .lc-row td { vertical-align: top; padding: 0 6px 0 0; }
+  .lc-field-label { font-size: 6.5pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px; }
+  .lc-line { border-bottom: 1px solid #999; height: 16px; }
+  .lc-chk { font-size: 8pt; line-height: 1.7; }
+  .lc-chk .opt { display: inline-block; margin-right: 8px; white-space: nowrap; }
+  .lc-chk .box { display: inline-block; width: 9px; height: 9px; border: 1px solid #666; margin-right: 2px; vertical-align: -1px; }
+  .lc-circle { display: inline-block; width: 18px; height: 18px; border: 1.5px solid #666; border-radius: 50%; text-align: center; line-height: 16px; font-size: 8pt; font-weight: 700; margin-right: 4px; }
+  .lc-typ-badge { display: inline-block; width: 17px; height: 17px; border: 1.5px solid var(--anthracite); text-align: center; line-height: 15px; font-size: 8pt; font-weight: 700; margin-right: 3px; }
+  .lc-foot { background: var(--gray-light); border-top: 1px solid var(--gray-border); padding: 6px 12px; }
+  .lc-status-track { width: 100%; border-collapse: collapse; }
+  .lc-status-track td { text-align: center; font-size: 6.5pt; font-weight: 700; padding: 4px 2px; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.3px; position: relative; }
+  .lc-status-track td .dot { display: block; width: 11px; height: 11px; border: 1.5px solid #999; border-radius: 50%; margin: 0 auto 3px; }
+
+  /* annotation callouts pointing at fields */
+  .anno { font-size: 7.5pt; color: var(--gray-mid); font-style: italic; }
+
+  /* ============================================================ KANBAN BOARD ============================================================ */
+  .kanban { width: 100%; border-collapse: separate; border-spacing: 4px 0; table-layout: fixed; margin: 12px 0; break-inside: avoid; }
+  .kanban > tbody > tr > td { vertical-align: top; padding: 0; }
+  .kb-col-head { color: white; padding: 7px 5px; text-align: center; font-size: 7.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.2; }
+  .kb-col-body { background: var(--gray-light); border: 1px solid var(--gray-border); border-top: none; min-height: 120px; padding: 5px; }
+  .kb-ticket { background: white; border: 1px solid var(--gray-border); border-left: 3px solid var(--red); padding: 5px 6px; margin-bottom: 5px; font-size: 7pt; line-height: 1.3; }
+  .kb-ticket .kt-name { font-weight: 700; font-size: 7.5pt; }
+  .kb-ticket .kt-meta { color: var(--gray-mid); }
+  .kb-ticket.blue { border-left-color: var(--blue); }
+  .kb-ticket.purple { border-left-color: var(--purple); }
+  .kb-ticket.orange { border-left-color: var(--orange); }
+  .kb-ticket.green { border-left-color: var(--green); }
+
+  /* ============================================================ AMPEL ============================================================ */
+  .ampel-row { width: 100%; border-collapse: separate; border-spacing: 8px 0; margin: 10px -8px; table-layout: fixed; }
+  .ampel-row td { vertical-align: top; padding: 0; }
+  .ampel-card { border: 1px solid var(--gray-border); border-top: 4px solid; padding: 10px 12px; break-inside: avoid; }
+  .ampel-card.gruen { border-top-color: #2e7d32; }
+  .ampel-card.gelb { border-top-color: #f9a825; }
+  .ampel-card.rot { border-top-color: var(--red); }
+  .ampel-card .ac-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: -2px; margin-right: 6px; }
+  .ampel-card.gruen .ac-dot { background: #2e7d32; }
+  .ampel-card.gelb .ac-dot { background: #f9a825; }
+  .ampel-card.rot .ac-dot { background: var(--red); }
+  .ampel-card .ac-title { font-size: 10pt; font-weight: 700; margin-bottom: 5px; }
+  .ampel-card .ac-body { font-size: 8.5pt; line-height: 1.45; }
+
+  /* ============================================================ KPI CARDS ============================================================ */
+  .kpi-grid { width: 100%; border-spacing: 8px; border-collapse: separate; margin: 8px -8px; table-layout: fixed; }
+  .kpi-grid td { vertical-align: top; padding: 0; }
+  .kpi { background: var(--anthracite); color: white; padding: 12px; text-align: center; break-inside: avoid; }
+  .kpi .kn { font-size: 6.5pt; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 5px; }
+  .kpi .kv { font-size: 16pt; font-weight: 800; color: white; line-height: 1; }
+  .kpi .kv .unit { font-size: 9pt; color: var(--red); }
+  .kpi .kt { font-size: 7pt; color: #bbb; margin-top: 4px; line-height: 1.3; }
+  .kpi.red { background: var(--red); }
+  .kpi.red .kn { color: #ffd0d0; } .kpi.red .kv .unit { color: white; } .kpi.red .kt { color: #ffe0e0; }
+
+  /* status pill */
+  .pill { display: inline-block; padding: 1px 7px; font-size: 7pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: white; }
+  .pill.gray { background: #9e9e9e; } .pill.blue { background: var(--blue); } .pill.red { background: var(--red); }
+  .pill.purple { background: var(--purple); } .pill.orange { background: var(--orange); }
+  .pill.green { background: var(--green); } .pill.brown { background: var(--brown); } .pill.dark { background: #424242; }
+
+  .small { font-size: 8pt; } .center { text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="rhl"><div><div class="logo">FITSHOP</div><div class="sub">Hall/Tirol · Tracking-System 2026</div></div></div>
+<div class="rhr">Intern &amp; Vertraulich</div>
+
+<!-- ============================================================ COVER ============================================================ -->
+<div class="cover">
+  <div><div class="cover-logo">FITSHOP</div><div class="cover-logo-sub">Hall / Tirol · Europas Nr. 1 für Heimfitness</div></div>
+  <div class="cover-middle">
+    <div class="cover-eyebrow">Internes Vertriebs-Werkzeug · Vertraulich · 2026</div>
+    <div class="cover-title">Tracking-<br><span class="cover-title-red">System</span></div>
+    <div class="cover-subtitle">Kein warmer Kunde geht verloren –<br>vom Erstkontakt bis zum Abschluss</div>
+    <div class="cover-rule"></div>
+    <div class="cover-quote">„Ein Lead, der nicht erfasst ist, existiert nicht. Was wir nicht festhalten, fassen wir nie wieder nach."</div>
+  </div>
+  <div class="cover-bottom">
+    <table class="cover-meta">
+      <tr>
+        <td><strong>Standort</strong>Hall in Tirol</td>
+        <td><strong>Team</strong>Daniel · Jonas · Angie · Norbert</td>
+        <td><strong>Begleitet</strong>Verkaufs-SOP 2026</td>
+        <td><strong>Version</strong>1.0 · Mai 2026</td>
+        <td style="text-align:right; width:1%;"><span class="cover-badge">Intern &amp; Vertraulich</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ============================================================ TOC ============================================================ -->
+<div class="toc">
+  <h1>Inhaltsverzeichnis</h1>
+  <div class="rule"></div>
+  <table class="toc-table">
+    <tr><td class="num"><span>1</span></td><td class="label"><div class="ttl">Warum ein Tracking-System – und warum dieses</div><div class="sub">Das Problem, die Lösung und die 3-Ebenen-Architektur</div></td><td class="page">3</td></tr>
+    <tr><td class="num"><span>2</span></td><td class="label"><div class="ttl">Ebene 1 – Die Lead-Karte</div><div class="sub">Erfassung im Moment: 60 Sekunden am Tresen</div></td><td class="page">5</td></tr>
+    <tr><td class="num"><span>3</span></td><td class="label"><div class="ttl">Ebene 2 – Das Pipeline-Board</div><div class="sub">Kanban-Überblick: Wer ist wo im Prozess?</div></td><td class="page">7</td></tr>
+    <tr><td class="num"><span>4</span></td><td class="label"><div class="ttl">Ebene 3 – Die Tracking-Tabelle</div><div class="sub">Das digitale Gedächtnis: Felder, Logik, Farbcodierung</div></td><td class="page">8</td></tr>
+    <tr><td class="num"><span>5</span></td><td class="label"><div class="ttl">Die Ampel-Logik – Follow-up-Steuerung</div><div class="sub">Grün, Gelb, Rot: Wer braucht heute Aufmerksamkeit?</div></td><td class="page">10</td></tr>
+    <tr><td class="num"><span>6</span></td><td class="label"><div class="ttl">Kennzahlen – Was wir messen</div><div class="sub">Die 6 Zahlen, die zeigen ob das System wirkt</div></td><td class="page">11</td></tr>
+    <tr><td class="num"><span>7</span></td><td class="label"><div class="ttl">Routinen – Wann wird was gemacht</div><div class="sub">Täglich · wöchentlich · monatlich</div></td><td class="page">13</td></tr>
+    <tr><td class="num"><span>8</span></td><td class="label"><div class="ttl">Druckvorlagen &amp; Setup</div><div class="sub">Lead-Karten, Board-Vorlage, CSV-Tabelle einrichten</div></td><td class="page">14</td></tr>
+  </table>
+
+  <div class="box" style="margin-top: 20px;">
+    <div class="box-title">Gehört zusammen mit der Verkaufs-SOP 2026</div>
+    <p style="margin:0;">Dieses Tracking-System ist das praktische Gegenstück zur <strong>Verkaufs-SOP 2026</strong>. Die SOP sagt, <em>was</em> im Gespräch passiert (Kundentyp erkennen, Heimcheck einleiten). Das Tracking-System sorgt dafür, dass danach <em>nichts verloren geht</em>. Die Kundentypen (A–J), Status-Stufen und der 2-Stufen-Prozess sind identisch – beide Dokumente sprechen dieselbe Sprache.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 1 ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 1</div>
+  <div class="section-title">Warum ein Tracking-System – und warum dieses</div>
+  <div class="section-subtitle">Das Problem, die Lösung und die 3-Ebenen-Architektur</div>
+  <div class="section-rule"></div>
+
+  <p>Im Fitshop Hall/Tirol entstehen täglich warme Leads: Kunden, die testen, sich beraten lassen, ein Gerät favorisieren – aber heute noch nicht kaufen. Die Verkaufs-SOP führt sie sauber in einen Heimcheck oder Entscheidungscheck. Doch ein Prozess ist nur so gut wie sein Gedächtnis. Wenn der Lead nicht erfasst wird, passiert das, was immer passiert: <strong>Er wird vergessen.</strong></p>
+
+  <table class="cols">
+    <tr>
+      <td>
+        <div class="red-box">
+          <div class="box-title">Ohne Tracking-System</div>
+          <ul>
+            <li>Leads existieren nur „im Kopf" – und verschwinden dort</li>
+            <li>Niemand weiß, wer wann nachfassen sollte</li>
+            <li>Entscheidungschecks werden vergessen oder doppelt gemacht</li>
+            <li>Keine Zahlen: Wir wissen nicht, woran Leads scheitern</li>
+            <li>Bei Übergabe/Urlaub ist das Wissen weg</li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div class="green-box">
+          <div class="box-title">Mit diesem System</div>
+          <ul>
+            <li>Jeder ernsthafte Lead ist in 60 Sekunden erfasst</li>
+            <li>Die Ampel zeigt täglich, wer Aufmerksamkeit braucht</li>
+            <li>Jeder im Team sieht den Stand – auch bei Übergabe</li>
+            <li>Wir messen, was funktioniert und was nicht</li>
+            <li>Nachfassen wird gezielt statt nervig</li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="highlight-quote">
+    <div class="q">„Das System ist kein Bürokratie-Aufwand. Es ist das Werkzeug, das aus guten Gesprächen tatsächliche Abschlüsse macht."</div>
+    <div class="att">Fitshop Hall/Tirol · Tracking-Grundsatz</div>
+  </div>
+
+  <h2 class="subsection">Die 3-Ebenen-Architektur</h2>
+  <p>Ein gutes Tracking-System ist nicht eine einzige Tabelle, sondern drei Ebenen, die zusammenspielen. Jede hat einen klaren Job – und keine ist doppelte Arbeit, weil die Daten von Ebene zu Ebene weiterfließen.</p>
+
+  <table class="ebene-flow">
+    <tr>
+      <td style="width: 31%;"><div class="ebene-card" style="background: var(--red);">
+        <div class="en">Ebene 1 · Erfassung</div>
+        <div class="et">Lead-Karte</div>
+        <div class="ed">Im Moment am Tresen. Papier, 60 Sek. Hält den Lead fest, bevor er vergessen wird.</div>
+      </div></td>
+      <td class="ebene-arrow">→</td>
+      <td style="width: 31%;"><div class="ebene-card" style="background: var(--anthracite);">
+        <div class="en">Ebene 2 · Steuerung</div>
+        <div class="et">Pipeline-Board</div>
+        <div class="ed">An der Wand im Backoffice. Karten wandern durch Status-Spalten. Jeder sieht den Stand.</div>
+      </div></td>
+      <td class="ebene-arrow">→</td>
+      <td style="width: 31%;"><div class="ebene-card" style="background: var(--blue);">
+        <div class="en">Ebene 3 · Gedächtnis</div>
+        <div class="et">Tracking-Tabelle</div>
+        <div class="ed">Digital, eine Datei. Auswertung, Ampel, Kennzahlen. Die einzige Wahrheit.</div>
+      </div></td>
+    </tr>
+  </table>
+
+  <table class="data keep-together">
+    <thead>
+      <tr><th style="width:16%">Ebene</th><th style="width:18%">Medium</th><th style="width:18%">Wann</th><th style="width:24%">Job</th><th style="width:24%">Wer</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="red-label">1 · Lead-Karte</td><td>Papier-Karte (A6)</td><td>Direkt nach dem Gespräch</td><td>Lead festhalten bevor er vergessen wird</td><td>Wer beraten hat</td></tr>
+      <tr><td class="red-label">2 · Pipeline-Board</td><td>Magnet-/Pinnwand</td><td>Beim Eintragen + Status-Wechsel</td><td>Überblick: Wer ist wo im Prozess?</td><td>Ganzes Team sichtbar</td></tr>
+      <tr><td class="red-label">3 · Tracking-Tabelle</td><td>Excel / Google Sheets</td><td>Täglich beim Tagesabschluss</td><td>Gedächtnis, Ampel, Auswertung</td><td>Tagesverantwortlicher</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box">
+    <div class="box-title">Warum drei Ebenen statt nur einer Tabelle?</div>
+    <p style="margin:0;">Weil niemand mitten in einer Beratung ein Notebook aufklappt und eine Tabelle ausfüllt. Die <strong>Lead-Karte</strong> ist schnell genug für den Moment. Das <strong>Board</strong> macht den Stand für alle sichtbar, ohne dass jemand eine Datei öffnen muss. Die <strong>Tabelle</strong> ist das verlässliche Gedächtnis und liefert Zahlen. Jede Ebene gleicht eine Schwäche der anderen aus.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 2 – LEAD-KARTE ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 2 · Ebene 1</div>
+  <div class="section-title">Die Lead-Karte</div>
+  <div class="section-subtitle">Erfassung im Moment: 60 Sekunden am Tresen, bevor der Lead vergessen wird</div>
+  <div class="section-rule"></div>
+
+  <p>Die Lead-Karte ist eine A6-Karte (Postkartengröße), die griffbereit am Tresen liegt. Sobald ein Gespräch endet, das kein reiner Orientierungskunde war, wird sie in unter einer Minute ausgefüllt. Alles ist ankreuzbar – kein langer Fließtext nötig. Sie ist bewusst dem Aufbau der Verkaufs-SOP nachempfunden: Kundentyp, Favorit, offener Punkt, nächster Schritt.</p>
+
+  <h2 class="subsection">So sieht die Lead-Karte aus</h2>
+
+  <!-- LEAD CARD MOCKUP -->
+  <div class="lead-card">
+    <div class="lc-head">
+      <table class="lc-head-table">
+        <tr>
+          <td style="width:1%; white-space:nowrap;"><span class="lc-logo">FITSHOP</span></td>
+          <td><span class="lc-title">LEAD-KARTE</span></td>
+          <td class="lc-nr">Karten-Nr. <span class="nr-box">&nbsp;</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="lc-body">
+      <table class="lc-row">
+        <tr>
+          <td style="width:25%"><div class="lc-field-label">Datum</div><div class="lc-line"></div></td>
+          <td style="width:75%"><div class="lc-field-label">Mitarbeiter</div>
+            <div class="lc-chk"><span class="opt"><span class="box"></span>Daniel</span><span class="opt"><span class="box"></span>Jonas</span><span class="opt"><span class="box"></span>Angie</span><span class="opt"><span class="box"></span>Norbert</span></div>
+          </td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td style="width:50%"><div class="lc-field-label">Kunde (Name)</div><div class="lc-line"></div></td>
+          <td style="width:25%"><div class="lc-field-label">Telefon</div><div class="lc-line"></div></td>
+          <td style="width:25%"><div class="lc-field-label">E-Mail</div><div class="lc-line"></div></td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td><div class="lc-field-label">Kundentyp (siehe SOP)</div>
+            <div class="lc-chk" style="line-height:2.1;">
+              <span class="opt"><span class="lc-typ-badge">A</span></span><span class="opt"><span class="lc-typ-badge">B</span></span><span class="opt"><span class="lc-typ-badge">C</span></span><span class="opt"><span class="lc-typ-badge">D</span></span><span class="opt"><span class="lc-typ-badge">E</span></span><span class="opt"><span class="lc-typ-badge">F</span></span><span class="opt"><span class="lc-typ-badge">G</span></span><span class="opt"><span class="lc-typ-badge">H</span></span><span class="opt"><span class="lc-typ-badge">I</span></span><span class="opt"><span class="lc-typ-badge">J</span></span>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td><div class="lc-field-label">Kategorie</div>
+            <div class="lc-chk"><span class="opt"><span class="box"></span>Laufband</span><span class="opt"><span class="box"></span>Ergometer</span><span class="opt"><span class="box"></span>Crosstrainer</span><span class="opt"><span class="box"></span>Rudergerät</span><span class="opt"><span class="box"></span>Kraftstation</span><span class="opt"><span class="box"></span>Hanteln/Bank</span><span class="opt"><span class="box"></span>Sonstige</span></div>
+          </td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td style="width:62%"><div class="lc-field-label">Favorit (Modell)</div><div class="lc-line"></div></td>
+          <td style="width:38%"><div class="lc-field-label">Preis €</div><div class="lc-line"></div></td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td style="width:62%"><div class="lc-field-label">Alternative (Plan B)</div><div class="lc-line"></div></td>
+          <td style="width:38%"><div class="lc-field-label">Preis €</div><div class="lc-line"></div></td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td style="width:62%"><div class="lc-field-label">Offener Punkt</div>
+            <div class="lc-chk"><span class="opt"><span class="box"></span>Maße</span><span class="opt"><span class="box"></span>Partner</span><span class="opt"><span class="box"></span>Budget</span><span class="opt"><span class="box"></span>Raum</span><span class="opt"><span class="box"></span>Nutzung</span></div>
+          </td>
+          <td style="width:38%"><div class="lc-field-label">Kaufreife</div>
+            <div class="lc-chk"><span class="lc-circle">1</span><span class="lc-circle">2</span><span class="lc-circle">3</span><span class="lc-circle">4</span><span class="lc-circle">5</span></div>
+          </td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr>
+          <td style="width:62%"><div class="lc-field-label">Nächster Schritt</div>
+            <div class="lc-chk"><span class="opt"><span class="box"></span>Heimcheck</span><span class="opt"><span class="box"></span>Check-Anruf</span><span class="opt"><span class="box"></span>2. Besuch</span><span class="opt"><span class="box"></span>Wiedervorlage</span></div>
+          </td>
+          <td style="width:38%"><div class="lc-field-label">Entscheidungscheck am</div><div class="lc-line"></div></td>
+        </tr>
+      </table>
+      <table class="lc-row">
+        <tr><td><div class="lc-field-label">Notiz</div><div class="lc-line"></div></td></tr>
+      </table>
+    </div>
+    <div class="lc-foot">
+      <table class="lc-status-track">
+        <tr>
+          <td><span class="dot"></span>Beratung offen</td>
+          <td><span class="dot"></span>Heimcheck angelegt</td>
+          <td><span class="dot"></span>Entsch.-Check geplant</td>
+          <td><span class="dot"></span>Angebot konkret</td>
+          <td><span class="dot"></span>Kauf ✓</td>
+          <td><span class="dot"></span>Verloren ✗</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p class="anno center">Druckfertige Karten zum Ausschneiden (4 pro A4-Bogen) siehe Teil 8 &amp; separate Datei <span class="mono">lead_karten_druckbogen.pdf</span></p>
+
+  <h2 class="subsection">Warum genau diese Felder?</h2>
+  <table class="data compact keep-together">
+    <thead><tr><th style="width:22%">Feld</th><th style="width:48%">Warum es drauf ist</th><th style="width:30%">Verknüpfung</th></tr></thead>
+    <tbody>
+      <tr><td class="red-label">Kundentyp A–J</td><td>Bestimmt den ganzen weiteren Prozess. Ohne Typ kein passender nächster Schritt.</td><td>SOP Teil 3</td></tr>
+      <tr><td class="red-label">Favorit + Alternative</td><td>Beim Nachfassen weiß man sofort, worum es ging – ohne Gedächtnis.</td><td>SOP Heimcheck</td></tr>
+      <tr><td class="red-label">Offener Punkt</td><td>Der eine Grund, warum heute nicht gekauft wurde. Genau das wird beim Check geklärt.</td><td>SOP Einwand E1–E7</td></tr>
+      <tr><td class="red-label">Kaufreife 1–5</td><td>Priorisierung: Eine 4 fasst man eher nach als eine 2.</td><td>Ampel-Logik</td></tr>
+      <tr><td class="red-label">Entscheidungscheck am</td><td>Das konkrete Datum macht aus „irgendwann" einen Termin.</td><td>Ampel-Logik</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <div class="box-title">⚠ Wann KEINE Lead-Karte ausfüllen</div>
+    <p style="margin:0;">Reine Orientierungskunden (Typ F ohne erkennbares Interesse) werden <strong>nicht</strong> erfasst. Sonst verstopft das System mit toten Leads. Faustregel: Karte nur, wenn ein <strong>Favorit</strong> feststeht und mindestens <strong>ein offener Punkt</strong> existiert. Im Zweifel: lieber erfassen.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 3 – PIPELINE BOARD ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 3 · Ebene 2</div>
+  <div class="section-title">Das Pipeline-Board</div>
+  <div class="section-subtitle">Kanban-Überblick an der Wand: Wer ist gerade wo im Prozess?</div>
+  <div class="section-rule"></div>
+
+  <p>Das Pipeline-Board ist eine Magnet- oder Pinnwand im Backoffice. Jeder warme Lead ist ein kleiner Zettel (oder die Lead-Karte selbst), der durch die Status-Spalten von links nach rechts wandert. Der große Vorteil: <strong>Man sieht den ganzen Stand auf einen Blick</strong>, ohne eine Datei zu öffnen. Wer reinkommt, sieht sofort: 3 Heimchecks offen, 2 Entscheidungschecks heute fällig.</p>
+
+  <!-- KANBAN MOCKUP -->
+  <table class="kanban">
+    <tr>
+      <td>
+        <div class="kb-col-head" style="background:#9e9e9e;">Beratung<br>offen</div>
+        <div class="kb-col-body">
+          <div class="kb-ticket"><div class="kt-name">Fam. Huber</div><div class="kt-meta">Laufband · Typ C</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="kb-col-head" style="background:var(--red);">Heimcheck<br>angelegt</div>
+        <div class="kb-col-body">
+          <div class="kb-ticket"><div class="kt-name">Hr. Mayr</div><div class="kt-meta">Crosstr. · Maße · KR 4</div></div>
+          <div class="kb-ticket"><div class="kt-name">Fr. Kofler</div><div class="kt-meta">Ergometer · Partner · KR 3</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="kb-col-head" style="background:var(--purple);">Entsch.-Check<br>geplant</div>
+        <div class="kb-col-body">
+          <div class="kb-ticket purple"><div class="kt-name">Hr. Stocker</div><div class="kt-meta">Kraftst. · 28.05. · KR 4</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="kb-col-head" style="background:var(--orange);">Angebot<br>konkret</div>
+        <div class="kb-col-body">
+          <div class="kb-ticket orange"><div class="kt-name">Hr. Pichler</div><div class="kt-meta">Laufband · 1.890 €</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="kb-col-head" style="background:var(--brown);">Warten<br>auf Raum</div>
+        <div class="kb-col-body">
+          <div class="kb-ticket" style="border-left-color:var(--brown);"><div class="kt-name">Fam. Schmid</div><div class="kt-meta">Keller · Herbst</div></div>
+        </div>
+      </td>
+      <td>
+        <div class="kb-col-head" style="background:var(--green);">Gewonnen<br>✓</div>
+        <div class="kb-col-body">
+          <div class="kb-ticket green"><div class="kt-name">Hr. Egger</div><div class="kt-meta">Laufband · 2.190 €</div></div>
+          <div class="kb-ticket green"><div class="kt-name">Fr. Wieser</div><div class="kt-meta">Ergometer · 990 €</div></div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <p class="anno center">Beispielbelegung. Die Spalten entsprechen exakt den Status-Stufen der Tracking-Tabelle (Teil 4).</p>
+
+  <h2 class="subsection">Die Spielregeln des Boards</h2>
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>1</span></td><td class="step-content"><div class="title">Jeder Lead startet links</div><div class="desc">Neuer warmer Lead → Zettel in „Beratung offen" oder direkt „Heimcheck angelegt".</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>2</span></td><td class="step-content"><div class="title">Bewegung nur nach rechts (oder raus)</div><div class="desc">Ein Lead wandert, wenn sich sein Status ändert. Er geht nie zurück – entweder vor, gewonnen oder verloren.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>3</span></td><td class="step-content"><div class="title">Verloren kommt in die Box, nicht in den Müll</div><div class="desc">Verlorene Leads werden mit Verlustgrund in der Tabelle vermerkt (für die Auswertung), dann vom Board genommen.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>4</span></td><td class="step-content"><div class="title">Das Board ist nie die Wahrheit – die Tabelle ist es</div><div class="desc">Das Board ist der schnelle Überblick. Die echte Datenpflege passiert in der Tabelle (Ebene 3).</div></td></tr></table></div>
+  </div>
+
+  <div class="box-dark">
+    <div class="box-title">Faustregel für ein gesundes Board</div>
+    <p style="margin:0;">Wenn in der Spalte „Heimcheck angelegt" oder „Entscheidungscheck geplant" Zettel <strong>länger als 10 Tage</strong> kleben, ohne sich zu bewegen, stimmt etwas nicht. Entweder wurde nicht nachgefasst – oder der Lead ist in Wahrheit verloren und muss ehrlich aussortiert werden. Ein volles Board ist kein gutes Board. Ein <em>bewegtes</em> Board ist eines.</p>
+  </div>
+
+  <h2 class="subsection">Minimal-Variante ohne Wand</h2>
+  <p>Kein Platz für eine Pinnwand? Dann ist das Board einfach eine zweite Ansicht der Tracking-Tabelle: nach Status sortiert/gefiltert. Der Effekt ist derselbe – nur dass man die Datei öffnen muss. Die Wand-Variante gewinnt, weil sie <em>immer sichtbar</em> ist und keine Hürde hat.</p>
+</div>
+
+<!-- ============================================================ TEIL 4 – TRACKING TABELLE ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 4 · Ebene 3</div>
+  <div class="section-title">Die Tracking-Tabelle</div>
+  <div class="section-subtitle">Das digitale Gedächtnis: Felder, Status-Logik und Farbcodierung</div>
+  <div class="section-rule"></div>
+
+  <p>Die Tabelle ist die <strong>einzige Wahrheit</strong>. Eine Datei (Excel oder Google Sheets), auf die das ganze Team Zugriff hat. Jede Lead-Karte wird beim Tagesabschluss hier eingetragen. Aus dieser Tabelle kommen die Ampel (Teil 5) und die Kennzahlen (Teil 6) – beides automatisch, wenn die Spalten stimmen.</p>
+
+  <h2 class="subsection">Die Spalten</h2>
+  <table class="data compact">
+    <thead><tr><th style="width:5%">#</th><th style="width:20%">Spalte</th><th style="width:42%">Inhalt / Optionen</th><th style="width:33%">Beispiel</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="red-label">Lead-Nr.</td><td>Fortlaufend, = Karten-Nr.</td><td class="mono">2026-0042</td></tr>
+      <tr><td>2</td><td class="red-label">Datum</td><td>Erstkontakt</td><td class="mono">27.05.2026</td></tr>
+      <tr><td>3</td><td class="red-label">Mitarbeiter</td><td>Daniel / Jonas / Angie / Norbert</td><td>Jonas</td></tr>
+      <tr><td>4</td><td class="red-label">Kunde</td><td>Name</td><td>Hr. Mayr</td></tr>
+      <tr><td>5</td><td class="red-label">Kontakt</td><td>Tel / E-Mail</td><td class="mono">0664 …</td></tr>
+      <tr><td>6</td><td class="red-label">Kategorie</td><td>Laufband / Ergometer / Crosstrainer / Rudergerät / Kraft / Hanteln / Sonstige</td><td>Crosstrainer</td></tr>
+      <tr><td>7</td><td class="red-label">Favorit</td><td>Modell + Preis</td><td>Modell X · 1.490 €</td></tr>
+      <tr><td>8</td><td class="red-label">Alternative</td><td>Modell + Preis</td><td>Modell Y · 990 €</td></tr>
+      <tr><td>9</td><td class="red-label">Kundentyp</td><td>A – J</td><td>B</td></tr>
+      <tr><td>10</td><td class="red-label">Offener Punkt</td><td>Maße / Partner / Budget / Raum / Nutzung</td><td>Maße</td></tr>
+      <tr><td>11</td><td class="red-label">Einwandtyp</td><td>E1 – E7</td><td>E1</td></tr>
+      <tr><td>12</td><td class="red-label">Kaufreife</td><td>1 (Orientierung) – 5 (kaufbereit)</td><td>4</td></tr>
+      <tr><td>13</td><td class="red-label">Status</td><td>siehe Status-Stufen unten</td><td>Heimcheck angelegt</td></tr>
+      <tr><td>14</td><td class="red-label">Nächster Schritt</td><td>Heimcheck / Check-Anruf / 2. Besuch / Wiedervorlage</td><td>Check-Anruf</td></tr>
+      <tr><td>15</td><td class="red-label">Check-Datum</td><td>Datum des nächsten Kontakts <strong>← steuert die Ampel</strong></td><td class="mono">30.05.2026</td></tr>
+      <tr><td>16</td><td class="red-label">Angebotswert</td><td>€ (für Pipeline-Wert)</td><td class="mono">1.490</td></tr>
+      <tr><td>17</td><td class="red-label">Abschluss</td><td>Ja / Nein / Offen</td><td>Offen</td></tr>
+      <tr><td>18</td><td class="red-label">Verlustgrund</td><td>Budget / Online / Partner / Raum / kein Feedback / —</td><td>—</td></tr>
+      <tr><td>19</td><td class="red-label">Notiz</td><td>Freitext, kurz</td><td>Maße bis Fr.</td></tr>
+    </tbody>
+  </table>
+  <p class="anno center">Fertige Vorlage mit Kopfzeile &amp; Dropdown-Werten: separate Datei <span class="mono">tracking_tabelle_vorlage.csv</span> (Teil 8)</p>
+
+  <h2 class="subsection">Die 9 Status-Stufen &amp; ihre Farben</h2>
+  <p>Der Status ist das Herz der Tabelle. Er entspricht 1:1 den Spalten des Pipeline-Boards und den Stufen der Verkaufs-SOP. Jeder Status hat eine Farbe – so erkennt man die Pipeline auf einen Blick (per bedingter Formatierung in der Tabelle).</p>
+
+  <table class="data compact keep-together">
+    <thead><tr><th style="width:22%">Status</th><th style="width:14%">Farbe</th><th style="width:64%">Bedeutung &amp; typischer nächster Schritt</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill gray">Orientierung</span></td><td>Grau</td><td>Kein konkretes Interesse. Wird i.d.R. gar nicht erfasst – nur falls später relevant.</td></tr>
+      <tr><td><span class="pill blue">Beratung offen</span></td><td>Blau</td><td>Gespräch läuft / Favorit noch nicht fix. Übergangsstatus.</td></tr>
+      <tr><td><span class="pill red">Heimcheck angelegt</span></td><td>Rot</td><td>Offener Punkt dokumentiert, Check-Datum gesetzt. Aktiver Kern-Status.</td></tr>
+      <tr><td><span class="pill purple">Entsch.-Check geplant</span></td><td>Lila</td><td>Termin/Anruf fix vereinbart. Warten auf den Tag.</td></tr>
+      <tr><td><span class="pill orange">Angebot konkret</span></td><td>Orange</td><td>Schriftliches Angebot raus, Entscheidung steht aus.</td></tr>
+      <tr><td><span class="pill green">Kauf abgeschlossen</span></td><td>Grün</td><td>Auftrag bestätigt. Erfolg – fließt in die Conversion-Zahl.</td></tr>
+      <tr><td><span class="pill brown">Warten auf Raum</span></td><td>Braun</td><td>Zukunftsprojekt (Typ E). Wiedervorlage in Wochen/Monaten.</td></tr>
+      <tr><td><span class="pill dark">Verloren · Grund</span></td><td>Dunkelgrau</td><td>Bewusst geschlossen mit Verlustgrund. Wichtig für die Auswertung!</td></tr>
+      <tr><td><span class="pill dark">Pausiert</span></td><td>Dunkelgrau</td><td>Kunde hat um Ruhe gebeten. Kein Nachfassen, aber nicht verloren.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box">
+    <div class="box-title">Eine Regel macht die Tabelle wertvoll</div>
+    <p style="margin:0;">Jeder Lead hat <strong>immer</strong> entweder ein Check-Datum in der Zukunft <strong>oder</strong> einen Endstatus (Kauf / Verloren / Warten auf Raum). Ein Lead ohne Check-Datum und ohne Endstatus ist ein vergessener Lead – genau das, was wir verhindern wollen. Die Ampel (Teil 5) macht solche Leads sofort sichtbar.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 5 – AMPEL ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 5</div>
+  <div class="section-title">Die Ampel-Logik</div>
+  <div class="section-subtitle">Grün, Gelb, Rot: Wer braucht heute Aufmerksamkeit?</div>
+  <div class="section-rule"></div>
+
+  <p>Die Ampel ist der Trick, der das System lebendig hält. Sie vergleicht automatisch das <strong>Check-Datum</strong> jedes Leads mit dem heutigen Datum und färbt die Zeile. So muss niemand die ganze Liste durchgehen – man sieht sofort, wer dran ist. In Excel/Sheets ist das eine einzige Formel (siehe unten).</p>
+
+  <table class="ampel-row">
+    <tr>
+      <td>
+        <div class="ampel-card gruen">
+          <div class="ac-title"><span class="ac-dot"></span>Grün</div>
+          <div class="ac-body"><strong>Check-Datum in der Zukunft.</strong><br>Alles im Plan. Nichts zu tun. Der Lead ist sauber terminiert und wartet auf seinen Tag.</div>
+        </div>
+      </td>
+      <td>
+        <div class="ampel-card gelb">
+          <div class="ac-title"><span class="ac-dot"></span>Gelb</div>
+          <div class="ac-body"><strong>Check heute oder morgen fällig.</strong><br>Jetzt vorbereiten und durchführen. Anruf/Nachricht: „Haben Sie ausmessen können?"</div>
+        </div>
+      </td>
+      <td>
+        <div class="ampel-card rot">
+          <div class="ac-title"><span class="ac-dot"></span>Rot</div>
+          <div class="ac-body"><strong>Check überfällig.</strong><br>Sofort handeln. Entweder heute nachfassen oder ehrlich auf „Verloren / kein Feedback" setzen.</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Die Formel (Excel / Google Sheets)</h2>
+  <div class="box-dark">
+    <div class="box-title">Ampel-Spalte (Annahme: Check-Datum in Spalte O, Status in N)</div>
+    <p class="mono" style="color:#9ad; margin-bottom:8px;">=WENN(ODER(N2="Kauf abgeschlossen";N2="Verloren";N2="Warten auf Raum");"⚪";</p>
+    <p class="mono" style="color:#9ad; margin-bottom:8px;">&nbsp;&nbsp;WENN(O2&lt;HEUTE();"🔴";</p>
+    <p class="mono" style="color:#9ad; margin-bottom:8px;">&nbsp;&nbsp;&nbsp;&nbsp;WENN(O2&lt;=HEUTE()+1;"🟡";"🟢")))</p>
+    <p style="margin:0; font-size:8pt; color:#bbb;">Endstatus → grau/leer. Überfällig → rot. Heute/morgen → gelb. Sonst → grün. Per bedingter Formatierung kann zusätzlich die ganze Zeile eingefärbt werden.</p>
+  </div>
+
+  <h2 class="subsection">Die tägliche Ampel-Frage</h2>
+  <p>Jeden Morgen (oder beim Tagesabschluss) filtert der Tagesverantwortliche die Tabelle auf <strong>Gelb und Rot</strong>. Das ist die komplette Nachfass-Liste des Tages – meist 2 bis 5 Leads. Mehr nicht. Genau diese Disziplin macht den Unterschied zwischen „wir hatten viele gute Gespräche" und „wir haben verkauft".</p>
+
+  <div class="green-box">
+    <div class="box-title">So wird Nachfassen gezielt statt nervig</div>
+    <p style="margin:0;">Weil jeder Lead ein vereinbartes Check-Datum hat, fasst man nie „zu früh" oder „aus dem Nichts" nach. Man meldet sich genau dann, wie es im Gespräch besprochen war – mit der vereinbarten Frage („Haben Sie ausmessen können?"), nicht mit Druck („Haben Sie sich entschieden?"). Das ist der Tiroler-Kunden-gerechte Weg aus der Verkaufs-SOP, nur eben mit System dahinter.</p>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 6 – KENNZAHLEN ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 6</div>
+  <div class="section-title">Kennzahlen – Was wir messen</div>
+  <div class="section-subtitle">Die 6 Zahlen, die zeigen, ob das System wirkt</div>
+  <div class="section-rule"></div>
+
+  <p>Sobald die Tabelle ein paar Wochen läuft, liefert sie Antworten, die vorher niemand hatte: Woran scheitern Leads? Welcher Schritt verliert die meisten Kunden? Lohnt sich das Nachfassen überhaupt? Diese sechs Kennzahlen reichen völlig – mehr misst man am Anfang nicht.</p>
+
+  <table class="kpi-grid">
+    <tr>
+      <td><div class="kpi"><div class="kn">Erfasste Leads / Woche</div><div class="kv">—</div><div class="kt">Wie viele warme Kunden halten wir überhaupt fest?</div></div></td>
+      <td><div class="kpi"><div class="kn">Heimcheck-Quote</div><div class="kv">— <span class="unit">%</span></div><div class="kt">Anteil Leads, die in einen sauberen Prozess kommen</div></div></td>
+      <td><div class="kpi red"><div class="kn">Lead → Kauf</div><div class="kv">— <span class="unit">%</span></div><div class="kt">Die wichtigste Zahl: Gesamt-Conversion</div></div></td>
+    </tr>
+    <tr>
+      <td><div class="kpi"><div class="kn">Check → Kauf</div><div class="kv">— <span class="unit">%</span></div><div class="kt">Wie oft führt ein Entscheidungscheck zum Abschluss?</div></div></td>
+      <td><div class="kpi"><div class="kn">Ø Angebotswert</div><div class="kv">— <span class="unit">€</span></div><div class="kt">Durchschnittlicher Wert pro abgeschlossenem Lead</div></div></td>
+      <td><div class="kpi"><div class="kn">Offene Pipeline</div><div class="kv">— <span class="unit">€</span></div><div class="kt">Summe der Angebotswerte aller aktiven Leads</div></div></td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Was jede Zahl uns sagt</h2>
+  <table class="data compact keep-together">
+    <thead><tr><th style="width:24%">Kennzahl</th><th style="width:38%">Wie berechnet</th><th style="width:38%">Was sie verrät</th></tr></thead>
+    <tbody>
+      <tr><td class="red-label">Leads / Woche</td><td>Anzahl neuer Zeilen pro Woche</td><td>Erfassen wir konsequent? Plötzlicher Abfall = Disziplin lässt nach.</td></tr>
+      <tr><td class="red-label">Heimcheck-Quote</td><td>Leads mit Status ≥ Heimcheck ÷ alle Leads</td><td>Wie gut führen wir Gespräche in einen Prozess statt sie auslaufen zu lassen.</td></tr>
+      <tr><td class="red-label">Lead → Kauf</td><td>Käufe ÷ alle erfassten Leads</td><td>Die Gesamtwirkung. Steigt sie, wirkt das System.</td></tr>
+      <tr><td class="red-label">Check → Kauf</td><td>Käufe ÷ durchgeführte Entscheidungschecks</td><td>Lohnt sich das Nachfassen? Wenn hoch: jeder Check ist Gold wert.</td></tr>
+      <tr><td class="red-label">Ø Angebotswert</td><td>Mittelwert Angebotswert bei Käufen</td><td>Verkaufen wir Wert oder nur billig? Trend über Zeit beobachten.</td></tr>
+      <tr><td class="red-label">Offene Pipeline</td><td>Summe Angebotswert aktiver Leads</td><td>Wie viel Umsatz liegt gerade „in der Luft" und braucht Pflege.</td></tr>
+    </tbody>
+  </table>
+
+  <div style="break-inside: avoid;">
+  <h2 class="subsection">Verlustgründe – die ehrlichste Auswertung</h2>
+  <p>Die zweitwichtigste Auswertung nach der Conversion: Eine simple Zählung der Verlustgründe zeigt, <strong>wo</strong> wir Kunden verlieren – und ob das in unserer Hand liegt.</p>
+  <table class="data compact">
+    <thead><tr><th style="width:24%">Verlustgrund</th><th style="width:40%">Was wir daraus lernen</th><th style="width:36%">Mögliche Reaktion</th></tr></thead>
+    <tbody>
+      <tr><td class="red-label">Budget</td><td>Geräte oft über Kundenbudget</td><td>Günstigere Alternative früher zeigen, Finanzierung ansprechen</td></tr>
+      <tr><td class="red-label">Online</td><td>Kunden vergleichen weg</td><td>Service/Aufbau/Beratung stärker differenzieren (SOP E4)</td></tr>
+      <tr><td class="red-label">Partner</td><td>Mitentscheider blockiert</td><td>Partner früher einbinden, 2. Besuch aktiv anbieten</td></tr>
+      <tr><td class="red-label">kein Feedback</td><td>Lead einfach verschwunden</td><td>Check-Disziplin prüfen – wurde überhaupt nachgefasst?</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 7 – ROUTINEN ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 7</div>
+  <div class="section-title">Routinen – Wann wird was gemacht</div>
+  <div class="section-subtitle">Das System lebt nur durch feste, kleine Gewohnheiten</div>
+  <div class="section-rule"></div>
+
+  <p>Ein Tracking-System scheitert nie an der Technik, sondern an der Disziplin. Deshalb sind die Routinen bewusst <strong>klein</strong>: Sekunden im Moment, Minuten am Tag, eine halbe Stunde pro Woche. Mehr braucht es nicht.</p>
+
+  <table class="mini-grid">
+    <tr>
+      <td><div class="mini-card">
+        <div class="mc-title">Sofort · nach jedem Gespräch</div>
+        <div class="mc-val">
+          <ul>
+            <li><strong>Lead-Karte ausfüllen</strong> (60 Sek.)</li>
+            <li>Karte ins Tablett „heute eintragen"</li>
+            <li>Bei klarem Heimcheck: Zettel direkt aufs Board</li>
+          </ul>
+        </div>
+      </div></td>
+      <td><div class="mini-card blue">
+        <div class="mc-title">Täglich · beim Tagesabschluss (5 Min.)</div>
+        <div class="mc-val">
+          <ul>
+            <li>Neue Lead-Karten in die Tabelle übertragen</li>
+            <li>Ampel auf Gelb/Rot filtern</li>
+            <li>Fällige Checks erledigen oder morgen einplanen</li>
+            <li>Board mit Tabelle abgleichen</li>
+          </ul>
+        </div>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="mini-card green">
+        <div class="mc-title">Wöchentlich · Montag (30 Min., aus SOP)</div>
+        <div class="mc-val">
+          <ul>
+            <li>1 verlorene Chance analysieren</li>
+            <li>1 gutes Gespräch teilen</li>
+            <li>Rote Leads gemeinsam durchgehen</li>
+            <li>Kennzahlen der Woche kurz ansehen</li>
+          </ul>
+        </div>
+      </div></td>
+      <td><div class="mini-card">
+        <div class="mc-title">Monatlich · Filialleiter-Blick (20 Min.)</div>
+        <div class="mc-val">
+          <ul>
+            <li>6 Kennzahlen im Monatsvergleich</li>
+            <li>Verlustgründe-Verteilung ansehen</li>
+            <li>Pipeline-Wert &amp; Conversion-Trend</li>
+            <li>Eine Stellschraube für den Monat festlegen</li>
+          </ul>
+        </div>
+      </div></td>
+    </tr>
+  </table>
+
+  <h2 class="subsection">Wer ist wofür verantwortlich?</h2>
+  <table class="data compact keep-together">
+    <thead><tr><th style="width:26%">Rolle</th><th style="width:74%">Verantwortung</th></tr></thead>
+    <tbody>
+      <tr><td class="red-label">Jeder im Team</td><td>Füllt die Lead-Karte für die eigenen Gespräche aus. Keine Ausnahme – auch nicht bei Stress.</td></tr>
+      <tr><td class="red-label">Tagesverantwortlicher</td><td>Überträgt Karten in die Tabelle, prüft die Ampel, führt fällige Checks durch oder verteilt sie. Rolliert täglich.</td></tr>
+      <tr><td class="red-label">Filialleiter / Daniel</td><td>Wöchentlicher Blick auf rote Leads, monatlicher Blick auf Kennzahlen, hält die Disziplin hoch.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-quote">
+    <div class="q">„60 Sekunden pro Lead, 5 Minuten pro Tag, 30 Minuten pro Woche. Das ist der ganze Preis dafür, dass kein warmer Kunde mehr verloren geht."</div>
+    <div class="att">Fitshop Hall/Tirol · Tracking-System 2026</div>
+  </div>
+</div>
+
+<!-- ============================================================ TEIL 8 – SETUP ============================================================ -->
+<div class="section">
+  <div class="section-eyebrow">Teil 8</div>
+  <div class="section-title">Druckvorlagen &amp; Setup</div>
+  <div class="section-subtitle">In 30 Minuten einsatzbereit</div>
+  <div class="section-rule"></div>
+
+  <h2 class="subsection">Was im Kit enthalten ist</h2>
+  <table class="data compact keep-together">
+    <thead><tr><th style="width:34%">Datei</th><th style="width:40%">Was es ist</th><th style="width:26%">Verwendung</th></tr></thead>
+    <tbody>
+      <tr><td class="red-label mono">Tracking_System_2026.pdf</td><td>Dieses Handbuch</td><td>Lesen, Team schulen</td></tr>
+      <tr><td class="red-label mono">lead_karten_druckbogen.pdf</td><td>A4-Bogen mit 4 Lead-Karten + Schnittmarken</td><td>Drucken, schneiden, an den Tresen</td></tr>
+      <tr><td class="red-label mono">tracking_tabelle_vorlage.csv</td><td>Tabelle mit Kopfzeile &amp; Beispielzeilen</td><td>In Excel/Sheets öffnen, befüllen</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection">Setup in 5 Schritten</h2>
+  <div class="steps">
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>1</span></td><td class="step-content"><div class="title">Lead-Karten drucken &amp; schneiden</div><div class="desc"><span class="mono">lead_karten_druckbogen.pdf</span> auf festes Papier (160 g) drucken, an den Schnittmarken schneiden. Stapel an den Tresen legen.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>2</span></td><td class="step-content"><div class="title">Tabelle anlegen</div><div class="desc"><span class="mono">tracking_tabelle_vorlage.csv</span> in Google Sheets (oder Excel) importieren. Auf einem geteilten Laufwerk ablegen, damit alle Zugriff haben.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>3</span></td><td class="step-content"><div class="title">Dropdowns &amp; Ampel-Formel einrichten</div><div class="desc">Datenvalidierung für Status, Kundentyp, Kategorie setzen. Ampel-Formel (Teil 5) in eine Spalte einfügen. Bedingte Formatierung für Status-Farben.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>4</span></td><td class="step-content"><div class="title">Board aufhängen</div><div class="desc">Magnet-/Pinnwand im Backoffice mit 6 Spalten beschriften (Beratung offen → Gewonnen). Optional: farbige Spaltenköpfe wie in Teil 3.</div></td></tr></table></div>
+    <div class="step"><table class="step-table"><tr><td class="step-num"><span>5</span></td><td class="step-content"><div class="title">Team 15 Minuten briefen</div><div class="desc">Lead-Karte zeigen, Routinen erklären (Teil 7), ersten Tagesverantwortlichen festlegen. Ab dem nächsten Kunden läuft es.</div></td></tr></table></div>
+  </div>
+
+  <h2 class="subsection">Die Lead-Karte – Druckvorlage (Einzelansicht)</h2>
+  <p class="small">Diese Karte ist auch im A4-Druckbogen (4×) enthalten. Hier zur Kontrolle in Originalgröße:</p>
+
+  <!-- compact print-version reference card -->
+  <div class="lead-card" style="max-width: 105mm;">
+    <div class="lc-head">
+      <table class="lc-head-table">
+        <tr>
+          <td style="width:1%; white-space:nowrap; padding:6px 10px;"><span class="lc-logo" style="font-size:11pt;">FITSHOP</span></td>
+          <td style="padding:6px 8px;"><span class="lc-title" style="font-size:9.5pt;">LEAD-KARTE</span></td>
+          <td class="lc-nr" style="padding:6px 10px;">Nr. <span class="nr-box" style="min-width:36px;">&nbsp;</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="lc-body" style="padding:8px 10px;">
+      <table class="lc-row"><tr>
+        <td style="width:40%"><div class="lc-field-label">Datum</div><div class="lc-line"></div></td>
+        <td style="width:60%"><div class="lc-field-label">MA</div><div class="lc-chk"><span class="opt"><span class="box"></span>D</span><span class="opt"><span class="box"></span>J</span><span class="opt"><span class="box"></span>A</span><span class="opt"><span class="box"></span>N</span></div></td>
+      </tr></table>
+      <table class="lc-row"><tr><td><div class="lc-field-label">Kunde / Kontakt</div><div class="lc-line"></div></td></tr></table>
+      <table class="lc-row"><tr><td><div class="lc-field-label">Typ A–J &nbsp;|&nbsp; Kategorie</div><div class="lc-line"></div></td></tr></table>
+      <table class="lc-row"><tr><td><div class="lc-field-label">Favorit / Preis</div><div class="lc-line"></div></td></tr></table>
+      <table class="lc-row"><tr>
+        <td style="width:60%"><div class="lc-field-label">Offener Punkt</div><div class="lc-chk"><span class="opt"><span class="box"></span>Maße</span><span class="opt"><span class="box"></span>Partner</span><span class="opt"><span class="box"></span>Budget</span></div></td>
+        <td style="width:40%"><div class="lc-field-label">Kaufreife</div><div class="lc-chk"><span class="lc-circle" style="width:15px;height:15px;line-height:13px;">1</span><span class="lc-circle" style="width:15px;height:15px;line-height:13px;">3</span><span class="lc-circle" style="width:15px;height:15px;line-height:13px;">5</span></div></td>
+      </tr></table>
+      <table class="lc-row"><tr><td><div class="lc-field-label">Nächster Schritt / Check am</div><div class="lc-line"></div></td></tr></table>
+    </div>
+  </div>
+
+  <div class="box" style="margin-top: 14px;">
+    <div class="box-title">Das Wichtigste zum Schluss</div>
+    <p style="margin:0;">Das beste Tracking-System ist nicht das mit den meisten Feldern, sondern das, das <strong>tatsächlich benutzt</strong> wird. Lieber jede Lead-Karte zu 80% ausgefüllt als die perfekte Tabelle, die nach zwei Wochen niemand mehr pflegt. Fangt einfach an – ab dem nächsten warmen Kunden.</p>
+  </div>
+</div>
+
+</body>
+</html>

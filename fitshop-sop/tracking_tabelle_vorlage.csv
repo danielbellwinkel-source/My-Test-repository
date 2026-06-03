@@ -1,0 +1,11 @@
+Lead-Nr;Datum;Mitarbeiter;Kunde;Kontakt;Kategorie;Favorit (Modell + Preis);Alternative (Modell + Preis);Kundentyp;Offener Punkt;Einwandtyp;Kaufreife (1-5);Status;Naechster Schritt;Check-Datum;Angebotswert (EUR);Abschluss;Verlustgrund;Notiz
+2026-0001;15.05.2026;Daniel;Hr. Egger;0664 1234567;Laufband;Modell B Pro - 2190;Modell B - 1690;A;-;-;5;Kauf abgeschlossen;-;15.05.2026;2190;Ja;-;Sofortkauf nach Test
+2026-0002;16.05.2026;Jonas;Hr. Mayr;0676 2345678;Crosstrainer;Modell X - 1490;Modell Y - 990;B;Maße;E1;4;Heimcheck angelegt;Check-Anruf;30.05.2026;1490;Offen;-;Maße bis Freitag
+2026-0003;16.05.2026;Angie;Fr. Kofler;fr.kofler@email.at;Ergometer;Modell E - 1290;Modell E light - 890;C;Partner;E2;3;Heimcheck angelegt;2. Besuch;29.05.2026;1290;Offen;-;Mann kommt mit
+2026-0004;18.05.2026;Norbert;Hr. Stocker;0699 3456789;Kraftstation;Power-Rack - 2890;Kompakt-Station - 1990;B;Raum;E5;4;Entscheidungscheck geplant;Check-Anruf;28.05.2026;2890;Offen;-;Garage wird gemessen
+2026-0005;19.05.2026;Daniel;Hr. Pichler;0664 4567890;Laufband;Modell A - 1890;-;A;Budget;E3;4;Angebot konkret;Check-Anruf;27.05.2026;1890;Offen;-;Finanzierung angefragt
+2026-0006;20.05.2026;Jonas;Fam. Schmid;0676 5678901;Kraftstation;Multi-Station - 3490;-;E;Raum;E5;3;Warten auf Raum;Wiedervorlage;15.09.2026;3490;Offen;-;Keller-Rohbau im Herbst
+2026-0007;21.05.2026;Angie;Fr. Wieser;fr.wieser@email.at;Ergometer;Modell E - 990;-;A;-;-;5;Kauf abgeschlossen;-;21.05.2026;990;Ja;-;Geschenk fuer Ehemann
+2026-0008;22.05.2026;Norbert;Hr. Lindner;0699 6789012;Laufband;Modell C - 1290;Modell C basic - 790;D;Budget;E3;2;Verloren;-;26.05.2026;0;Nein;Online;Hat online guenstiger gekauft
+2026-0009;23.05.2026;Daniel;Fam. Huber;0664 7890123;Laufband;noch offen;-;C;Nutzung;E6;2;Beratung offen;Check-Anruf;02.06.2026;0;Offen;-;Noch unsicher welches Modell
+2026-0010;24.05.2026;Jonas;Hr. Brunner;0676 8901234;Crosstrainer;Modell X - 1490;-;B;Maße;E1;4;Heimcheck angelegt;Check-Anruf;31.05.2026;1490;Offen;-;Deckenhoehe pruefen

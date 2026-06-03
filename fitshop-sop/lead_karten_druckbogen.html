@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Fitshop Lead-Karten – Druckbogen</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  :root {
+    --red: #e31e24; --anthracite: #2d2d2d; --gray-mid: #6b6b6b; --gray-light: #f5f5f5; --gray-border: #d8d8d8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Helvetica', Arial, sans-serif; color: var(--anthracite); }
+
+  .sheet { width: 194mm; }
+  .cut-row { display: flex; gap: 0; }
+  .cut-cell {
+    width: 97mm; height: 138mm;
+    border: 1px dashed #bbb;
+    padding: 0;
+    position: relative;
+  }
+  /* scissors hint top-left of sheet */
+  .card {
+    width: 100%; height: 100%;
+    border: 1.5px solid var(--anthracite);
+    margin: 0;
+    display: flex; flex-direction: column;
+  }
+  .lc-head { background: var(--anthracite); color: white; }
+  .lc-head-table { width: 100%; border-collapse: collapse; }
+  .lc-head-table td { padding: 6px 9px; vertical-align: middle; }
+  .lc-logo { font-size: 11pt; font-weight: 900; color: var(--red); letter-spacing: -0.5px; }
+  .lc-title { font-size: 9.5pt; font-weight: 800; color: white; letter-spacing: 1px; }
+  .lc-nr { text-align: right; font-size: 7pt; color: #bbb; white-space: nowrap; }
+  .lc-nr .nr-box { display: inline-block; border: 1px solid #888; padding: 1px 8px; margin-left: 3px; min-width: 38px; }
+  .lc-body { padding: 6px 9px; flex: 1; }
+  .lc-foot { background: var(--gray-light); border-top: 1px solid var(--gray-border); padding: 4px 9px; }
+
+  .row { width: 100%; border-collapse: collapse; margin-bottom: 5px; }
+  .row td { vertical-align: top; padding: 0 5px 0 0; }
+  .label { font-size: 6pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 1px; }
+  .line { border-bottom: 1px solid #999; height: 13px; }
+  .chk { font-size: 7pt; line-height: 1.5; }
+  .chk .opt { display: inline-block; margin-right: 5px; white-space: nowrap; }
+  .chk .box { display: inline-block; width: 8px; height: 8px; border: 1px solid #666; margin-right: 1px; vertical-align: -1px; }
+  .typ { display: inline-block; width: 14px; height: 14px; border: 1.2px solid var(--anthracite); text-align: center; line-height: 12px; font-size: 7pt; font-weight: 700; margin-right: 1px; }
+  .circle { display: inline-block; width: 14px; height: 14px; border: 1.3px solid #666; border-radius: 50%; text-align: center; line-height: 12px; font-size: 7pt; font-weight: 700; margin-right: 2px; }
+
+  .status-track { width: 100%; border-collapse: collapse; }
+  .status-track td { text-align: center; font-size: 5.2pt; font-weight: 700; padding: 2px 1px; color: var(--gray-mid); text-transform: uppercase; line-height: 1.15; }
+  .status-track td .dot { display: block; width: 9px; height: 9px; border: 1.2px solid #999; border-radius: 50%; margin: 0 auto 2px; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <!-- Row 1 -->
+  <div class="cut-row">
+    <!-- CARD TEMPLATE x4 below; identical -->
+    <!-- CARD 1 -->
+    <div class="cut-cell"><div class="card">
+      <div class="lc-head"><table class="lc-head-table"><tr>
+        <td style="width:1%; white-space:nowrap;"><span class="lc-logo">FITSHOP</span></td>
+        <td><span class="lc-title">LEAD-KARTE</span></td>
+        <td class="lc-nr">Nr.<span class="nr-box">&nbsp;</span></td>
+      </tr></table></div>
+      <div class="lc-body">
+        <table class="row"><tr>
+          <td style="width:42%"><div class="label">Datum</div><div class="line"></div></td>
+          <td style="width:58%"><div class="label">Mitarbeiter</div><div class="chk"><span class="opt"><span class="box"></span>Daniel</span><span class="opt"><span class="box"></span>Jonas</span><span class="opt"><span class="box"></span>Angie</span><span class="opt"><span class="box"></span>Norbert</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:55%"><div class="label">Kunde</div><div class="line"></div></td>
+          <td style="width:45%"><div class="label">Tel / E-Mail</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Kundentyp (SOP)</div><div class="chk" style="line-height:1.9"><span class="opt"><span class="typ">A</span></span><span class="opt"><span class="typ">B</span></span><span class="opt"><span class="typ">C</span></span><span class="opt"><span class="typ">D</span></span><span class="opt"><span class="typ">E</span></span><span class="opt"><span class="typ">F</span></span><span class="opt"><span class="typ">G</span></span><span class="opt"><span class="typ">H</span></span><span class="opt"><span class="typ">I</span></span><span class="opt"><span class="typ">J</span></span></div></td></tr></table>
+        <table class="row"><tr><td><div class="label">Kategorie</div><div class="chk"><span class="opt"><span class="box"></span>Laufband</span><span class="opt"><span class="box"></span>Ergometer</span><span class="opt"><span class="box"></span>Crosstr.</span><span class="opt"><span class="box"></span>Ruder</span><span class="opt"><span class="box"></span>Kraft</span><span class="opt"><span class="box"></span>Sonst.</span></div></td></tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Favorit (Modell)</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Alternative</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Offener Punkt</div><div class="chk"><span class="opt"><span class="box"></span>Maße</span><span class="opt"><span class="box"></span>Partner</span><span class="opt"><span class="box"></span>Budget</span><span class="opt"><span class="box"></span>Raum</span><span class="opt"><span class="box"></span>Nutzung</span></div></td>
+          <td style="width:40%"><div class="label">Kaufreife</div><div class="chk"><span class="circle">1</span><span class="circle">2</span><span class="circle">3</span><span class="circle">4</span><span class="circle">5</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Nächster Schritt</div><div class="chk"><span class="opt"><span class="box"></span>Heimcheck</span><span class="opt"><span class="box"></span>Anruf</span><span class="opt"><span class="box"></span>2.Besuch</span><span class="opt"><span class="box"></span>Wiedervorl.</span></div></td>
+          <td style="width:40%"><div class="label">Check am</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Notiz</div><div class="line"></div></td></tr></table>
+      </div>
+      <div class="lc-foot"><table class="status-track"><tr>
+        <td><span class="dot"></span>Beratung</td>
+        <td><span class="dot"></span>Heimcheck</td>
+        <td><span class="dot"></span>Entsch.-Check</td>
+        <td><span class="dot"></span>Angebot</td>
+        <td><span class="dot"></span>Kauf ✓</td>
+        <td><span class="dot"></span>Verloren ✗</td>
+      </tr></table></div>
+    </div></div>
+    <!-- CARD 2 -->
+    <div class="cut-cell"><div class="card">
+      <div class="lc-head"><table class="lc-head-table"><tr>
+        <td style="width:1%; white-space:nowrap;"><span class="lc-logo">FITSHOP</span></td>
+        <td><span class="lc-title">LEAD-KARTE</span></td>
+        <td class="lc-nr">Nr.<span class="nr-box">&nbsp;</span></td>
+      </tr></table></div>
+      <div class="lc-body">
+        <table class="row"><tr>
+          <td style="width:42%"><div class="label">Datum</div><div class="line"></div></td>
+          <td style="width:58%"><div class="label">Mitarbeiter</div><div class="chk"><span class="opt"><span class="box"></span>Daniel</span><span class="opt"><span class="box"></span>Jonas</span><span class="opt"><span class="box"></span>Angie</span><span class="opt"><span class="box"></span>Norbert</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:55%"><div class="label">Kunde</div><div class="line"></div></td>
+          <td style="width:45%"><div class="label">Tel / E-Mail</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Kundentyp (SOP)</div><div class="chk" style="line-height:1.9"><span class="opt"><span class="typ">A</span></span><span class="opt"><span class="typ">B</span></span><span class="opt"><span class="typ">C</span></span><span class="opt"><span class="typ">D</span></span><span class="opt"><span class="typ">E</span></span><span class="opt"><span class="typ">F</span></span><span class="opt"><span class="typ">G</span></span><span class="opt"><span class="typ">H</span></span><span class="opt"><span class="typ">I</span></span><span class="opt"><span class="typ">J</span></span></div></td></tr></table>
+        <table class="row"><tr><td><div class="label">Kategorie</div><div class="chk"><span class="opt"><span class="box"></span>Laufband</span><span class="opt"><span class="box"></span>Ergometer</span><span class="opt"><span class="box"></span>Crosstr.</span><span class="opt"><span class="box"></span>Ruder</span><span class="opt"><span class="box"></span>Kraft</span><span class="opt"><span class="box"></span>Sonst.</span></div></td></tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Favorit (Modell)</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Alternative</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Offener Punkt</div><div class="chk"><span class="opt"><span class="box"></span>Maße</span><span class="opt"><span class="box"></span>Partner</span><span class="opt"><span class="box"></span>Budget</span><span class="opt"><span class="box"></span>Raum</span><span class="opt"><span class="box"></span>Nutzung</span></div></td>
+          <td style="width:40%"><div class="label">Kaufreife</div><div class="chk"><span class="circle">1</span><span class="circle">2</span><span class="circle">3</span><span class="circle">4</span><span class="circle">5</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Nächster Schritt</div><div class="chk"><span class="opt"><span class="box"></span>Heimcheck</span><span class="opt"><span class="box"></span>Anruf</span><span class="opt"><span class="box"></span>2.Besuch</span><span class="opt"><span class="box"></span>Wiedervorl.</span></div></td>
+          <td style="width:40%"><div class="label">Check am</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Notiz</div><div class="line"></div></td></tr></table>
+      </div>
+      <div class="lc-foot"><table class="status-track"><tr>
+        <td><span class="dot"></span>Beratung</td>
+        <td><span class="dot"></span>Heimcheck</td>
+        <td><span class="dot"></span>Entsch.-Check</td>
+        <td><span class="dot"></span>Angebot</td>
+        <td><span class="dot"></span>Kauf ✓</td>
+        <td><span class="dot"></span>Verloren ✗</td>
+      </tr></table></div>
+    </div></div>
+  </div>
+  <!-- Row 2 -->
+  <div class="cut-row">
+    <!-- CARD 3 -->
+    <div class="cut-cell"><div class="card">
+      <div class="lc-head"><table class="lc-head-table"><tr>
+        <td style="width:1%; white-space:nowrap;"><span class="lc-logo">FITSHOP</span></td>
+        <td><span class="lc-title">LEAD-KARTE</span></td>
+        <td class="lc-nr">Nr.<span class="nr-box">&nbsp;</span></td>
+      </tr></table></div>
+      <div class="lc-body">
+        <table class="row"><tr>
+          <td style="width:42%"><div class="label">Datum</div><div class="line"></div></td>
+          <td style="width:58%"><div class="label">Mitarbeiter</div><div class="chk"><span class="opt"><span class="box"></span>Daniel</span><span class="opt"><span class="box"></span>Jonas</span><span class="opt"><span class="box"></span>Angie</span><span class="opt"><span class="box"></span>Norbert</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:55%"><div class="label">Kunde</div><div class="line"></div></td>
+          <td style="width:45%"><div class="label">Tel / E-Mail</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Kundentyp (SOP)</div><div class="chk" style="line-height:1.9"><span class="opt"><span class="typ">A</span></span><span class="opt"><span class="typ">B</span></span><span class="opt"><span class="typ">C</span></span><span class="opt"><span class="typ">D</span></span><span class="opt"><span class="typ">E</span></span><span class="opt"><span class="typ">F</span></span><span class="opt"><span class="typ">G</span></span><span class="opt"><span class="typ">H</span></span><span class="opt"><span class="typ">I</span></span><span class="opt"><span class="typ">J</span></span></div></td></tr></table>
+        <table class="row"><tr><td><div class="label">Kategorie</div><div class="chk"><span class="opt"><span class="box"></span>Laufband</span><span class="opt"><span class="box"></span>Ergometer</span><span class="opt"><span class="box"></span>Crosstr.</span><span class="opt"><span class="box"></span>Ruder</span><span class="opt"><span class="box"></span>Kraft</span><span class="opt"><span class="box"></span>Sonst.</span></div></td></tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Favorit (Modell)</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Alternative</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Offener Punkt</div><div class="chk"><span class="opt"><span class="box"></span>Maße</span><span class="opt"><span class="box"></span>Partner</span><span class="opt"><span class="box"></span>Budget</span><span class="opt"><span class="box"></span>Raum</span><span class="opt"><span class="box"></span>Nutzung</span></div></td>
+          <td style="width:40%"><div class="label">Kaufreife</div><div class="chk"><span class="circle">1</span><span class="circle">2</span><span class="circle">3</span><span class="circle">4</span><span class="circle">5</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Nächster Schritt</div><div class="chk"><span class="opt"><span class="box"></span>Heimcheck</span><span class="opt"><span class="box"></span>Anruf</span><span class="opt"><span class="box"></span>2.Besuch</span><span class="opt"><span class="box"></span>Wiedervorl.</span></div></td>
+          <td style="width:40%"><div class="label">Check am</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Notiz</div><div class="line"></div></td></tr></table>
+      </div>
+      <div class="lc-foot"><table class="status-track"><tr>
+        <td><span class="dot"></span>Beratung</td>
+        <td><span class="dot"></span>Heimcheck</td>
+        <td><span class="dot"></span>Entsch.-Check</td>
+        <td><span class="dot"></span>Angebot</td>
+        <td><span class="dot"></span>Kauf ✓</td>
+        <td><span class="dot"></span>Verloren ✗</td>
+      </tr></table></div>
+    </div></div>
+    <!-- CARD 4 -->
+    <div class="cut-cell"><div class="card">
+      <div class="lc-head"><table class="lc-head-table"><tr>
+        <td style="width:1%; white-space:nowrap;"><span class="lc-logo">FITSHOP</span></td>
+        <td><span class="lc-title">LEAD-KARTE</span></td>
+        <td class="lc-nr">Nr.<span class="nr-box">&nbsp;</span></td>
+      </tr></table></div>
+      <div class="lc-body">
+        <table class="row"><tr>
+          <td style="width:42%"><div class="label">Datum</div><div class="line"></div></td>
+          <td style="width:58%"><div class="label">Mitarbeiter</div><div class="chk"><span class="opt"><span class="box"></span>Daniel</span><span class="opt"><span class="box"></span>Jonas</span><span class="opt"><span class="box"></span>Angie</span><span class="opt"><span class="box"></span>Norbert</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:55%"><div class="label">Kunde</div><div class="line"></div></td>
+          <td style="width:45%"><div class="label">Tel / E-Mail</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Kundentyp (SOP)</div><div class="chk" style="line-height:1.9"><span class="opt"><span class="typ">A</span></span><span class="opt"><span class="typ">B</span></span><span class="opt"><span class="typ">C</span></span><span class="opt"><span class="typ">D</span></span><span class="opt"><span class="typ">E</span></span><span class="opt"><span class="typ">F</span></span><span class="opt"><span class="typ">G</span></span><span class="opt"><span class="typ">H</span></span><span class="opt"><span class="typ">I</span></span><span class="opt"><span class="typ">J</span></span></div></td></tr></table>
+        <table class="row"><tr><td><div class="label">Kategorie</div><div class="chk"><span class="opt"><span class="box"></span>Laufband</span><span class="opt"><span class="box"></span>Ergometer</span><span class="opt"><span class="box"></span>Crosstr.</span><span class="opt"><span class="box"></span>Ruder</span><span class="opt"><span class="box"></span>Kraft</span><span class="opt"><span class="box"></span>Sonst.</span></div></td></tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Favorit (Modell)</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:65%"><div class="label">Alternative</div><div class="line"></div></td>
+          <td style="width:35%"><div class="label">Preis €</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Offener Punkt</div><div class="chk"><span class="opt"><span class="box"></span>Maße</span><span class="opt"><span class="box"></span>Partner</span><span class="opt"><span class="box"></span>Budget</span><span class="opt"><span class="box"></span>Raum</span><span class="opt"><span class="box"></span>Nutzung</span></div></td>
+          <td style="width:40%"><div class="label">Kaufreife</div><div class="chk"><span class="circle">1</span><span class="circle">2</span><span class="circle">3</span><span class="circle">4</span><span class="circle">5</span></div></td>
+        </tr></table>
+        <table class="row"><tr>
+          <td style="width:60%"><div class="label">Nächster Schritt</div><div class="chk"><span class="opt"><span class="box"></span>Heimcheck</span><span class="opt"><span class="box"></span>Anruf</span><span class="opt"><span class="box"></span>2.Besuch</span><span class="opt"><span class="box"></span>Wiedervorl.</span></div></td>
+          <td style="width:40%"><div class="label">Check am</div><div class="line"></div></td>
+        </tr></table>
+        <table class="row"><tr><td><div class="label">Notiz</div><div class="line"></div></td></tr></table>
+      </div>
+      <div class="lc-foot"><table class="status-track"><tr>
+        <td><span class="dot"></span>Beratung</td>
+        <td><span class="dot"></span>Heimcheck</td>
+        <td><span class="dot"></span>Entsch.-Check</td>
+        <td><span class="dot"></span>Angebot</td>
+        <td><span class="dot"></span>Kauf ✓</td>
+        <td><span class="dot"></span>Verloren ✗</td>
+      </tr></table></div>
+    </div></div>
+  </div>
+</div>
+</body>
+</html>
