@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehikel-Cockpit — Entscheidung & Validierung</title>
+<style>
+  :root{
+    --bg:#0f1216; --panel:#171c22; --panel2:#1e252d; --line:#2a323c;
+    --txt:#e6edf3; --muted:#8b97a6; --accent:#4ea3ff; --good:#34d399;
+    --warn:#fbbf24; --bad:#f87171; --gold:#facc15;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}
+  header{padding:28px 24px 12px;max-width:1100px;margin:0 auto}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;max-width:760px}
+  main{max-width:1100px;margin:0 auto;padding:12px 24px 80px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:20px;margin:18px 0}
+  h2{font-size:17px;margin:0 0 4px}
+  .hint{color:var(--muted);font-size:13px;margin:0 0 14px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px}
+  td.name,th.name{text-align:left;min-width:190px;font-weight:600}
+  td.score input{width:42px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--txt);border-radius:6px;padding:4px;text-align:center;font:inherit}
+  .wt input{width:38px;background:var(--panel2);border:1px solid var(--line);
+    color:var(--accent);border-radius:6px;padding:3px;text-align:center;font:inherit;font-weight:700}
+  .total{font-weight:700;font-size:15px}
+  .rank1 td{background:rgba(250,204,21,.08)}
+  .rank1 td.name::before{content:"★ ";color:var(--gold)}
+  .bar{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:4px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,#4ea3ff,#34d399)}
+  button{background:var(--accent);color:#04121f;border:0;border-radius:8px;
+    padding:9px 14px;font:inherit;font-weight:600;cursor:pointer}
+  button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  button.ghost:hover{color:var(--txt)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+  .pill{display:inline-block;background:var(--panel2);border:1px solid var(--line);
+    border-radius:999px;padding:3px 10px;font-size:12px;color:var(--muted)}
+  label{display:block;font-size:12px;color:var(--muted);margin:12px 0 4px}
+  input[type=text],textarea,input[type=date]{width:100%;background:var(--panel2);
+    border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px;font:inherit}
+  textarea{min-height:54px;resize:vertical}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .kill{border-left:3px solid var(--bad);padding-left:12px}
+  .win{border-left:3px solid var(--good);padding-left:12px}
+  .big{font-size:20px;font-weight:700}
+  .gold{color:var(--gold)} .muted{color:var(--muted)}
+  .warnbox{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.3);
+    border-radius:8px;padding:12px;font-size:13px;color:#fca5a5;margin-top:14px}
+  .logline{display:grid;grid-template-columns:110px 1fr;gap:8px;margin-top:8px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}td.name,th.name{min-width:120px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Vehikel-Cockpit</h1>
+  <p class="sub">Zweck: <b>nüchtern entscheiden statt blind bauen.</b> Du machst deine Annahmen sichtbar,
+  gewichtest sie nach deinen echten Zielen und legst <b>vorher</b> ein Kill-Kriterium fest — gegen genau das
+  Muster, das dich Dark Will (6 Mon.), FirstFrame (7 Mon.) und Hidden Healthway (5 Mon.) gekostet hat.
+  Alles lokal gespeichert, nichts verlässt deinen Browser.</p>
+</header>
+<main>
+
+<section class="card">
+  <h2>1 · Kriterien & Gewichtung</h2>
+  <p class="hint">Gewicht 1–5: Wie wichtig ist dir das Kriterium <i>jetzt</i>? Höher = zählt mehr.
+  Bei „Geringer Bedarf" und „Unabhängigkeit" gilt: höhere Punktzahl = besser (also wenig Kapital/Zeit = 10).</p>
+  <table id="critTable"></table>
+</section>
+
+<section class="card">
+  <h2>2 · Vehikel bewerten</h2>
+  <p class="hint">Punkte 0–10 pro Kriterium. Vorbefüllt mit einer ehrlichen Ersteinschätzung aus deinem
+  Kontextdokument — <b>überschreib alles, was du anders sieht.</b> Das Ranking rechnet live.</p>
+  <div style="overflow-x:auto"><table id="vehTable"></table></div>
+  <div class="row">
+    <button onclick="addVehicle()">+ Vehikel hinzufügen</button>
+    <button class="ghost" onclick="resetAll()">Zurücksetzen</button>
+    <button class="ghost" onclick="exportJSON()">Export (JSON)</button>
+  </div>
+  <div class="warnbox">⚠️ Disziplin-Regel: Der Sieger ist nicht „die schönste Idee", sondern die höchste Zahl.
+  Wenn dir das Ergebnis nicht passt, ändere die <i>Annahmen</i> bewusst — nicht das Bauchgefühl.</div>
+</section>
+
+<section class="card">
+  <h2>3 · Entscheidung</h2>
+  <div id="decision"></div>
+</section>
+
+<section class="card">
+  <h2>4 · 30-Tage-Validierungssprint</h2>
+  <p class="hint">Für das gewählte Vehikel. Ziel ist <b>nicht</b> Umsatz aufzubauen — Ziel ist, <b>belegte
+  Zahlungsbereitschaft</b> zu beweisen oder zu widerlegen. Du füllst das aus, bevor du startest.</p>
+
+  <label>Gewähltes Vehikel</label>
+  <input type="text" id="sp_vehicle" placeholder="z. B. High-Ticket Personal Training lokal">
+
+  <div class="grid2">
+    <div>
+      <label>Eine konkrete Hypothese (wer zahlt wofür wie viel?)</label>
+      <textarea id="sp_hypo" placeholder="z. B.: 5 zahlungskräftige 40+ Klienten in Innsbruck zahlen 250 €/Monat für 1:1-Premium-Coaching mit Handstand/Mobility-Fokus."></textarea>
+    </div>
+    <div>
+      <label>Kleinstmöglicher Test (ohne Infrastruktur)</label>
+      <textarea id="sp_test" placeholder="z. B.: 30 reale Gespräche/DMs an passendes Profil, Angebot direkt, Anzahlung kassieren — keine Website, kein Kurs."></textarea>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="win">
+      <label>✅ ERFOLG heißt konkret (Zahl + Datum)</label>
+      <textarea id="sp_win" placeholder="z. B.: bis Tag 30 mindestens 3 zahlende Klienten ODER 750 € kassiert."></textarea>
+    </div>
+    <div class="kill">
+      <label>🛑 KILL-KRITERIUM — hier höre ich auf (vorab festgelegt!)</label>
+      <textarea id="sp_kill" placeholder="z. B.: < 1 zahlender Klient nach 30 Gesprächen UND < 250 € → Vehikel wird beendet, nicht „gerettet"."></textarea>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div><label>Start</label><input type="date" id="sp_start"></div>
+    <div><label>Entscheidung am (Start + 30)</label><input type="date" id="sp_end" readonly></div>
+  </div>
+
+  <label>Wochen-Log (nur Fakten: Gespräche, Antworten, € kassiert)</label>
+  <div id="logs"></div>
+  <div class="row"><button class="ghost" onclick="addLog()">+ Eintrag</button></div>
+
+  <div class="warnbox" style="background:rgba(52,211,153,.06);border-color:rgba(52,211,153,.3);color:#86efac">
+  Wenn am Stichtag weder Erfolg noch Kill klar erfüllt sind: Das ist <b>selbst</b> ein Kill-Signal
+  (zu schwaches Marktsignal). Kein viertes Mal „nur noch ein bisschen länger".</div>
+</section>
+
+</main>
+
+<script>
+const CRIT = [
+  {k:'cashflow', n:'Cashflow in 3–6 Monaten', w:5},
+  {k:'proof',    n:'Unfair Advantage / echter Proof', w:5},
+  {k:'pay',      n:'Belegte Zahlungsbereitschaft', w:4},
+  {k:'validate', n:'In 30 Tagen validierbar', w:4},
+  {k:'scale',    n:'Skalierbarkeit (1-Mio-Hebel)', w:3},
+  {k:'fit',      n:'Persönlichkeits-Fit (verstärkt Schwächen nicht)', w:3},
+  {k:'indep',    n:'Unabhängig von Plattform/schwachen Partnern', w:3},
+  {k:'cost',     n:'Geringer Kapital-/Zeitbedarf', w:2},
+];
+// Ehrliche Ersteinschätzung aus dem Kontextdokument (alles editierbar)
+const SEED = [
+  {n:'Premium / High-Ticket Personal Training (lokal Innsbruck + hybrid)',
+   s:{cashflow:8,proof:10,pay:8,validate:9,scale:4,fit:8,indep:8,cost:8}},
+  {n:'High-Ticket Sales / Closer / Setter (remote, Provision)',
+   s:{cashflow:9,proof:6,pay:9,validate:8,scale:5,fit:7,indep:5,cost:9}},
+  {n:'Handstand / Calisthenics Online-Programm + Community',
+   s:{cashflow:4,proof:9,pay:5,validate:5,scale:8,fit:7,indep:5,cost:6}},
+  {n:'D.R.I. Immobilien-Performance (mit Cousin)',
+   s:{cashflow:3,proof:6,pay:6,validate:3,scale:6,fit:6,indep:3,cost:6}},
+  {n:'FirstFrame — B2B Studio-Marketing (Solo, kalt)',
+   s:{cashflow:3,proof:4,pay:4,validate:3,scale:6,fit:5,indep:6,cost:6}},
+  {n:'Faceless YouTube / Content-Vehikel',
+   s:{cashflow:2,proof:5,pay:3,validate:4,scale:8,fit:4,indep:2,cost:7}},
+];
+
+let state = load();
+function load(){
+  try{const x=JSON.parse(localStorage.getItem('vehikel_cockpit'));
+    if(x&&x.veh) return x;}catch(e){}
+  return {weights:Object.fromEntries(CRIT.map(c=>[c.k,c.w])),
+          veh:SEED.map(v=>({...v,s:{...v.s}})), sprint:{}, logs:[]};
+}
+function save(){localStorage.setItem('vehikel_cockpit',JSON.stringify(state));}
+
+function maxScore(){return CRIT.reduce((a,c)=>a+10*state.weights[c.k],0);}
+function vehTotal(v){return CRIT.reduce((a,c)=>a+(+v.s[c.k]||0)*state.weights[c.k],0);}
+
+function renderCrit(){
+  let h='<tr><th class="name">Kriterium</th><th>Gewicht (1–5)</th></tr>';
+  CRIT.forEach(c=>{h+=`<tr><td class="name">${c.n}</td>
+    <td class="wt"><input type="number" min="1" max="5" value="${state.weights[c.k]}"
+      onchange="state.weights['${c.k}']=Math.max(1,Math.min(5,+this.value||1));save();renderAll()"></td></tr>`;});
+  document.getElementById('critTable').innerHTML=h;
+}
+function renderVeh(){
+  const ranked=[...state.veh.map((v,i)=>({i,t:vehTotal(v)}))].sort((a,b)=>b.t-a.t);
+  const topI=ranked.length?ranked[0].i:-1;
+  let h='<tr><th class="name">Vehikel</th>';
+  CRIT.forEach(c=>h+=`<th title="${c.n}">${c.n.split(' ')[0].replace('/','')}</th>`);
+  h+='<th>Gesamt</th><th></th></tr>';
+  state.veh.forEach((v,i)=>{
+    h+=`<tr class="${i===topI?'rank1':''}"><td class="name"><input type="text" value="${v.n.replace(/"/g,'&quot;')}"
+        style="width:100%;background:transparent;border:0;color:inherit;font:inherit;font-weight:600"
+        onchange="state.veh[${i}].n=this.value;save();renderAll()"></td>`;
+    CRIT.forEach(c=>{h+=`<td class="score"><input type="number" min="0" max="10" value="${v.s[c.k]??0}"
+        onchange="state.veh[${i}].s['${c.k}']=Math.max(0,Math.min(10,+this.value||0));save();renderAll()"></td>`;});
+    const pct=Math.round(vehTotal(v)/maxScore()*100);
+    h+=`<td class="total">${pct}%<div class="bar"><i style="width:${pct}%"></i></div></td>
+        <td><button class="ghost" style="padding:3px 7px" onclick="delVeh(${i})">✕</button></td></tr>`;
+  });
+  document.getElementById('vehTable').innerHTML=h;
+}
+function renderDecision(){
+  const ranked=[...state.veh.map(v=>({n:v.n,t:vehTotal(v)}))].sort((a,b)=>b.t-a.t);
+  const m=maxScore();
+  if(!ranked.length){document.getElementById('decision').innerHTML='<p class="muted">Keine Vehikel.</p>';return;}
+  const top=ranked[0], sec=ranked[1];
+  const gap=sec?Math.round((top.t-sec.t)/m*100):null;
+  let h=`<div class="big gold">★ ${top.n}</div>
+    <div class="muted" style="margin:4px 0 10px">Score ${Math.round(top.t/m*100)}%`;
+  if(sec) h+=` — Vorsprung ${gap} Pp. vor „${sec.n}" (${Math.round(sec.t/m*100)}%)`;
+  h+='</div>';
+  if(gap!==null&&gap<5) h+=`<div class="warnbox">Knappes Rennen (&lt;5 Pp.). Das heißt nicht „beide machen" —
+     das hat dich vorher Fokus gekostet. Wähl das mit dem <b>schnelleren 30-Tage-Validierungssignal</b>.</div>`;
+  h+='<div class="row">';
+  ranked.slice(0,3).forEach((r,i)=>h+=`<span class="pill">${i+1}. ${r.n} · ${Math.round(r.t/m*100)}%</span>`);
+  h+='</div><div class="row"><button onclick="useTop()">→ Dieses Vehikel in den 30-Tage-Sprint übernehmen</button></div>';
+  document.getElementById('decision').innerHTML=h;
+}
+function renderSprint(){
+  const s=state.sprint;
+  ['vehicle','hypo','test','win','kill','start'].forEach(k=>{
+    const el=document.getElementById('sp_'+k); if(el&&s[k]!=null) el.value=s[k];
+  });
+  computeEnd();
+  renderLogs();
+}
+function renderLogs(){
+  let h='';
+  state.logs.forEach((l,i)=>{h+=`<div class="logline">
+    <input type="date" value="${l.d||''}" onchange="state.logs[${i}].d=this.value;save()">
+    <input type="text" value="${(l.t||'').replace(/"/g,'&quot;')}" placeholder="z. B.: 12 Gespräche, 2 Interessenten, 250 € Anzahlung"
+      onchange="state.logs[${i}].t=this.value;save()"></div>`;});
+  document.getElementById('logs').innerHTML=h;
+}
+function renderAll(){renderCrit();renderVeh();renderDecision();}
+
+// actions
+function addVehicle(){state.veh.push({n:'Neues Vehikel',s:Object.fromEntries(CRIT.map(c=>[c.k,0]))});save();renderAll();}
+function delVeh(i){state.veh.splice(i,1);save();renderAll();}
+function resetAll(){if(confirm('Alles auf die Ausgangswerte zurücksetzen?')){localStorage.removeItem('vehikel_cockpit');state=load();renderAll();renderSprint();}}
+function useTop(){const r=[...state.veh].sort((a,b)=>vehTotal(b)-vehTotal(a));
+  if(r[0]){state.sprint.vehicle=r[0].n;document.getElementById('sp_vehicle').value=r[0].n;save();
+  document.getElementById('sp_hypo').scrollIntoView({behavior:'smooth',block:'center'});}}
+function computeEnd(){const st=document.getElementById('sp_start').value;
+  if(st){const d=new Date(st);d.setDate(d.getDate()+30);
+    document.getElementById('sp_end').value=d.toISOString().slice(0,10);}}
+function addLog(){state.logs.push({d:'',t:''});save();renderLogs();}
+function exportJSON(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='vehikel-cockpit.json';a.click();}
+
+// sprint field bindings
+['vehicle','hypo','test','win','kill','start'].forEach(k=>{
+  document.addEventListener('input',e=>{if(e.target.id==='sp_'+k){state.sprint[k]=e.target.value;
+    if(k==='start')computeEnd();save();}});
+});
+
+renderAll();renderSprint();
+</script>
+</body>
+</html>
