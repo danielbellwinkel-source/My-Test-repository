@@ -193,6 +193,15 @@ ws.conditional_formatting.add("L4:L2000", FormulaRule(
 ws.conditional_formatting.add("L4:L2000", FormulaRule(
     formula=['L4<=2'], fill=fill(C_GRAY_BG), font=font(size=9, color="888888")))
 
+# Abschluss-Ampel (Q): Ja=gruen, Nein=rot, Offen=gelb
+for val, bg_c, txt_c in [
+    ("Ja",    C_GREEN_BG,  C_GREEN_TXT),
+    ("Nein",  C_RED_BG,    C_RED_TXT),
+    ("Offen", C_YELLOW_BG, C_YELLOW_TXT),
+]:
+    ws.conditional_formatting.add("Q4:Q2000", FormulaRule(
+        formula=[f'Q4="{val}"'], fill=fill(bg_c), font=font(size=9, bold=True, color=txt_c)))
+
 # ══════════════════════════════════════════════════════════════════════════════
 # SHEET 2 – KPI Dashboard
 # ══════════════════════════════════════════════════════════════════════════════
@@ -328,9 +337,21 @@ last_kpi_row = 5 + len(kpis2) - 1
 ws2.conditional_formatting.add(f"B{last_kpi_row}:F{last_kpi_row}", FormulaRule(
     formula=[f'B{last_kpi_row}>0'],
     fill=fill(C_RED_BG), font=font(size=10, bold=True, color=C_RED_TXT)))
-# Abschlussquote grün wenn > 0
+
+# ─── Abschlussquote-Ampel (Zeile 7) ───────────────────────────────────────────
+# Gates: < 40% rot  |  40%-60% gelb  |  > 60% gruen
+# ISNUMBER-Schutz, damit "—" (keine Leads) NICHT eingefaerbt wird
+GATE_GELB = 0.40
+GATE_GRUEN = 0.60
 ws2.conditional_formatting.add("B7:F7", FormulaRule(
-    formula=['ISNUMBER(B7)'], fill=fill(C_GREEN_BG), font=font(size=10, bold=True, color=C_GREEN_TXT)))
+    formula=[f'AND(ISNUMBER(B7),B7>={GATE_GRUEN})'],
+    fill=fill(C_GREEN_BG), font=font(size=10, bold=True, color=C_GREEN_TXT)))
+ws2.conditional_formatting.add("B7:F7", FormulaRule(
+    formula=[f'AND(ISNUMBER(B7),B7>={GATE_GELB},B7<{GATE_GRUEN})'],
+    fill=fill(C_YELLOW_BG), font=font(size=10, bold=True, color=C_YELLOW_TXT)))
+ws2.conditional_formatting.add("B7:F7", FormulaRule(
+    formula=[f'AND(ISNUMBER(B7),B7<{GATE_GELB})'],
+    fill=fill(C_RED_BG), font=font(size=10, bold=True, color=C_RED_TXT)))
 
 # Verlustanalyse-Abschnitt
 sep = last_kpi_row + 2
@@ -636,6 +657,36 @@ for i, (stat, erkl, bg_c) in enumerate([
 ], 37):
     c1 = ws3.cell(row=i, column=1, value=stat)
     c1.fill = fill(bg_c); c1.font = font(size=9, bold=True); c1.border = thin_border()
+    ws3.merge_cells(f"B{i}:C{i}")
+    c2 = ws3.cell(row=i, column=2, value=erkl)
+    c2.fill = fill(bg_c); c2.font = font(size=9); c2.border = thin_border()
+    ws3.row_dimensions[i].height = 18
+
+# Abschluss-Ampel (Spalte Abschluss)
+section_hdr(ws3, 44, "ABSCHLUSS-AMPEL (Spalte Abschluss)")
+for i, (val, erkl, bg_c) in enumerate([
+    ("Ja",    "Verkauf abgeschlossen",                C_GREEN_BG),
+    ("Offen", "Lead laeuft noch – dranbleiben",       C_YELLOW_BG),
+    ("Nein",  "Lead verloren – Verlustgrund eintragen", C_RED_BG),
+], 45):
+    c1 = ws3.cell(row=i, column=1, value=val)
+    c1.fill = fill(bg_c); c1.font = font(size=9, bold=True); c1.border = thin_border()
+    c1.alignment = align("center", "center")
+    ws3.merge_cells(f"B{i}:C{i}")
+    c2 = ws3.cell(row=i, column=2, value=erkl)
+    c2.fill = fill(bg_c); c2.font = font(size=9); c2.border = thin_border()
+    ws3.row_dimensions[i].height = 18
+
+# Abschlussquote-Gates (KPI Dashboard)
+section_hdr(ws3, 50, "ABSCHLUSSQUOTE-GATES (KPI Dashboard)")
+for i, (rng, erkl, bg_c) in enumerate([
+    ("> 60 %",     "Top – Ziel uebertroffen",         C_GREEN_BG),
+    ("40 – 60 %",  "Solide – im Zielkorridor",        C_YELLOW_BG),
+    ("< 40 %",     "Unter Soll – Prozess pruefen",    C_RED_BG),
+], 51):
+    c1 = ws3.cell(row=i, column=1, value=rng)
+    c1.fill = fill(bg_c); c1.font = font(size=9, bold=True); c1.border = thin_border()
+    c1.alignment = align("center", "center")
     ws3.merge_cells(f"B{i}:C{i}")
     c2 = ws3.cell(row=i, column=2, value=erkl)
     c2.fill = fill(bg_c); c2.font = font(size=9); c2.border = thin_border()
