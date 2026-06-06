@@ -478,6 +478,8 @@ for ri, (mname, mnum) in enumerate(zip(months_de, range(1, 13)), H_START):
     ws2.row_dimensions[ri].height = 18
 
 # ─── CHART 1: Umsatz-Entwicklung (Gestapelte Säulen + Linie kumuliert) ────────
+from openpyxl.chart.data_source import StrRef, AxDataSource
+
 bar1 = BarChart()
 bar1.type = "col"
 bar1.grouping = "stacked"
@@ -485,18 +487,25 @@ bar1.title = "Umsatz-Entwicklung 2026 nach Mitarbeiter (EUR)"
 bar1.y_axis.title = "EUR (monatlich)"
 bar1.x_axis.title = "Monat"
 bar1.style = 10
-bar1.width  = 26   # cm
-bar1.height = 15   # cm
+bar1.width  = 26
+bar1.height = 15
 bar1.overlap = 100
+# BUG-1 fix: category axis belongs at the bottom, not left
+bar1.x_axis.axPos = "b"
+bar1.y_axis.axPos = "l"
+# BUG-4 fix: number format on primary Y-axis
+bar1.y_axis.numFmt = '#,##0'
+bar1.y_axis.numFmtLinked = False
 
-# Kategorien = Monatsnamen
-cats1 = Reference(ws2, min_col=1, min_row=H_START, max_row=H_END)
+# Kategorien als Text (StrRef) – BUG-2 fix: openpyxl's set_categories() writes
+# numRef by default even for text; override directly with StrRef after add_data
+cat_formula = f"'KPI Dashboard'!$A${H_START}:$A${H_END}"
+str_cat = AxDataSource(strRef=StrRef(f=cat_formula))
 
-# Gestapelte Serien: Daniel (C), Jonas (D), Angie (E), Norbert (F)
-# min_row = H_COL (Header-Zeile) → titles_from_data=True nimmt ersten Wert als Serienbeschriftung
 data_stacked = Reference(ws2, min_col=3, max_col=6, min_row=H_COL, max_row=H_END)
 bar1.add_data(data_stacked, titles_from_data=True)
-bar1.set_categories(cats1)
+for s in bar1.series:
+    s.cat = str_cat
 
 # Serienfarben: Daniel=Fitshop-Rot, Jonas=Blau, Angie=Grün, Norbert=Orange
 bar_colors = ["E31E24", "1565C0", "2E7D32", "E65100"]
@@ -510,16 +519,23 @@ line1 = LineChart()
 line1.grouping = "standard"
 cum_data = Reference(ws2, min_col=13, min_row=H_COL, max_row=H_END)
 line1.add_data(cum_data, titles_from_data=True)
-line1.set_categories(cats1)
-line1.y_axis.axId  = 200
-line1.y_axis.title = "Kumuliert (EUR)"
-line1.y_axis.crosses = "max"
+for s in line1.series:
+    s.cat = str_cat
 
-# Linienstil: anthrazit, dick, mit Marker
+line1.y_axis.axId    = 200
+line1.y_axis.title   = "Kumuliert (EUR)"
+line1.y_axis.crosses = "max"
+# BUG-3 fix: secondary Y-axis goes on the right
+line1.y_axis.axPos   = "r"
+# BUG-4 fix: number format on secondary Y-axis
+line1.y_axis.numFmt  = '#,##0'
+line1.y_axis.numFmtLinked = False
+
+# Linienstil: anthrazit, 2.5pt, glatt, Kreismarker
 if line1.series:
     s = line1.series[0]
     s.graphicalProperties.line.solidFill  = "2D2D2D"
-    s.graphicalProperties.line.width      = 31750   # 2.5pt
+    s.graphicalProperties.line.width      = 31750
     s.marker.symbol = "circle"
     s.marker.size   = 6
     s.marker.graphicalProperties.solidFill     = "2D2D2D"
@@ -539,19 +555,24 @@ bar2.x_axis.title = "Monat"
 bar2.style = 10
 bar2.width  = 22
 bar2.height = 12
+# BUG-1 fix
+bar2.x_axis.axPos = "b"
+bar2.y_axis.axPos = "l"
+# BUG-4 fix: integer format (no decimals for counts)
+bar2.y_axis.numFmt = '0'
+bar2.y_axis.numFmtLinked = False
 
-cats2  = Reference(ws2, min_col=1, min_row=H_START, max_row=H_END)
-data2  = Reference(ws2, min_col=8, max_col=11, min_row=H_COL, max_row=H_END)
+data2 = Reference(ws2, min_col=8, max_col=11, min_row=H_COL, max_row=H_END)
 bar2.add_data(data2, titles_from_data=True)
-bar2.set_categories(cats2)
+for s in bar2.series:
+    s.cat = str_cat
 
 for i, color in enumerate(bar_colors):
     if i < len(bar2.series):
         bar2.series[i].graphicalProperties.solidFill = color
         bar2.series[i].graphicalProperties.line.solidFill = color
 
-# Chart 2 unter Chart 1 (Chart 1 ist ~15cm = ~21 Zeilen à ~0.7cm)
-chart2_row = chart_hdr_row + 2 + 23   # ca. 23 Zeilen tiefer als Chart 1
+chart2_row = chart_hdr_row + 2 + 23
 ws2.add_chart(bar2, f"A{chart2_row}")
 
 # ══════════════════════════════════════════════════════════════════════════════
