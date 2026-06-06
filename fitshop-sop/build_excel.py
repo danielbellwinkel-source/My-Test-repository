@@ -5,8 +5,6 @@ from openpyxl.styles import PatternFill, Font, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import FormulaRule
-from openpyxl.chart import BarChart, LineChart, Reference
-from openpyxl.chart.label import DataLabel
 
 # ─── Farben ───────────────────────────────────────────────────────────────────
 C_RED        = "E31E24"
@@ -376,7 +374,7 @@ for vi, vg in enumerate(["Online","Preis","Kein Bedarf","Konkurrenz","Keine Ruec
 # CHART-BEREICH: Leistungsentwicklung 2026
 # ══════════════════════════════════════════════════════════════════════════════
 
-# ─── Abschnitts-Header Grafiken ───────────────────────────────────────────────
+# ─── Abschnitts-Header Grafiken (Hinweis auf Apps Script) ────────────────────
 chart_hdr_row = sep + len(["Online","Preis","Kein Bedarf","Konkurrenz","Keine Rueckmeldung"]) + 3
 ws2.merge_cells(f"A{chart_hdr_row}:F{chart_hdr_row}")
 ch = ws2.cell(row=chart_hdr_row, column=1, value="LEISTUNGSENTWICKLUNG 2026 – GRAFIKEN")
@@ -385,9 +383,10 @@ ch.alignment = align("left", "center"); ws2.row_dimensions[chart_hdr_row].height
 
 ws2.merge_cells(f"A{chart_hdr_row+1}:F{chart_hdr_row+1}")
 ch2 = ws2.cell(row=chart_hdr_row+1, column=1,
-    value="Daten werden automatisch aus dem Lead-Tracking gezogen. Ansicht aktualisieren: Strg+Alt+F9")
-ch2.font = font(size=8, italic=True, color="999999")
-ch2.alignment = align("left", "center"); ws2.row_dimensions[chart_hdr_row+1].height = 15
+    value="► Diagramme erstellen: Erweiterungen → Apps Script → fitshop_charts.gs einfügen → Funktion createFitshopCharts ausführen")
+ch2.fill = fill(C_YELLOW_BG)
+ch2.font = font(size=9, bold=True, color=C_YELLOW_TXT)
+ch2.alignment = align("left", "center"); ws2.row_dimensions[chart_hdr_row+1].height = 18
 
 # ─── Hilfstabelle für Charts (weit unten, ab Zeile 110) ──────────────────────
 H_HDR = 110   # Section-Header
@@ -477,100 +476,8 @@ for ri, (mname, mnum) in enumerate(zip(months_de, range(1, 13)), H_START):
     ws2.cell(row=ri, column=13).font = font(size=9); ws2.cell(row=ri, column=13).border = thin_border()
     ws2.row_dimensions[ri].height = 18
 
-# ─── CHART 1a: Umsatz-Entwicklung – Gestapelte Säulen (Google Sheets kompatibel) ─
-from openpyxl.chart.data_source import StrRef, AxDataSource
-
-bar_colors = ["E31E24", "1565C0", "2E7D32", "E65100"]
-cat_formula = f"'KPI Dashboard'!$A${H_START}:$A${H_END}"
-str_cat = AxDataSource(strRef=StrRef(f=cat_formula))
-
-bar1 = BarChart()
-bar1.type = "col"
-bar1.grouping = "stacked"
-bar1.title = "Umsatz-Entwicklung 2026 nach Mitarbeiter (EUR)"
-bar1.y_axis.title = "EUR (monatlich)"
-bar1.x_axis.title = "Monat"
-bar1.style = 10
-bar1.width  = 26
-bar1.height = 14
-bar1.overlap = 100
-bar1.x_axis.axPos = "b"
-bar1.y_axis.axPos = "l"
-bar1.y_axis.numFmt = '#,##0'
-bar1.y_axis.numFmtLinked = False
-
-data_stacked = Reference(ws2, min_col=3, max_col=6, min_row=H_COL, max_row=H_END)
-bar1.add_data(data_stacked, titles_from_data=True)
-for s in bar1.series:
-    s.cat = str_cat
-for i, color in enumerate(bar_colors):
-    if i < len(bar1.series):
-        bar1.series[i].graphicalProperties.solidFill = color
-        bar1.series[i].graphicalProperties.line.solidFill = color
-
-ws2.add_chart(bar1, f"A{chart_hdr_row + 2}")
-
-# ─── CHART 1b: Kumulierter Umsatz – Liniendiagramm Gesamttrend ───────────────
-line1 = LineChart()
-line1.grouping = "standard"
-line1.title = "Kumulierter Umsatz 2026 – Gesamttrend (EUR)"
-line1.y_axis.title = "Kumuliert (EUR)"
-line1.x_axis.title = "Monat"
-line1.style = 10
-line1.width  = 26
-line1.height = 10
-line1.x_axis.axPos = "b"
-line1.y_axis.axPos = "l"
-line1.y_axis.numFmt = '#,##0'
-line1.y_axis.numFmtLinked = False
-
-cum_data = Reference(ws2, min_col=13, min_row=H_COL, max_row=H_END)
-line1.add_data(cum_data, titles_from_data=True)
-for s in line1.series:
-    s.cat = str_cat
-
-if line1.series:
-    s = line1.series[0]
-    s.graphicalProperties.line.solidFill  = "E31E24"
-    s.graphicalProperties.line.width      = 31750
-    s.marker.symbol = "circle"
-    s.marker.size   = 6
-    s.marker.graphicalProperties.solidFill      = "E31E24"
-    s.marker.graphicalProperties.line.solidFill  = "E31E24"
-    s.smooth = True
-
-# Chart 1b direkt unter Chart 1a (1a ist 14cm ≈ 20 Zeilen à ~0.7cm)
-line1_row = chart_hdr_row + 2 + 21
-ws2.add_chart(line1, f"A{line1_row}")
-
-# ─── CHART 2: Abschlüsse pro Monat und Mitarbeiter (Gruppierte Säulen) ────────
-bar2 = BarChart()
-bar2.type = "col"
-bar2.grouping = "clustered"
-bar2.title = "Abschlüsse pro Monat nach Mitarbeiter"
-bar2.y_axis.title = "Anzahl Abschlüsse"
-bar2.x_axis.title = "Monat"
-bar2.style = 10
-bar2.width  = 22
-bar2.height = 12
-bar2.x_axis.axPos = "b"
-bar2.y_axis.axPos = "l"
-bar2.y_axis.numFmt = '0'
-bar2.y_axis.numFmtLinked = False
-
-data2 = Reference(ws2, min_col=8, max_col=11, min_row=H_COL, max_row=H_END)
-bar2.add_data(data2, titles_from_data=True)
-for s in bar2.series:
-    s.cat = str_cat
-
-for i, color in enumerate(bar_colors):
-    if i < len(bar2.series):
-        bar2.series[i].graphicalProperties.solidFill = color
-        bar2.series[i].graphicalProperties.line.solidFill = color
-
-# Chart 1a (~20 Zeilen) + Chart 1b (~15 Zeilen) = 35 Zeilen unter dem Header
-chart2_row = chart_hdr_row + 2 + 21 + 16
-ws2.add_chart(bar2, f"A{chart2_row}")
+# Keine openpyxl-Charts – werden nativ via Google Apps Script erstellt
+# (fitshop_charts.gs) damit Google Sheets / LibreOffice kompatibel
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SHEET 3 – Legende
