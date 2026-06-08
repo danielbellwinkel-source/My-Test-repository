@@ -336,13 +336,35 @@ for h in LOG_HEADERS:
         log_cols.append({"header": h, "formula": '=[@DayType]&"_W"&[@Week]'})
     else:
         log_cols.append({"header": h})
-log.add_table("A1:P2", {"name": "tblLog", "style": "Table Style Medium 2", "columns": log_cols})
-# Demo-Zeile (Zeile 2) – Nicht-Formelspalten beschreiben
-log.write_datetime(1, 0, TODAY, F_DATE)     # A2 Date
-log.write(1, 1, "T1"); log.write(1, 2, 1); log.write(1, 3, "90"); log.write(1, 5, "NA")
-log.write(1, 6, 5); log.write(1, 7, "1"); log.write(1, 8, 0); log.write(1, 9, 8.5)
-log.write(1, 10, 1); log.write(1, 13, 5)
-log.write(1, 14, "Demo-Zeile: 90 Grad schwer, je 1 saubere Rep, Handgelenk gut")
+# Log-Daten: (Date,DayType,Week,ExerciseID,Category=None,Side,Sets,Reps,Load,TopRPE,Pain,Quality,BestHold,CleanReps,Notes,Key=None)
+N = None
+LOG_DATA = [
+ (TODAY,"T1",1,"90",N,"NA",5,"1",0,8.5,1,N,N,5,"Demo-Zeile: 90 Grad schwer, je 1 saubere Rep, Handgelenk gut",N),
+ # Session 2026-06-08 (T5, Woche 1) — per Voice geloggt
+ (TODAY,"T5",1,"OAHS_line",N,"L",3,N,N,N,N,4,N,N,"OAHS, vor allem links, sauber",N),
+ (TODAY,"T5",1,"OAHS_line",N,"R",N,N,N,N,N,3,N,N,"OAHS rechts, 3 von 5 Qualitaet",N),
+ (TODAY,"T5",1,"ring_dips",N,"NA",3,"10",0,N,N,N,N,N,N,N),
+ (TODAY,"T5",1,"lat_pulldown",N,"NA",2,"10",65,N,N,N,N,N,N,N),
+ (TODAY,"T5",1,"chest_row",N,"NA",2,"10",75,N,N,N,N,N,"Cable Rudern; Satz 2: 70 kg x10",N),
+ (TODAY,"T5",1,"lateral_raise",N,"NA",3,"12",8,N,N,N,N,N,"Kurzhanteln",N),
+ (TODAY,"T5",1,"rear_delt_fly",N,"NA",3,"12",25,N,N,N,N,N,"Reverse Butterfly, Supersatz",N),
+ (TODAY,"T5",1,"scap_serratus",N,"NA",3,"12",1,N,N,N,N,N,"Y-Raises, Supersatz",N),
+ (TODAY,"T5",1,"triceps",N,"NA",3,"12",16.5,N,N,N,N,N,"Kabelzug",N),
+ (TODAY,"T5",1,"biceps",N,"NA",3,"10",23.5,N,N,N,N,N,"Kabelzug",N),
+]
+LOG_LAST = 1 + len(LOG_DATA)   # Headerzeile + Datenzeilen (1-basiert)
+log.add_table("A1:P%d" % LOG_LAST, {"name": "tblLog", "style": "Table Style Medium 2", "columns": log_cols})
+# Datenzeilen (Demo + geloggte Sessions). Spalten 4 (Category) & 15 (Key) = Tabellenformel -> NICHT schreiben.
+def write_logrow(ridx, row):
+    for ci, val in enumerate(row):
+        if ci in (4, 15) or val is None or val == "":
+            continue
+        if ci == 0:
+            log.write_datetime(ridx, 0, val, F_DATE)
+        else:
+            log.write(ridx, ci, val)
+for i, row in enumerate(LOG_DATA):
+    write_logrow(1 + i, row)
 log.freeze_panes("A2")
 # Datenvalidierung (Zeilen 2..1000)
 log.data_validation("B2:B1000", {"validate":"list","source":"=DayTypes"})
