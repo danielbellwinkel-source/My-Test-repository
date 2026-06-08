@@ -920,3 +920,9 @@ for ws in wb.worksheets:
 wb.save("/home/user/My-Test-repository/Training_2.xlsx")
 print("OK: Training_2.xlsx geschrieben.")
 print("Sheets:", wb.sheetnames)
+
+# WICHTIG: dieser openpyxl-Build schreibt inlineStr ohne sharedStrings.xml,
+# woran Excel for Mac beim Oeffnen abstuerzt. Daher zwingend nachkonvertieren.
+import subprocess, os
+_here = os.path.dirname(os.path.abspath(__file__))
+subprocess.run(["python3", os.path.join(_here, "fix_shared_strings.py")], cwd=_here, check=True)
