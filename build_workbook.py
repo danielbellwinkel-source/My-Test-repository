@@ -6,6 +6,7 @@ Alle Auswertungen per Formel, Excel-Tabellen (ListObjects), Dropdowns, bedingte 
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side, NamedStyle
 from openpyxl.worksheet.table import Table, TableStyleInfo, TableColumn, TableFormula
+from openpyxl.worksheet.filters import AutoFilter
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import CellIsRule, FormulaRule
 from openpyxl.utils import get_column_letter
@@ -228,6 +229,7 @@ for i, h in enumerate(LOG_HEADERS):
         tc.calculatedColumnFormula = TableFormula(attr_text='[@DayType]&"_W"&[@Week]')
     cols.append(tc)
 log_tab.tableColumns = cols
+log_tab.autoFilter = AutoFilter(ref=f"A{HR}:P{demo_row}")  # noetig, da manuelle tableColumns
 log.add_table(log_tab)
 
 logw = {"A":12,"B":9,"C":7,"D":20,"E":12,"F":7,"G":7,"H":15,"I":9,"J":8,"K":10,"L":11,"M":11,"N":10,"O":42,"P":10}
