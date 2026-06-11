@@ -352,13 +352,13 @@ LOG_DATA = [
  (TODAY,"T5",1,"scap_serratus",N,"NA",3,"12",1,N,N,N,N,N,"Y-Raises, Supersatz",N),
  (TODAY,"T5",1,"triceps",N,"NA",3,"12",16.5,N,N,N,N,N,"Kabelzug",N),
  (TODAY,"T5",1,"biceps",N,"NA",3,"10",23.5,N,N,N,N,N,"Kabelzug",N),
- # Session 2026-06-10 (T1, Woche 1) — per Voice geloggt
- (D_T1,"T1",1,"OAHS_line",N,"L",2,N,N,N,1,5,N,N,"OAHS Line, sehr stabile Holds links, solide",N),
- (D_T1,"T1",1,"OAHS_line",N,"R",2,N,N,N,1,4,N,N,"OAHS Line rechts, stabil",N),
- (D_T1,"T1",1,"OAHS_shapes",N,"NA",3,N,N,N,N,2,N,N,"Diamond Shape, eher schwach",N),
- (D_T1,"T1",1,"90",N,"NA",4,"1",0,9,1,N,N,2,"4x1 Cluster, lange Pausen; keine Kraft Bottom Position; Rep2+3 sauber (RPE7-8), Rep1+4 (8-9) unsauber",N),
- (D_T1,"T1",1,"planche_hold",N,"NA",2,N,N,N,N,N,8,N,"Adv-Tuck nicht moeglich; normaler Tuck Planche 8s (schwaecher als sonst)",N),
- (D_T1,"T1",1,"WPU",N,"NA",2,"3",40,9,N,N,N,N,"40 kg x3, dann 35 kg x4; RPE 8-9",N),
+ # Session 2026-06-10 (T1, Woche 1) — per Voice geloggt, mit Korrekturen/Auffuellung
+ (D_T1,"T1",1,"OAHS_line",N,"L",2,N,0,8,1,5,N,N,"OAHS Line, sehr stabile Holds links, solide",N),
+ (D_T1,"T1",1,"OAHS_line",N,"R",2,N,0,8,1,4,N,N,"OAHS Line rechts, stabil",N),
+ (D_T1,"T1",1,"OAHS_shapes",N,"NA",3,N,0,8,1,2,N,N,"Diamond Shape, eher schwach",N),
+ (D_T1,"T1",1,"90",N,"NA",4,"1",0,9,1,3,N,2,"4x1 Cluster, lange Pausen; keine Kraft Bottom Position; Rep2+3 sauber (RPE7-8), Rep1+4 (8-9) unsauber",N),
+ (D_T1,"T1",1,"planche_hold",N,"NA",4,N,0,8,1,2,8,N,"1x Advanced Tuck versucht (nicht moeglich) + 3x8s Tuck Planche; schwaecher als sonst",N),
+ (D_T1,"T1",1,"WPU",N,"NA",4,"1x3@40, 3x4@35",40,9,1,N,N,N,"Satz1: 40 kg x3; Satz2-4: 35 kg x4; RPE 8-9",N),
 ]
 LOG_LAST = 1 + len(LOG_DATA)   # Headerzeile + Datenzeilen (1-basiert)
 log.add_table("A1:P%d" % LOG_LAST, {"name": "tblLog", "style": "Table Style Medium 2", "columns": log_cols})
