@@ -95,8 +95,12 @@ sch = wb.add_worksheet("B6_Schedule")
 for col,w in {"A:A":18,"B:B":7,"C:C":10,"D:D":30,"E:E":34,"F:F":40,"G:G":34,"H:H":26,"I:I":34,"J:J":34}.items(): sch.set_column(col,w)
 title(sch,"A1:J1","B6 — Schedule (4 Wochen x 5 Tage + taegliche Skill-Mikrodosis)")
 sch.merge_range("A2:J2","Jede Einheit startet mit Skill-Mikrodosis (8-15 min). Keine Max-Versuche an Nicht-Skill-Tagen. Skill nie ans Ende ermuedeter Sessions.",F_IT)
-headers(sch,3,["Woche","Tag","Day Type","Main Focus","Skill-Touchpoint","Strength","Back/Hinge-Stress","Placement","Progression-Target","Notes"])
-r=4
+sch.merge_range("A3:J3","Empfohlener Wochen-Rhythmus (5 Einheiten + 2 Ruhetage):  T1 - T2 - REST - T3 - T4 - T5 - REST.  "
+                "T1 immer NACH einem Ruhe-/Low-Tag (hoechster CNS-Tag). Nicht 4 harte Tage am Stueck. "
+                "Bei akkumulierter Fatigue/Schmerz (DOMS, Handgelenk) zusaetzlichen Ruhetag einschieben.",
+                fmt(bold=1,font_size=10,bg_color="#FFF2CC",border=1,text_wrap=1,valign="vcenter"))
+headers(sch,4,["Woche","Tag","Day Type","Main Focus","Skill-Touchpoint","Strength","Back/Hinge-Stress","Placement","Progression-Target","Notes"])
+r=5
 for wk in [1,2,3,4]:
     for dt in ["T1","T2","T3","T4","T5"]:
         focus,skill,strength,back,place = T.DAY_BASE[dt]
@@ -104,7 +108,7 @@ for wk in [1,2,3,4]:
         put(sch,r,4,focus,F_BODY); put(sch,r,5,skill,F_BODY); put(sch,r,6,strength,F_BODY)
         put(sch,r,7,back,F_BODY); put(sch,r,8,place,F_BODY); put(sch,r,9,T.WEEK_PROG[wk][dt],F_BODY)
         put(sch,r,10,"Skill-Mikrodosis zuerst; bei Qualitaetsverlust 90 -> erst Push-Akzessorik kuerzen",F_BODY); r+=1
-sch.freeze_panes("A4")
+sch.freeze_panes("A5")
 
 # ---------------- Plan_Detail ----------------
 plan = wb.add_worksheet("B6_Plan_Detail")

@@ -6,6 +6,7 @@ TODAY = datetime.datetime(2026, 6, 8)
 D_T1  = datetime.datetime(2026, 6, 10)
 D_T2  = datetime.datetime(2026, 6, 11)
 D_T3  = datetime.datetime(2026, 6, 12)
+D_REST = datetime.datetime(2026, 6, 13)
 N = None
 
 # (ID, Aliases, DisplayName, Category, MuscleTag, Load, Hold, Side)
@@ -50,6 +51,7 @@ LIBRARY = [
  ("bws_mobility","bws,bws mobility,brustwirbelsaeule,thoracic,t spine,extension rotation,ribs down,atmung,downshift","BWS / Thoracic Mobility","Mobility","BWS/Atmung","N","J","N"),
  ("wrist_prep","wrist prep,handgelenk,handgelenk prep,handgelenke,wrist warm up,wrist","Wrist Prep","Wrist","Handgelenke","N","N","N"),
  ("wrist_strength","wrist strength,handgelenk kraft,wrist curl,handgelenk kraeftigung","Wrist Strengthening","Wrist","Handgelenke","J","N","N"),
+ ("rest","rest,ruhetag,pause,off,ruhe,frei","Rest / Ruhetag","Rest","-","N","N","N"),
 ]
 DAYTYPES = ["T1","T2","T3","T4","T5","Rest"]
 LIB_HR = 3
@@ -266,4 +268,6 @@ LOG_DATA = [
  (D_T3,"T3",1,"leg_press",N,"NA",3,"10",60,7,N,N,N,N,N,N),
  (D_T3,"T3",1,"ham_curl",N,"NA",3,"10",50,7,N,N,N,N,N,N),
  (D_T3,"T3",1,"calves",N,"NA",3,"12-15",70,7,N,N,N,N,"12/12/15",N),
+ # 2026-06-13 geplanter Ruhetag (nach 3 Tagen am Stueck)
+ (D_REST,"Rest",1,"rest",N,"NA",N,N,N,N,N,N,N,N,"Ruhetag: Handgelenk/Unterarm + Bein-DOMS schonen; leichte Mobility/Soft-Tissue, gut essen",N),
 ]
