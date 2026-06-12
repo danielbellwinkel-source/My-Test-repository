@@ -5,6 +5,7 @@ import datetime
 TODAY = datetime.datetime(2026, 6, 8)
 D_T1  = datetime.datetime(2026, 6, 10)
 D_T2  = datetime.datetime(2026, 6, 11)
+D_T3  = datetime.datetime(2026, 6, 12)
 N = None
 
 # (ID, Aliases, DisplayName, Category, MuscleTag, Load, Hold, Side)
@@ -259,4 +260,10 @@ LOG_DATA = [
  (D_T2,"T2",1,"hollow",N,"NA",3,"30s",N,N,N,N,30,N,"Core-Finisher, 3x30s Hollow",N),
  (D_T2,"T2",1,"OAHS_line",N,"L",2,N,0,6,2,4,N,N,"Parallettes links, ging gut; wegen Handgelenk modifiziert",N),
  (D_T2,"T2",1,"OAHS_line",N,"R",2,N,0,6,2,3,N,N,"Boden rechts mit Abstuetzen/Halten; Handgelenk - separat bewerten",N),
+ # Session 2026-06-12 (T3, Woche 1) — Beine (Muskelkater-limitiert) + Parallettes-Holds
+ (D_T3,"T3",1,"HS_line",N,"NA",3,N,0,N,1,3,N,N,"Parallettes-Holds zu Beginn; Handgelenk-Ziehen mild/kein Problem; andere Hand Druck-/Greifproblem (evtl. Unterarm/Hand ueberreizt)",N),
+ (D_T3,"T3",1,"bss",N,"NA",3,"6",40,8,N,N,N,N,"runter von 45 auf 40 kg wegen starkem Muskelkater (Vorwoche); Quads links brannten; Qualitaet nicht ideal",N),
+ (D_T3,"T3",1,"leg_press",N,"NA",3,"10",60,7,N,N,N,N,N,N),
+ (D_T3,"T3",1,"ham_curl",N,"NA",3,"10",50,7,N,N,N,N,N,N),
+ (D_T3,"T3",1,"calves",N,"NA",3,"12-15",70,7,N,N,N,N,"12/12/15",N),
 ]
