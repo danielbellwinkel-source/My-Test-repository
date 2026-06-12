@@ -4,6 +4,7 @@ import datetime
 
 TODAY = datetime.datetime(2026, 6, 8)
 D_T1  = datetime.datetime(2026, 6, 10)
+D_T2  = datetime.datetime(2026, 6, 11)
 N = None
 
 # (ID, Aliases, DisplayName, Category, MuscleTag, Load, Hold, Side)
@@ -250,4 +251,12 @@ LOG_DATA = [
  (D_T1,"T1",1,"90",N,"NA",4,"1",0,9,1,3,N,2,"4x1 Cluster, lange Pausen; keine Kraft Bottom Position; Rep2+3 sauber (RPE7-8), Rep1+4 (8-9) unsauber",N),
  (D_T1,"T1",1,"planche_hold",N,"NA",4,N,0,8,1,2,8,N,"1x Advanced Tuck versucht (nicht moeglich) + 3x8s Tuck Planche; schwaecher als sonst",N),
  (D_T1,"T1",1,"WPU",N,"NA",4,"1x3@40, 3x4@35",40,9,1,N,N,N,"Satz1: 40 kg x3; Satz2-4: 35 kg x4; RPE 8-9",N),
+ # Session 2026-06-11 (T2, Woche 1) — Pull/Core + OAHS (Handgelenk-modifiziert)
+ (D_T2,"T2",1,"chest_row",N,"NA",3,"10",90,8,N,N,N,N,"Rowing-Maschine, horizontal, solide",N),
+ (D_T2,"T2",1,"lat_pulldown",N,"NA",3,"10",70,8,N,N,N,N,"Latzug-Maschine",N),
+ (D_T2,"T2",1,"rear_delt_fly",N,"NA",3,"10",35,7,N,N,N,N,"Reverse Butterfly",N),
+ (D_T2,"T2",1,"face_pull",N,"NA",2,"12",30,7,N,N,N,N,"Face Pull; Gewicht ~30 kg, noch pruefen",N),
+ (D_T2,"T2",1,"hollow",N,"NA",3,"30s",N,N,N,N,30,N,"Core-Finisher, 3x30s Hollow",N),
+ (D_T2,"T2",1,"OAHS_line",N,"L",2,N,0,6,2,4,N,N,"Parallettes links, ging gut; wegen Handgelenk modifiziert",N),
+ (D_T2,"T2",1,"OAHS_line",N,"R",2,N,0,6,2,3,N,N,"Boden rechts mit Abstuetzen/Halten; Handgelenk - separat bewerten",N),
 ]
