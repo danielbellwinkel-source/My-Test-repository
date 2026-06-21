@@ -7,6 +7,7 @@ D_T1  = datetime.datetime(2026, 6, 10)
 D_T2  = datetime.datetime(2026, 6, 11)
 D_T3  = datetime.datetime(2026, 6, 12)
 D_REST = datetime.datetime(2026, 6, 13)
+D_T2b  = datetime.datetime(2026, 6, 19)
 N = None
 
 # (ID, Aliases, DisplayName, Category, MuscleTag, Load, Hold, Side)
@@ -270,4 +271,12 @@ LOG_DATA = [
  (D_T3,"T3",1,"calves",N,"NA",3,"12-15",70,7,N,N,N,N,"12/12/15",N),
  # 2026-06-13 geplanter Ruhetag (nach 3 Tagen am Stueck)
  (D_REST,"Rest",1,"rest",N,"NA",N,N,N,N,N,N,N,N,"Ruhetag: Handgelenk/Unterarm + Bein-DOMS schonen; leichte Mobility/Soft-Tissue, gut essen",N),
+ # Session 2026-06-19 (T2, Woche 2) — Skill-Mikrodosis zu Hause + Pull/Core
+ (D_T2b,"T2",2,"OAHS_line",N,"L",3,N,0,N,N,4,6,N,"Handstand-Mikrodosis zu Hause; mehrere solide Holds, 6+ s links",N),
+ (D_T2b,"T2",2,"OAHS_line",N,"R",2,N,0,N,N,3,N,N,"auch ein paar solide Holds rechts",N),
+ (D_T2b,"T2",2,"lat_pulldown",N,"NA",4,"8",70,7,N,N,N,N,N,N),
+ (D_T2b,"T2",2,"chest_row",N,"NA",4,"10",90,7,N,N,N,N,"Seated Row Maschine, 45 kg/Seite",N),
+ (D_T2b,"T2",2,"rear_delt_fly",N,"NA",3,"12",35,7,N,N,N,N,"Reverse Butterfly",N),
+ (D_T2b,"T2",2,"face_pull",N,"NA",3,"12",25,7,N,N,N,N,N,N),
+ (D_T2b,"T2",2,"hollow",N,"NA",3,"30s",N,N,N,N,30,N,"Core-Finisher, 3x30s",N),
 ]
