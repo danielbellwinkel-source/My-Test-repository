@@ -8,6 +8,9 @@ D_T2  = datetime.datetime(2026, 6, 11)
 D_T3  = datetime.datetime(2026, 6, 12)
 D_REST = datetime.datetime(2026, 6, 13)
 D_T2b  = datetime.datetime(2026, 6, 19)
+D_T4b  = datetime.datetime(2026, 6, 21)
+D_T5b  = datetime.datetime(2026, 6, 23)
+D_T1c  = datetime.datetime(2026, 6, 25)
 N = None
 
 # (ID, Aliases, DisplayName, Category, MuscleTag, Load, Hold, Side)
@@ -279,4 +282,26 @@ LOG_DATA = [
  (D_T2b,"T2",2,"rear_delt_fly",N,"NA",3,"12",35,7,N,N,N,N,"Reverse Butterfly",N),
  (D_T2b,"T2",2,"face_pull",N,"NA",3,"12",25,7,N,N,N,N,N,N),
  (D_T2b,"T2",2,"hollow",N,"NA",3,"30s",N,N,N,N,30,N,"Core-Finisher, 3x30s",N),
+ # Session 2026-06-21 (T4, Woche 2) — UNsupported Flag-Arbeit lief gut + super 90-Tag
+ (D_T4b,"T4",2,"flag_sideline",N,"L",5,N,0,N,N,4,N,N,"Unsupported Flag-Lean + 1 Arm geloest, zurueck zum Center; links gut",N),
+ (D_T4b,"T4",2,"flag_sideline",N,"R",5,N,0,N,N,3,N,N,"Unsupported Flag-Lean; rechts semi, aber gute Kontrolle",N),
+ (D_T4b,"T4",2,"flag_sideline",N,"NA",4,N,0,N,N,3,3,N,"Straddle Flag Hold, 1-3s freeze; links gut, rechts wechselhaft",N),
+ (D_T4b,"T4",2,"90",N,"NA",4,"S1:3voll, S2:2voll, S3-4:2-3 Neg",0,7,N,4,N,5,"Super Tag: volle Reps locker @RPE7 obwohl nur Negative geplant; 3 saubere Reps am Stueck in Satz1",N),
+ (D_T4b,"T4",2,"pike_press",N,"NA",3,"7",0,7,N,N,N,N,"Feet elevated Pike Push-up",N),
+ (D_T4b,"T4",2,"chest_row",N,"NA",3,"10",90,7,N,N,N,N,"Chest-supported Row Maschine",N),
+ # Session 2026-06-23 (T5, Woche 2) — Deficit Push-ups vergessen
+ (D_T5b,"T5",2,"90",N,"NA",3,"2-3 Negativ",0,6,N,4,N,N,"Negativ-Mikro wie geplant",N),
+ (D_T5b,"T5",2,"ring_dips",N,"NA",3,"12/10/10",0,8,N,N,N,N,N,N),
+ (D_T5b,"T5",2,"lat_pulldown",N,"NA",4,"10",70,7,N,N,N,N,N,N),
+ (D_T5b,"T5",2,"chest_row",N,"NA",4,"10",80,7,N,N,N,N,"Kabelzug; 2x80kg, 2x75kg",N),
+ (D_T5b,"T5",2,"lateral_raise",N,"NA",3,"13",8,7,N,N,N,N,N,N),
+ (D_T5b,"T5",2,"rear_delt_fly",N,"NA",3,"13",30,7,N,N,N,N,N,N),
+ (D_T5b,"T5",2,"biceps",N,"NA",3,"10",23.5,7,N,N,N,N,N,N),
+ (D_T5b,"T5",2,"triceps",N,"NA",3,"12",16.5,7,N,N,N,N,N,N),
+ # Session 2026-06-25 (T1, Woche 3) — Peak-Tag, aber Regeneration 1/5 + Hitze, schlecht gelaufen
+ (D_T1c,"T1",3,"OAHS_line",N,"L",5,N,0,N,2,3,5,N,"nur bedacht/ruhig moeglich; 3-5s Holds mit Exit zurueck; Pisiform gereizt",N),
+ (D_T1c,"T1",3,"OAHS_line",N,"R",5,N,0,N,2,2,2,N,"wechselhaft, nur gehalten wenn moeglich; Pisiform gereizt",N),
+ (D_T1c,"T1",3,"90",N,"NA",3,"2 schwere Einzel-Reps + 1 fail",0,9,N,2,N,0,"Peak-Tag aber Regeneration 1/5 + Hitze, alles uebersaeuert; Doubles geplant; nach 2 schweren Singles + Fail (Koerperspannung weg) 90 abgebrochen",N),
+ (D_T1c,"T1",3,"pseudo_planche_pushup",N,"NA",4,"6",0,8,N,N,N,N,"statt Tuck Planche (zu wenig Kraft heute); 4x6",N),
+ (D_T1c,"T1",3,"WPU",N,"NA",5,"3",35,8,N,N,N,N,"ermuedet, Gewicht reduziert auf 35 kg",N),
 ]
