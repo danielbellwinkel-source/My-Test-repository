@@ -187,6 +187,9 @@ DEMO=[
  (D1,"T1",1,"oahs_diamond",N,"R",3,N,0,N,N,3,4,N,2,"rechts 2-5s",N),
  (D1,"T1",1,"90",N,"NA",3,"2 Negativ",0,7,N,4,N,N,2,"Negativ-Version (Recovery-Gate); RPE 6-7, Parallettes",N),
  (D1,"T1",1,"WPU",N,"NA",2,"4",20,6,N,N,N,N,2,"Straps, leicht (Gate); 20 kg",N),
+ (D1,"T1",1,"planche_hold",N,"NA",2,N,0,6,N,N,8,N,2,"Tuck Planche 2x8s",N),
+ (D1,"T1",1,"ext_rotation",N,"NA",2,"12",N,6,N,N,N,N,2,"External Rotation, leichtes Band",N),
+ (D1,"T1",1,"scap_serratus",N,"NA",2,"12",0,6,N,N,N,N,2,"Scap Pull-ups; linke Hand seitlich spuerbar (kein Schmerz)",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
