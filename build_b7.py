@@ -177,9 +177,16 @@ LOG_HEADERS=["Date","DayType","Week","ExerciseID","Category","Side","Sets","Reps
 logw={"A:A":12,"B:B":9,"C:C":7,"D:D":20,"E:E":12,"F:F":7,"G:G":7,"H:H":16,"I:I":9,"J:J":8,"K:K":10,"L:L":11,"M:M":11,"N:N":10,"O:O":11,"P:P":42,"Q:Q":10}
 for col,w in logw.items(): log.set_column(col,w)
 headers(log,1,LOG_HEADERS)
+D1 = datetime.datetime(2026, 7, 8)   # B7 W1 T1 (Recovery-Gate 2/5)
 DEMO=[
- (D_DEMO,"T1",1,"oahs_straddle",N,"L",4,N,0,N,N,4,6,N,3,"Demo: Straddle links, bester 6s, Q4 (Tier A besitzt)",N),
- (D_DEMO,"T1",1,"90",N,"NA",4,"1",0,7,1,4,N,3,3,"Demo: 90 Cluster frisch, 3 saubere Reps @RPE7",N),
+ (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
+ (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
+ (D1,"T1",1,"oahs_one_leg_bent",N,"L",3,N,0,N,N,4,6,N,2,"links >5s",N),
+ (D1,"T1",1,"oahs_one_leg_bent",N,"R",3,N,0,N,N,3,4,N,2,"rechts 2-5s",N),
+ (D1,"T1",1,"oahs_diamond",N,"L",3,N,0,N,N,4,5,N,2,"links ~5s",N),
+ (D1,"T1",1,"oahs_diamond",N,"R",3,N,0,N,N,3,4,N,2,"rechts 2-5s",N),
+ (D1,"T1",1,"90",N,"NA",3,"2 Negativ",0,7,N,4,N,N,2,"Negativ-Version (Recovery-Gate); RPE 6-7, Parallettes",N),
+ (D1,"T1",1,"WPU",N,"NA",2,"4",20,6,N,N,N,N,2,"Straps, leicht (Gate); 20 kg",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
