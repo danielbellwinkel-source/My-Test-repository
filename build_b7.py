@@ -178,6 +178,7 @@ logw={"A:A":12,"B:B":9,"C:C":7,"D:D":20,"E:E":12,"F:F":7,"G:G":7,"H:H":16,"I:I":
 for col,w in logw.items(): log.set_column(col,w)
 headers(log,1,LOG_HEADERS)
 D1 = datetime.datetime(2026, 7, 8)   # B7 W1 T1 (Recovery-Gate 2/5)
+D2 = datetime.datetime(2026, 7, 9)   # B7 W1 T2 (Recovery 3/5)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -190,6 +191,18 @@ DEMO=[
  (D1,"T1",1,"planche_hold",N,"NA",2,N,0,6,N,N,8,N,2,"Tuck Planche 2x8s",N),
  (D1,"T1",1,"ext_rotation",N,"NA",2,"12",N,6,N,N,N,N,2,"External Rotation, leichtes Band",N),
  (D1,"T1",1,"scap_serratus",N,"NA",2,"12",0,6,N,N,N,N,2,"Scap Pull-ups; linke Hand seitlich spuerbar (kein Schmerz)",N),
+ # --- B7 W1 T2 (Recovery 3/5) ---
+ (D2,"T2",1,"oahs_straddle",N,"L",3,N,0,N,N,4,8,N,3,"8s 2/3 links; Schulter bereits bei 8s-Holds muede",N),
+ (D2,"T2",1,"oahs_straddle",N,"R",3,N,0,N,N,4,8,N,3,"8s 2/3 rechts - verbessert!",N),
+ (D2,"T2",1,"oahs_one_leg_bent",N,"L",3,N,0,N,N,4,8,N,3,"8s 2/3 links",N),
+ (D2,"T2",1,"oahs_one_leg_bent",N,"R",3,N,0,N,N,3,8,N,3,"8s 1/3 rechts",N),
+ (D2,"T2",1,"oahs_diamond",N,"L",3,N,0,N,N,3,6,N,3,"kein 8s, 4-6s, letzter Satz muede",N),
+ (D2,"T2",1,"oahs_diamond",N,"R",3,N,0,N,N,3,6,N,3,"kein 8s, 4-6s, muede",N),
+ (D2,"T2",1,"chest_row",N,"NA",3,"10",90,7,N,N,N,N,3,"Seated/Chest Row",N),
+ (D2,"T2",1,"lat_pulldown",N,"NA",3,"8",70,7,N,N,N,N,3,N,N),
+ (D2,"T2",1,"rear_delt_fly",N,"NA",2,"15",25,6,N,N,N,N,3,"Reverse Butterfly",N),
+ (D2,"T2",1,"face_pull",N,"NA",2,"15",25,7,N,N,N,N,3,N,N),
+ (D2,"T2",1,"hollow",N,"NA",3,"30s",N,8,N,N,30,N,3,"3x30s",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
