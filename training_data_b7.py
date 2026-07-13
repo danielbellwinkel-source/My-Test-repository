@@ -28,6 +28,8 @@ SITU = [
  "B6-Learning 3: 90-Bottom-Ansteuerung kollabiert unter Fatigue (nicht Kraft, sondern muedes CNS). Frisch: 3 saubere Reps @RPE7 moeglich.",
  "B6-Learning 4: OAHS hatte Frequenz aber KEIN Progressionssystem -> Plateau. Fix: messbare Metrik + Aufstiegs-Kriterien (siehe Skill_Progression).",
  "Gewicht bei ~81 kg gehalten (Diaet-Ausfuehrung sauber). Handgelenk: von Pisiform in linke Handmuskulatur gewandert, besser aber nicht weg -> Warm-up-Protokoll + ggf. Physio.",
+ "UPDATE (W1): Ruecken-Einklemmen (BWS) aktuell NICHT mehr vorhanden -> BWS-Mobility bleibt als allgemeine Pflege, KEIN aktives Monitoring mehr.",
+ "UPDATE (W1): Neuer Limiter fuer lange OAHS-Holds = Schulter-Ausdauer/Stabilitaet (letzter Shape faellt ab) -> Schulter-Ausdauer-Miniset + Shape-Rotation eingebaut.",
 ]
 GOALS = [
  "1) OAHS Basic-Shapes beidseitig konsolidieren (8-10s) + RECHTS an links angleichen (Konsistenz/Trefferquote).",
@@ -74,6 +76,7 @@ SKILL_RULES = [
  "Transitions NICHT vernachlaessigen: 'Balance ist so gut wie Ein-/Ausgang'. Ab Tier B parallel Transitions ueben.",
  "Loggen: pro Shape eine Zeile mit ExerciseID (oahs_straddle, oahs_diamond, ...), Side, BestHold_s, Quality_0_5. So wird Progress im Weekly_Summary/Dashboard sichtbar.",
  "Recovery-Gate: Recovery <=2/5 -> Skill nur Technik/leicht (kein Stufen-Test), Akzessorik -1 Satz & RPE 6.",
+ "SHAPE-ROTATION: Reihenfolge der Shapes rotieren (Diamond/schwaechster Shape nicht immer zuletzt) -> jeder Shape bekommt mal die frischen Schultern. Schulter-Ausdauer ist aktuell der Hold-Limiter.",
 ]
 # Warm-up / Handgelenk-Protokoll (recherchiert)
 WARMUP = [
@@ -98,12 +101,13 @@ PLAN = [
  ("ALLE","Warm-up","Handgelenk-Protokoll (siehe B7_Warmup)","<=8 min","<=8 min","<=8 min","<=8 min","kein Schmerz","-","ulnar/Hand-Fokus links; Parallettes","neutral","nie muede vor Skill"),
  ("ALLE","Skill-Mikrodosis","HS Line/Balance (2-arm, Parallettes)","5-8 min","5-8 min","5-8 min","kurz","Qual 4-5","-","Frequenz","ribs down","taeglich"),
  ("ALLE","Skill-Mikrodosis","OAHS aktuelle Stufe LEICHT (Line/Shape)","kurz","kurz","kurz","kurz","Qual 4-5","-","niedrige Intensitaet, reine Frequenz","neutral","rechts leicht bevorzugen"),
- ("T1","Skill-Fokus OAHS","Basic-Shapes konsolidieren (Straddle/OLB/Diamond) - 20-30 Qualitaetsversuche","3-4/Seite","4/Seite","4/Seite","2/Seite (Test)","Qual 4-5","60-90s","Metrik loggen (Hold-Sek/Trefferquote); Aufstieg per Skill_Progression","neutral","RECHTS +1 Satz; nur frisch"),
+ ("T1","Skill-Fokus OAHS","Basic-Shapes konsolidieren (Straddle/OLB/Diamond) - 20-30 Qualitaetsversuche","3-4/Seite","4/Seite","4/Seite","2/Seite (Test)","Qual 4-5","60-90s","Metrik loggen; Aufstieg per Skill_Progression; SHAPE-REIHENFOLGE ROTIEREN","neutral","RECHTS +1 Satz; nur frisch"),
  ("T1","T1 Haupt","90 Heavy - Cluster Singles->Double (FRISCH)","4x1","5x1","2x2 / Rest 1","Quality-Test","RPE 8-8,5","2-3 min","nur bei Recovery >=3/5 schwer; sonst Technik/Negativ","kein Arch, ribs down","Weg zu 3 Reps"),
  ("T1","Planche","Pseudo-Planche Push-up ODER Tuck/Straddle Planche Hold","3x6-8","3","3","1","RPE <=7","2 min","Straight-Arm-Fokus","neutral","Schluessel-Assistenz 90"),
  ("T1","Vertikal-Pull","Weighted Pull-up (Straps ok)","3x4","4x3-4","4x3","2x3","RPE <=7","2-3 min","Last nur bei sauberen Reps +","neutral","Unterarm schonen -> Straps"),
+ ("T1","Schulter-Ausdauer (NEU)","Overhead-Static-Hold (leichte DB/Plate, 1-armig) ODER Wall-HS-Hold auf Zeit","2-3x20-30s","2-3","2-3","2","RPE 6-7","45-60s","gegen Hold-Abbruch: Schulter-Stabilisatoren-Ausdauer fuer lange OAHS-Holds","ribs down","adressiert aktuellen Hold-Limiter"),
  ("T1","Schulter-Hygiene","Scap/Serratus + Aussenrotation","2x12","2","2","1","RPE 6","45-60s","Qualitaet","neutral","Schultergesundheit"),
- ("T2","Skill-Fokus OAHS","Shapes erweitern (Half-Straddle/Legs-Together/Tuck) ODER Transitions","3 Bloecke","3","3","beste","Qual 4-5","60-90s","naechste Stufe nur wenn aktuelle beidseitig 8-10s; Transitions ab Tier B","neutral","Transitions bewusst ueben"),
+ ("T2","Skill-Fokus OAHS","Shapes erweitern (Half-Straddle/Legs-Together/Tuck) ODER Transitions","3 Bloecke","3","3","beste","Qual 4-5","60-90s","naechste Stufe nur wenn aktuelle beidseitig 8-10s; Transitions ab Tier B; SHAPE ROTIEREN","neutral","Transitions bewusst ueben"),
  ("T2","Haupt-Zug","Chest-supported / Seal Row","3x10-12","3x10-12","3x8-10","2x10","RPE <=7","90s","Reps sauber","brustgestuetzt","oberer Ruecken"),
  ("T2","Vertikal-Zug","Lat Pulldown / Pull-up","3x8-10","3x8-10","3x6-8","2x8","RPE <=7","90s","kontrolliert","neutral","Lat"),
  ("T2","Schulter","Rear-Delt Fly + Face Pull","2x12-15","2-3","2","2","RPE 6-7","45-60s","Qualitaet","neutral","hintere Schulter"),
@@ -113,7 +117,7 @@ PLAN = [
  ("T3","Bein bi","Leg Press / Hack","3x10-12","3x10","3x10","2x12","RPE <=7","2 min","Last + wenn erholt","kein Grind","Quad/Glute"),
  ("T3","Post. Kette","Hamstring Curl","3x10-12","3","3","2","RPE <=7","75s","kein schwerer Hinge","Gate","Hamstrings"),
  ("T3","Bein","Calves","3x12-15","3","3","2","RPE 7","45s","-","neutral","Waden"),
- ("T3","BWS-Mobility","BWS Ext/Rotation, ribs down, Atmung","1 Block","1","1","1","Qual 4-5","-","fix; Protokoll in Rules","Einklemm monitoren","-"),
+ ("T3","BWS-Mobility","BWS Ext/Rotation, ribs down, Atmung","1 Block","1","1","1","Qual 4-5","-","allgemeine Mobility (Einklemm aktuell WEG, kein Monitoring)","optional","Einklemm-Thema geloest"),
  ("T3","Core","Pallof + Dead Bug + Side Plank","2 je","2-3","2-3","2","Qual 4","45-60s","Anti-Ext/Rot/Lat","Anti-Flexion","LWS-schonend"),
  ("T4","Warm-up+","Laenger + Side-Body-Aktivierung","1 Block","1","1","1","Qual 4-5","-","vor Flag/Figa noetig","neutral","Verletzungsschutz"),
  ("T4","Skill Flag/Figa","Unsupported Flag-Lean + 1-Arm-Release + Figa-Entries","4/Seite","4-5","4-5","beste","Qual 4-5","90s","Kontrolle VOR Haltezeit; Metrik loggen (Entries/Hold)","kontrolliert","Fernziel-Pfad"),
