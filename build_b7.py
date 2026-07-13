@@ -179,6 +179,7 @@ for col,w in logw.items(): log.set_column(col,w)
 headers(log,1,LOG_HEADERS)
 D1 = datetime.datetime(2026, 7, 8)   # B7 W1 T1 (Recovery-Gate 2/5)
 D2 = datetime.datetime(2026, 7, 9)   # B7 W1 T2 (Recovery 3/5)
+D3 = datetime.datetime(2026, 7, 11)  # B7 W1 T3 (Recovery 4/5)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -203,6 +204,15 @@ DEMO=[
  (D2,"T2",1,"rear_delt_fly",N,"NA",2,"15",25,6,N,N,N,N,3,"Reverse Butterfly",N),
  (D2,"T2",1,"face_pull",N,"NA",2,"15",25,7,N,N,N,N,3,N,N),
  (D2,"T2",1,"hollow",N,"NA",3,"30s",N,8,N,N,30,N,3,"3x30s",N),
+ # --- B7 W1 T3 (Recovery 4/5) ---
+ (D3,"T3",1,"HS_line",N,"NA",3,N,0,N,N,4,20,N,4,"20+s Line-Holds",N),
+ (D3,"T3",1,"oahs_legs_together",N,"NA",2,N,0,N,N,N,N,N,4,"Legs-together Weight-Shifts, 2/Seite (Line-Arbeit)",N),
+ (D3,"T3",1,"oahs_legs_together",N,"L",3,N,0,N,N,3,8,N,4,"SUPPORTED (2 Finger), 8s - KEIN freier Hold",N),
+ (D3,"T3",1,"oahs_legs_together",N,"R",3,N,0,N,N,3,8,N,4,"SUPPORTED (2 Finger), 8s - KEIN freier Hold",N),
+ (D3,"T3",1,"bss",N,"NA",3,"8,7,7",40,8,N,N,N,N,4,"RPE eher 8 (ueber Cap 7)",N),
+ (D3,"T3",1,"leg_press",N,"NA",3,"12",70,7,N,N,N,N,4,N,N),
+ (D3,"T3",1,"ham_curl",N,"NA",3,"12,10,10",50,8,N,N,N,N,4,"RPE 8 (ueber Cap 7)",N),
+ (D3,"T3",1,"calves",N,"NA",3,"15",70,7,N,N,N,N,4,N,N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
