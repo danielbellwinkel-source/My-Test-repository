@@ -180,6 +180,7 @@ headers(log,1,LOG_HEADERS)
 D1 = datetime.datetime(2026, 7, 8)   # B7 W1 T1 (Recovery-Gate 2/5)
 D2 = datetime.datetime(2026, 7, 9)   # B7 W1 T2 (Recovery 3/5)
 D3 = datetime.datetime(2026, 7, 11)  # B7 W1 T3 (Recovery 4/5)
+D4 = datetime.datetime(2026, 7, 12)  # B7 W1 Rest statt T4 (Symptome)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -213,6 +214,8 @@ DEMO=[
  (D3,"T3",1,"leg_press",N,"NA",3,"12",70,7,N,N,N,N,4,N,N),
  (D3,"T3",1,"ham_curl",N,"NA",3,"12,10,10",50,8,N,N,N,N,4,"RPE 8 (ueber Cap 7)",N),
  (D3,"T3",1,"calves",N,"NA",3,"15",70,7,N,N,N,N,4,N,N),
+ # --- B7 W1: T4 ausgelassen -> Rest wegen Symptomen ---
+ (D4,"Rest",1,"rest",N,"NA",N,N,N,N,N,N,N,N,2,"Symptome: Heuschnupfen, Kopfschmerz (unueblich), Kreislauf/zittrig, Muskelzuckungen, Stress -> Rest statt T4",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
