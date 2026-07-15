@@ -181,6 +181,7 @@ D1 = datetime.datetime(2026, 7, 8)   # B7 W1 T1 (Recovery-Gate 2/5)
 D2 = datetime.datetime(2026, 7, 9)   # B7 W1 T2 (Recovery 3/5)
 D3 = datetime.datetime(2026, 7, 11)  # B7 W1 T3 (Recovery 4/5)
 D4 = datetime.datetime(2026, 7, 12)  # B7 W1 Rest statt T4 (Symptome)
+D5 = datetime.datetime(2026, 7, 14)  # B7 W1 T4 (Recovery 4, daheim)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -216,6 +217,12 @@ DEMO=[
  (D3,"T3",1,"calves",N,"NA",3,"15",70,7,N,N,N,N,4,N,N),
  # --- B7 W1: T4 ausgelassen -> Rest wegen Symptomen ---
  (D4,"Rest",1,"rest",N,"NA",N,N,N,N,N,N,N,N,2,"Symptome: Heuschnupfen, Kopfschmerz (unueblich), Kreislauf/zittrig, Muskelzuckungen, Stress -> Rest statt T4",N),
+ # --- B7 W1 T4 (Recovery 4/5, daheim wegen Zeit) ---
+ (D5,"T4",1,"oahs_flag",N,"NA",4,N,0,N,N,3,3,N,4,"Straddle: OAHS-Holds + Return zum Center; sonst kurzer Straddle Flag Lean Hold",N),
+ (D5,"T4",1,"oahs_flag",N,"NA",3,N,0,N,N,3,3,N,4,"Diamond Flag Lean Hold",N),
+ (D5,"T4",1,"90",N,"NA",3,"3,2,2 Negativ",0,7,N,4,N,N,4,"Negative, Parallettes",N),
+ (D5,"T4",1,"pike_press",N,"NA",3,"7,6,6",0,7,N,N,N,N,4,"Pike Push-ups feet elevated",N),
+ (D5,"T4",1,"biceps",N,"NA",3,N,N,7,N,N,N,N,4,"Blaues Band (Pull-Ersatz daheim); Row entfiel (kein Equipment)",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
