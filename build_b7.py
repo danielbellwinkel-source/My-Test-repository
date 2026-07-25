@@ -182,6 +182,10 @@ D2 = datetime.datetime(2026, 7, 9)   # B7 W1 T2 (Recovery 3/5)
 D3 = datetime.datetime(2026, 7, 11)  # B7 W1 T3 (Recovery 4/5)
 D4 = datetime.datetime(2026, 7, 12)  # B7 W1 Rest statt T4 (Symptome)
 D5 = datetime.datetime(2026, 7, 14)  # B7 W1 T4 (Recovery 4, daheim)
+D6  = datetime.datetime(2026, 7, 18)  # Urlaub Session 1 (Rings/Parallettes T5)
+D6a = datetime.datetime(2026, 7, 20)  # Urlaub Strand-Session 2
+D6b = datetime.datetime(2026, 7, 22)  # Urlaub Strand-Session 3
+D7  = datetime.datetime(2026, 7, 28)  # B7 W2 T1 (Recovery 3, Wieder-Einstieg)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -223,6 +227,21 @@ DEMO=[
  (D5,"T4",1,"90",N,"NA",3,"3,2,2 Negativ",0,7,N,4,N,N,4,"Negative, Parallettes",N),
  (D5,"T4",1,"pike_press",N,"NA",3,"7,6,6",0,7,N,N,N,N,4,"Pike Push-ups feet elevated",N),
  (D5,"T4",1,"biceps",N,"NA",3,N,N,7,N,N,N,N,4,"Blaues Band (Pull-Ersatz daheim); Row entfiel (kein Equipment)",N),
+ # --- Urlaub Session 1 (T5, Rings + tiefe Parallettes) ---
+ (D6,"T5",1,"90",N,"NA",3,"2",0,7,N,N,N,N,4,"Urlaub Rings/Parallettes; RPE 6-7",N),
+ (D6,"T5",1,"ring_dips",N,"NA",3,"11",0,7,N,N,N,N,4,"Ring Dips 3x11 (Urlaub)",N),
+ # --- Urlaub: 2 improvisierte Strand-Sessions (Trimm-dich-Pfad) ---
+ (D6a,"T5",1,"deficit_pushup",N,"NA",N,N,0,N,N,N,N,N,N,"Urlaub Strand-Session 2: Push-up-Varianten + Pull-ups + Handstaende (improvisiert, keine genauen Zahlen)",N),
+ (D6b,"T5",1,"deficit_pushup",N,"NA",N,N,0,N,N,N,N,N,N,"Urlaub Strand-Session 3: Push-up-Varianten + Pull-ups + Handstaende (improvisiert)",N),
+ # --- B7 W2 T1 (Recovery 3, zurueck aus Urlaub, Wieder-Einstieg) ---
+ (D7,"T1",2,"oahs_straddle",N,"L",2,N,0,N,N,4,6,N,3,"W2 Re-Entry, rusty; gute Saetze >5s links",N),
+ (D7,"T1",2,"oahs_straddle",N,"R",2,N,0,N,N,3,5,N,3,"paar solide + einige trash",N),
+ (D7,"T1",2,"oahs_diamond",N,"L",2,N,0,N,N,3,5,N,3,"links solide",N),
+ (D7,"T1",2,"oahs_diamond",N,"R",1,N,0,N,N,2,4,N,3,"Qualitaet nahm ab -> gestoppt, andere Shapes weggelassen",N),
+ (D7,"T1",2,"90",N,"NA",4,"1",0,9,N,N,N,4,3,"4x1 voll; S1 8-9 (schwer hoch), S2 7-8 (Momentum gut), S3-4 ~8 (Momentum nicht ideal)",N),
+ (D7,"T1",2,"pseudo_planche_pushup",N,"NA",3,"6",0,7,N,N,N,N,3,N,N),
+ (D7,"T1",2,"WPU",N,"NA",4,"3",35,8,N,N,N,N,3,"Straps; fuehlt sich ueber Bloecke eher schwaecher an (war mal 40 kg) -> Double-Progression",N),
+ (D7,"T1",2,"HS_line",N,"NA",2,N,0,N,N,N,N,N,3,"Endurance-Versuch improvisiert (Sprossenwand), nicht smooth -> Protokoll auf C2W-Holds umgestellt",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
