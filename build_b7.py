@@ -147,15 +147,23 @@ sk.merge_range(r-1,0,r-1,4,"Beispiel-Diktat: 'T1 Woche 1, Straddle links 4 Versu
 # ---------------- B7_Warmup (NEU) ----------------
 wu=wb.add_worksheet("B7_Warmup")
 for col,w in {"A:A":30,"B:B":16,"C:C":80}.items(): wu.set_column(col,w)
-title(wu,"A1:C1","B7 — Warm-up / Handgelenk-Protokoll (recherchiert)")
+title(wu,"A1:C1","B7 — Warm-up + Taegliche HS-Mikrodosis (recherchiert, festes Protokoll)")
 wu.merge_range("A2:C2","Handgelenke sind der Engpass: Handstand = volles Koerpergewicht durch ~90 Grad Handgelenks-Extension. Kurz & progressiv aufwaermen, NICHT ermuedend.",F_IT)
-headers(wu,3,["Block","Dauer","Inhalt"])
-r=4
+section(wu,"A3:C3","1) Handgelenk-Warm-up (<=5-8 min)")
+headers(wu,4,["Block","Dauer","Inhalt"])
+r=5
 for block,dauer,inhalt in T7.WARMUP:
     put(wu,r,1,block,F_BOLD); put(wu,r,2,dauer,F_BODYC); put(wu,r,3,inhalt,F_BODY); r+=1
+r+=1; section(wu,f"A{r}:C{r}","2) Taegliche HS-Mikrodosis (8-15 min, VOR jeder Einheit) - FIXES Protokoll"); r+=1
+headers(wu,r,["Block","Dauer","Inhalt"]); r+=1
+for block,dauer,inhalt in T7.MICRODOSE:
+    put(wu,r,1,block,F_BOLD); put(wu,r,2,dauer,F_BODYC); put(wu,r,3,inhalt,F_BODY); r+=1
+r+=1
+for rule in T7.MICRODOSE_RULES:
+    wu.merge_range(r-1,0,r-1,2,"• "+rule,F_BODY); r+=1
 r+=1; section(wu,f"A{r}:C{r}","Referenzen"); r+=1
 headers(wu,r,["Quelle","URL",""]); r+=1
-for src,url in T7.WARMUP_REFS:
+for src,url in list(T7.WARMUP_REFS)+list(T7.MICRODOSE_REFS):
     put(wu,r,1,src,F_BODY); wu.write_url(r-1,1,url,F_LINK,url); put(wu,r,3,"",F_BODY); r+=1
 
 # ---------------- B7_Exercise_Library ----------------

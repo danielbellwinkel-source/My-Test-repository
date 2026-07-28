@@ -95,12 +95,30 @@ WARMUP_REFS = [
  ("Handstand Factory — Handstand Flag (Podcast S1E33)","https://handstandfactory.com/podcast/s1ep33-the-handstand-flag/"),
 ]
 
+# Taegliche HS-Mikrodosis — FIXES Protokoll (level-angepasst: beherrscht OAHS-Shapes)
+MICRODOSE = [
+ ("A) Handgelenk-Prep","3-5 min","Wie Warm-up-Tabelle oben (Fokus ulnar/Hand links). Immer zuerst, nie ermuedend."),
+ ("B) 2-arm Balance-Kalibrierung","3-4 min","3-5 freistehende Holds je ~10-20 s (Parallettes ok). LINIE: Schultern lang/elevated, ribs down, Hohlkoerper. BALANCE ueber FINGERDRUCK: kippt es nach vorn (weg vom Handballen) -> Fingerkuppen staerker eindruecken; faellt es zurueck (Richtung Handballen) -> Fingerdruck loesen, Gewicht auf die Handballen. Hand = starrer Hebel, Korrektur aus dem Handgelenk. KEINE Ausdauer-Maxwerte hier."),
+ ("C) OAHS-Line / Weight-Shift","3-5 min","Pro Seite 2-4 LEICHTE Durchgaenge: Huefte ueber die Arbeitshand schieben (Schulter GESTAPELT, Bewegung aus der Huefte) + Finger der Stuetzhand progressiv luften (3 -> 2 -> 1 Finger -> kurz frei), 1-3 s, kontrolliert zurueck. Du beherrschst OAHS -> niedrige Intensitaet, saubere Touch-Holds, reine FREQUENZ. KEINE Max-Holds (die gehoeren in den Skill-Fokus T1/T2/T4). RECHTS +1 Durchgang."),
+]
+MICRODOSE_RULES = [
+ "Frequenz > Volumen: 5-10 min, 5-6x/Woche. Kurze haeufige Reize schlagen eine lange Session (das Nervensystem baut die reflexiven Balance-Korrekturen auf).",
+ "Nicht-Skill-Tage (T3/T5): nach der Mikrodosis STOPP - keine Max-Versuche.",
+ "Skill-Tage (T1/T2/T4): Mikrodosis = Kalibrierung/Warm-up, DANN Uebergang in den Skill-Fokus (echte Progression: Max-Holds/Shapes/Flag).",
+ "Wrist-gated: bei Ziehen Umfang runter / Parallettes / Position aendern.",
+]
+MICRODOSE_REFS = [
+ ("Movement Athlete — Handstand Balance Drills","https://themovementathlete.com/how-to-balance-a-handstand/"),
+ ("Berg Movement — How to Use Your Hands","https://www.bergmovement.com/calisthenics-blog/how-to-do-a-handstand-learn-how-to-use-your-hands"),
+ ("Handstand Factory — The Hand that Balances","https://handstandfactory.com/articles/hand/"),
+]
+
 # B7-Plan (RPE-Cap 7 auf Akzessorik, Volumen getrimmt, Skill als Progressionssystem)
 PLAN = [
  ("ALLE","Recovery-Check","Recovery 1-5 loggen (Schlaf/Spannung/Motivation)","1","1","1","1","-","-","<=2/5 -> Skill nur Technik; Akzessorik -1 Satz & RPE 6","-","steuert den Tag"),
  ("ALLE","Warm-up","Handgelenk-Protokoll (siehe B7_Warmup)","<=8 min","<=8 min","<=8 min","<=8 min","kein Schmerz","-","ulnar/Hand-Fokus links; Parallettes","neutral","nie muede vor Skill"),
- ("ALLE","Skill-Mikrodosis","HS Line/Balance (2-arm, Parallettes)","5-8 min","5-8 min","5-8 min","kurz","Qual 4-5","-","Frequenz","ribs down","taeglich"),
- ("ALLE","Skill-Mikrodosis","OAHS aktuelle Stufe LEICHT (Line/Shape)","kurz","kurz","kurz","kurz","Qual 4-5","-","niedrige Intensitaet, reine Frequenz","neutral","rechts leicht bevorzugen"),
+ ("ALLE","Mikrodosis A+B","Handgelenk-Prep + 2-arm Balance-Kalibrierung (Fingerdruck) - FIXES Protokoll siehe B7_Warmup","5-8 min","5-8 min","5-8 min","kurz","Qual 4-5","-","Balance ueber Fingerdruck; Frequenz > Volumen","ribs down","taeglich, siehe B7_Warmup"),
+ ("ALLE","Mikrodosis C","OAHS-Line/Weight-Shift LEICHT (Finger-Lift 3->2->1) - siehe B7_Warmup","kurz","kurz","kurz","kurz","Qual 4-5","-","niedrige Intensitaet, KEINE Max-Holds; RECHTS +1","neutral","rechts leicht bevorzugen"),
  ("T1","Skill-Fokus OAHS","Basic-Shapes konsolidieren (Straddle/OLB/Diamond) - 20-30 Qualitaetsversuche","3-4/Seite","4/Seite","4/Seite","2/Seite (Test)","Qual 4-5","60-90s","Metrik loggen; Aufstieg per Skill_Progression; SHAPE-REIHENFOLGE ROTIEREN","neutral","RECHTS +1 Satz; nur frisch"),
  ("T1","T1 Haupt","90 Heavy - Cluster Singles->Double (FRISCH)","4x1","5x1","2x2 / Rest 1","Quality-Test","RPE 8-8,5","2-3 min","nur bei Recovery >=3/5 schwer; sonst Technik/Negativ","kein Arch, ribs down","Weg zu 3 Reps"),
  ("T1","Planche","Pseudo-Planche Push-up ODER Tuck/Straddle Planche Hold","3x6-8","3","3","1","RPE <=7","2 min","Straight-Arm-Fokus","neutral","Schluessel-Assistenz 90"),
