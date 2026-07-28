@@ -195,6 +195,7 @@ D6a = datetime.datetime(2026, 7, 20)  # Urlaub Strand-Session 2
 D6b = datetime.datetime(2026, 7, 22)  # Urlaub Strand-Session 3
 D7  = datetime.datetime(2026, 7, 28)  # B7 W2 T1 (Recovery 3, Wieder-Einstieg)
 D8  = datetime.datetime(2026, 8, 1)   # B7 W2 T2 (Recovery 5)
+D9  = datetime.datetime(2026, 8, 2)   # B7 W2 T3 (Recovery ~4)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -263,6 +264,14 @@ DEMO=[
  (D8,"T2",2,"face_pull",N,"NA",3,"12",30,7,N,N,N,N,5,"haette ~3 mehr geschafft (eher RPE 7)",N),
  (D8,"T2",2,"rear_delt_fly",N,"NA",2,"12",2,7,N,N,N,N,5,"DB bent-over 2 kg (Maschine besetzt)",N),
  (D8,"T2",2,"hollow",N,"NA",3,"30s",N,7,N,N,30,N,5,"3x30s",N),
+ # --- B7 W2 T3 (Recovery ~4/5, Beine + starke Endurance) ---
+ (D9,"T3",2,"OAHS_line",N,"NA",1,N,0,N,N,N,N,N,4,"Taegliche Mikrodosis A-C gemacht (Fingerdruck-Kalibrierung + Weight-Shift)",N),
+ (D9,"T3",2,"bss",N,"NA",3,"8",40,7,N,N,N,N,4,"40 kg jetzt @ RPE 7 (vorher 40 = RPE 8) -> Rebound",N),
+ (D9,"T3",2,"leg_press",N,"NA",3,"12",80,8,N,N,N,N,4,"80 kg (75 gabs nicht) -> RPE 8, leicht ueber Cap; naechstes Mal 80x10",N),
+ (D9,"T3",2,"ham_curl",N,"NA",3,"10",45,7,N,N,N,N,4,N,N),
+ (D9,"T3",2,"calves",N,"NA",3,"15",80,7,N,N,N,N,4,N,N),
+ (D9,"T3",2,"pallof",N,"NA",2,N,N,N,N,N,N,N,4,"2 Runden Core-Zirkel (Anti-Bewegung)",N),
+ (D9,"T3",2,"HS_line",N,"NA",2,N,0,N,N,4,50,N,4,"Handstand-Endurance FREISTEHEND 2x50s (stark!)",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
