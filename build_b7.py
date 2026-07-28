@@ -186,6 +186,7 @@ D6  = datetime.datetime(2026, 7, 18)  # Urlaub Session 1 (Rings/Parallettes T5)
 D6a = datetime.datetime(2026, 7, 20)  # Urlaub Strand-Session 2
 D6b = datetime.datetime(2026, 7, 22)  # Urlaub Strand-Session 3
 D7  = datetime.datetime(2026, 7, 28)  # B7 W2 T1 (Recovery 3, Wieder-Einstieg)
+D8  = datetime.datetime(2026, 8, 1)   # B7 W2 T2 (Recovery 5)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -242,6 +243,18 @@ DEMO=[
  (D7,"T1",2,"pseudo_planche_pushup",N,"NA",3,"6",0,7,N,N,N,N,3,N,N),
  (D7,"T1",2,"WPU",N,"NA",4,"3",35,8,N,N,N,N,3,"Straps; fuehlt sich ueber Bloecke eher schwaecher an (war mal 40 kg) -> Double-Progression",N),
  (D7,"T1",2,"HS_line",N,"NA",2,N,0,N,N,N,N,N,3,"Endurance-Versuch improvisiert (Sprossenwand), nicht smooth -> Protokoll auf C2W-Holds umgestellt",N),
+ # --- B7 W2 T2 (Recovery 5, nach 2 Extra-Rest wegen drohender Krankheit; Balance noch etwas off) ---
+ (D8,"T2",2,"oahs_straddle",N,"L",3,N,0,N,N,4,5,N,5,"alle 3 Saetze 5s+ (Balance noch off nach Krankheits-Andeutung)",N),
+ (D8,"T2",2,"oahs_straddle",N,"R",3,N,0,N,N,3,3,N,5,"~3s+",N),
+ (D8,"T2",2,"oahs_diamond",N,"L",3,N,0,N,N,3,5,N,5,"2 Saetze 5s+, 1 Satz 3s",N),
+ (D8,"T2",2,"oahs_diamond",N,"R",3,N,0,N,N,2,3,N,5,"alle ~2-3s",N),
+ (D8,"T2",2,"oahs_one_leg_bent",N,"L",2,N,0,N,N,3,5,N,5,"2 Versuche >5s",N),
+ (D8,"T2",2,"oahs_one_leg_bent",N,"R",2,N,0,N,N,2,5,N,5,"1x 5s + 1 trash; 3. Satz beidseitig trash -> gestoppt (Fatigue)",N),
+ (D8,"T2",2,"chest_row",N,"NA",3,"10",100,7,N,N,N,N,5,"korrigiert: 100 kg (vorher 90 falsch gerechnet) -> keine echte Steigerung, nur korrektes Gewicht",N),
+ (D8,"T2",2,"lat_pulldown",N,"NA",3,"8",70,7,N,N,N,N,5,N,N),
+ (D8,"T2",2,"face_pull",N,"NA",3,"12",30,7,N,N,N,N,5,"haette ~3 mehr geschafft (eher RPE 7)",N),
+ (D8,"T2",2,"rear_delt_fly",N,"NA",2,"12",2,7,N,N,N,N,5,"DB bent-over 2 kg (Maschine besetzt)",N),
+ (D8,"T2",2,"hollow",N,"NA",3,"30s",N,7,N,N,30,N,5,"3x30s",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
