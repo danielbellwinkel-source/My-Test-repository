@@ -196,6 +196,7 @@ D6b = datetime.datetime(2026, 7, 22)  # Urlaub Strand-Session 3
 D7  = datetime.datetime(2026, 7, 28)  # B7 W2 T1 (Recovery 3, Wieder-Einstieg)
 D8  = datetime.datetime(2026, 8, 1)   # B7 W2 T2 (Recovery 5)
 D9  = datetime.datetime(2026, 8, 2)   # B7 W2 T3 (Recovery ~4)
+D10 = datetime.datetime(2026, 8, 4)   # B7 W2 T4 (Recovery 3->2, Trash)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -272,6 +273,12 @@ DEMO=[
  (D9,"T3",2,"calves",N,"NA",3,"15",80,7,N,N,N,N,4,N,N),
  (D9,"T3",2,"pallof",N,"NA",2,N,N,N,N,N,N,N,4,"2 Runden Core-Zirkel (Anti-Bewegung)",N),
  (D9,"T3",2,"HS_line",N,"NA",2,N,0,N,N,4,50,N,4,"Handstand-Endurance FREISTEHEND 2x50s (stark!)",N),
+ # --- B7 W2 T4 (Recovery 3 -> auf 2 abgerutscht; Trash-Einheit) ---
+ (D10,"T4",2,"oahs_flag",N,"L",4,N,0,N,N,3,3,N,2,"Straddle: unsupported Lean+Return + Freeze; links 2-3s Freeze manchmal; ein paar Fallouts",N),
+ (D10,"T4",2,"oahs_flag",N,"R",4,N,0,N,N,2,1,N,2,"rechts max 1s Freeze+Return, froh es zu schaffen; Fallouts",N),
+ (D10,"T4",2,"90",N,"NA",3,"2 Negativ",0,9,N,1,N,0,2,"Trash-Tag; Balance mies (untypisch), S2 fast Kontrollverlust; nur Negative, abgebrochen damit RPE nicht explodiert",N),
+ (D10,"T4",2,"pike_press",N,"NA",3,"6",0,7,N,N,N,N,2,"ging noch (Balance/Last reduziert)",N),
+ (D10,"T4",2,"chest_row",N,"NA",2,"10",100,7,N,N,N,N,2,"Chest-supported Row",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
