@@ -197,6 +197,7 @@ D7  = datetime.datetime(2026, 7, 28)  # B7 W2 T1 (Recovery 3, Wieder-Einstieg)
 D8  = datetime.datetime(2026, 8, 1)   # B7 W2 T2 (Recovery 5)
 D9  = datetime.datetime(2026, 8, 2)   # B7 W2 T3 (Recovery ~4)
 D10 = datetime.datetime(2026, 8, 4)   # B7 W2 T4 (Recovery 3->2, Trash)
+D11 = datetime.datetime(2026, 8, 5)   # B7 W2 T5 (Recovery ~4-5)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -279,6 +280,17 @@ DEMO=[
  (D10,"T4",2,"90",N,"NA",3,"2 Negativ",0,9,N,1,N,0,2,"Trash-Tag; Balance mies (untypisch), S2 fast Kontrollverlust; nur Negative, abgebrochen damit RPE nicht explodiert",N),
  (D10,"T4",2,"pike_press",N,"NA",3,"6",0,7,N,N,N,N,2,"ging noch (Balance/Last reduziert)",N),
  (D10,"T4",2,"chest_row",N,"NA",2,"10",100,7,N,N,N,N,2,"Chest-supported Row",N),
+ # --- B7 W2 T5 (Recovery ~4-5, starker Rebound) ---
+ (D11,"T5",2,"oahs_legs_together",N,"NA",2,N,0,N,N,3,N,N,4,"Mikrodosis: Legs-together OHNE Noodle-Support, ging gut (Tier-B-Signal)",N),
+ (D11,"T5",2,"90",N,"NA",3,"2 Negativ",0,7,N,N,N,N,4,"kontrolliert, kein Failure (Recovery ~4-5)",N),
+ (D11,"T5",2,"ring_dips",N,"NA",3,"12",0,6,N,N,N,N,4,"leicht (RPE 5-6) -> Progressionspotenzial",N),
+ (D11,"T5",2,"deficit_pushup",N,"NA",2,"10",0,7,N,N,N,N,4,"hohe Parallettes, Fuesse erhoeht",N),
+ (D11,"T5",2,"chest_row",N,"NA",3,"10",80,7,N,N,N,N,4,"Kabelzug (besserer Pump)",N),
+ (D11,"T5",2,"lat_pulldown",N,"NA",3,"10,9,8",70,7,N,N,N,N,4,N,N),
+ (D11,"T5",2,"lateral_raise",N,"NA",3,"12",N,7,N,N,N,N,4,"Gewicht nicht genannt (~8 kg?)",N),
+ (D11,"T5",2,"rear_delt_fly",N,"NA",3,"12",30,7,N,N,N,N,4,"Maschine",N),
+ (D11,"T5",2,"biceps",N,"NA",2,"12,10",25.25,7,N,N,N,N,4,"Kabel 23,5+1,75",N),
+ (D11,"T5",2,"triceps",N,"NA",2,"12",18.25,7,N,N,N,N,4,"Kabel 16,5+1,75",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
