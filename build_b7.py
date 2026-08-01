@@ -198,6 +198,7 @@ D8  = datetime.datetime(2026, 8, 1)   # B7 W2 T2 (Recovery 5)
 D9  = datetime.datetime(2026, 8, 2)   # B7 W2 T3 (Recovery ~4)
 D10 = datetime.datetime(2026, 8, 4)   # B7 W2 T4 (Recovery 3->2, Trash)
 D11 = datetime.datetime(2026, 8, 5)   # B7 W2 T5 (Recovery ~4-5)
+D12 = datetime.datetime(2026, 8, 7)   # B7 W3 T1 (Recovery 3)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -291,6 +292,17 @@ DEMO=[
  (D11,"T5",2,"rear_delt_fly",N,"NA",3,"12",30,7,N,N,N,N,4,"Maschine",N),
  (D11,"T5",2,"biceps",N,"NA",2,"12,10",25.25,7,N,N,N,N,4,"Kabel 23,5+1,75",N),
  (D11,"T5",2,"triceps",N,"NA",2,"12",18.25,7,N,N,N,N,4,"Kabel 16,5+1,75",N),
+ # --- B7 W3 T1 (Recovery 3; Balance off, Kraft fuehlt schwaecher - evtl. BW hoch nach Urlaub+AYCE) ---
+ (D12,"T1",3,"oahs_straddle",N,"L",3,N,0,N,N,2,4,N,3,"1-2 Holds 4s+ aber sehr shaky; schwaechstes Level seit langem",N),
+ (D12,"T1",3,"oahs_straddle",N,"R",3,N,0,N,N,1,1,N,3,"max ~1s Freeze dann Fall",N),
+ (D12,"T1",3,"oahs_diamond",N,"L",3,N,0,N,N,2,4,N,3,"shaky",N),
+ (D12,"T1",3,"oahs_diamond",N,"R",3,N,0,N,N,1,1,N,3,N,N),
+ (D12,"T1",3,"oahs_one_leg_bent",N,"L",2,N,0,N,N,2,4,N,3,N,N),
+ (D12,"T1",3,"oahs_one_leg_bent",N,"R",2,N,0,N,N,1,1,N,3,N,N),
+ (D12,"T1",3,"90",N,"NA",5,"3 Singles ok + 2 Fails",0,8,N,N,N,3,3,"Weg rauf Kampf, Momentum noetig; fuehlte sich nach WENIGER Kraft an (evtl. schwerer/BW hoch), nicht Ansteuerung",N),
+ (D12,"T1",3,"planche_hold",N,"NA",3,N,0,7,N,N,8,N,3,"Tuck Planche 8/8/6 s",N),
+ (D12,"T1",3,"WPU",N,"NA",3,"3",35,8,N,N,N,N,3,"Wide grip; recht schwach @RPE8 (evtl. BW hoch)",N),
+ (D12,"T1",3,"HS_line",N,"NA",3,N,0,N,N,4,60,N,3,"Endurance freistehend Parallettes 3x60s - steigt weiter (2x50 -> 3x60)!",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
