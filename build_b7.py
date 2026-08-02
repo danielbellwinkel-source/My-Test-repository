@@ -199,6 +199,7 @@ D9  = datetime.datetime(2026, 8, 2)   # B7 W2 T3 (Recovery ~4)
 D10 = datetime.datetime(2026, 8, 4)   # B7 W2 T4 (Recovery 3->2, Trash)
 D11 = datetime.datetime(2026, 8, 5)   # B7 W2 T5 (Recovery ~4-5)
 D12 = datetime.datetime(2026, 8, 7)   # B7 W3 T1 (Recovery 3)
+D13 = datetime.datetime(2026, 8, 8)   # B7 W3 T2 (Recovery 3, Schulter sore)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -303,6 +304,18 @@ DEMO=[
  (D12,"T1",3,"planche_hold",N,"NA",3,N,0,7,N,N,8,N,3,"Tuck Planche 8/8/6 s",N),
  (D12,"T1",3,"WPU",N,"NA",3,"3",35,8,N,N,N,N,3,"Wide grip; recht schwach @RPE8 (evtl. BW hoch)",N),
  (D12,"T1",3,"HS_line",N,"NA",3,N,0,N,N,4,60,N,3,"Endurance freistehend Parallettes 3x60s - steigt weiter (2x50 -> 3x60)!",N),
+ # --- B7 W3 T2 (Recovery 3, Schulter sore; Skill-Rebound vs gestern) ---
+ (D13,"T2",3,"oahs_straddle",N,"L",3,N,0,N,N,3,5,N,3,"4-5s+ Holds",N),
+ (D13,"T2",3,"oahs_straddle",N,"R",3,N,0,N,N,2,5,N,3,"5s/3s/1-2s variabel - aber 5s zurueck (gestern nur 1s)",N),
+ (D13,"T2",3,"oahs_diamond",N,"L",3,N,0,N,N,3,4,N,3,"konstant 3s+",N),
+ (D13,"T2",3,"oahs_diamond",N,"R",3,N,0,N,N,2,2,N,3,"~2s",N),
+ (D13,"T2",3,"oahs_one_leg_bent",N,"L",3,N,0,N,N,3,5,N,3,"schoene 5s+ Holds",N),
+ (D13,"T2",3,"oahs_one_leg_bent",N,"R",3,N,0,N,N,2,5,N,3,"5s/3s/2s",N),
+ (D13,"T2",3,"chest_row",N,"NA",3,"8",80,7,N,N,N,N,3,"Kabel; 80x8 aber RPE 7 (letzte 80x10@7) -> Schulter-sore/Fatigue, kein Progress heute",N),
+ (D13,"T2",3,"lat_pulldown",N,"NA",3,"7",75,7,N,N,N,N,3,"PROGRESS 70->75 (letzte 70x10,9,8@7)",N),
+ (D13,"T2",3,"rear_delt_fly",N,"NA",2,"12",30,6,N,N,N,N,3,"bewusst gehalten (Schulter-sore)",N),
+ (D13,"T2",3,"face_pull",N,"NA",2,"12",30,7,N,N,N,N,3,N,N),
+ (D13,"T2",3,"hollow",N,"NA",3,"35s",N,8,N,N,35,N,3,"Zeit-Progress 30->35s",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
