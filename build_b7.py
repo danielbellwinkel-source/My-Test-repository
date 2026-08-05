@@ -200,6 +200,7 @@ D10 = datetime.datetime(2026, 8, 4)   # B7 W2 T4 (Recovery 3->2, Trash)
 D11 = datetime.datetime(2026, 8, 5)   # B7 W2 T5 (Recovery ~4-5)
 D12 = datetime.datetime(2026, 8, 7)   # B7 W3 T1 (Recovery 3)
 D13 = datetime.datetime(2026, 8, 8)   # B7 W3 T2 (Recovery 3, Schulter sore)
+D14 = datetime.datetime(2026, 8, 10)  # B7 W3 T3 (Recovery 4; Ruecken-Flag Leg Press)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -316,6 +317,15 @@ DEMO=[
  (D13,"T2",3,"rear_delt_fly",N,"NA",2,"12",30,6,N,N,N,N,3,"bewusst gehalten (Schulter-sore)",N),
  (D13,"T2",3,"face_pull",N,"NA",2,"12",30,7,N,N,N,N,3,N,N),
  (D13,"T2",3,"hollow",N,"NA",3,"35s",N,8,N,N,35,N,3,"Zeit-Progress 30->35s",N),
+ # --- B7 W3 T3 (Recovery 4, leichte Schulter-Restschmerzen; RUECKEN-Flag bei Leg Press) ---
+ (D14,"T3",3,"oahs_legs_together",N,"NA",2,N,0,N,N,3,N,N,4,"Mikrodosis Legs-together, ging recht gut",N),
+ (D14,"T3",3,"bss",N,"NA",3,"8",42.5,7,N,N,N,N,4,"PROGRESS 40->42,5 @RPE7",N),
+ (D14,"T3",3,"leg_press",N,"NA",3,"12",80,8,3,N,N,N,4,"RUECKEN: ab Satz 2-3 unterer Ruecken (nie zuvor bei Beinpresse); naechster Morgen Druck oberhalb Huefte, flexions-empfindlich, KEIN Ruck/kein scharfer Schmerz, ging schnell weg. Wahrsch. Bottom-Range Lumbalflexion unter Last",N),
+ (D14,"T3",3,"ham_curl",N,"NA",3,"12",45,7,N,N,N,N,4,"PROGRESS Reps 10->12 @45",N),
+ (D14,"T3",3,"calves",N,"NA",3,"12",90,7,N,N,N,N,4,"80->90 (nur der Sprung verfuegbar), gut machbar",N),
+ (D14,"T3",3,"HS_line",N,"NA",3,N,0,N,N,4,60,N,4,"Endurance 3x60s (im Zirkel)",N),
+ (D14,"T3",3,"dead_bug",N,"NA",3,"9",N,N,N,N,N,N,4,"liegende Bauchuebung 3x9 (im Zirkel); Pallof weggelassen",N),
+ (D14,"T3",3,"side_plank",N,"NA",3,N,N,N,N,N,40,N,4,"3x40s/Seite (im Zirkel) - Progress",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
