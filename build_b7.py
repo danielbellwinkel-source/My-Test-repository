@@ -201,6 +201,7 @@ D11 = datetime.datetime(2026, 8, 5)   # B7 W2 T5 (Recovery ~4-5)
 D12 = datetime.datetime(2026, 8, 7)   # B7 W3 T1 (Recovery 3)
 D13 = datetime.datetime(2026, 8, 8)   # B7 W3 T2 (Recovery 3, Schulter sore)
 D14 = datetime.datetime(2026, 8, 10)  # B7 W3 T3 (Recovery 4; Ruecken-Flag Leg Press)
+D15 = datetime.datetime(2026, 8, 13)  # B7 W3 T4 (Recovery ~4, rueckenschonend)
 DEMO=[
  (D1,"T1",1,"oahs_straddle",N,"L",3,N,0,N,N,4,6,N,2,"Recovery-Gate 2/5; links meist >5s, sauber",N),
  (D1,"T1",1,"oahs_straddle",N,"R",3,N,0,N,N,3,5,N,2,"rechts 2-5s, inkonsistent",N),
@@ -326,6 +327,14 @@ DEMO=[
  (D14,"T3",3,"HS_line",N,"NA",3,N,0,N,N,4,60,N,4,"Endurance 3x60s (im Zirkel)",N),
  (D14,"T3",3,"dead_bug",N,"NA",3,"9",N,N,N,N,N,N,4,"liegende Bauchuebung 3x9 (im Zirkel); Pallof weggelassen",N),
  (D14,"T3",3,"side_plank",N,"NA",3,N,N,N,N,N,40,N,4,"3x40s/Seite (im Zirkel) - Progress",N),
+ # --- B7 W3 T4 (Recovery ~4, Ruecken-schonend; Flag lief sauber, KEIN Ziehen) ---
+ (D15,"T4",3,"oahs_flag",N,"L",3,N,0,N,N,3,3,N,4,"Flag-Lean+Return, bis 3s Freeze, teils gehalten; KEIN Rueckenziehen",N),
+ (D15,"T4",3,"oahs_flag",N,"R",3,N,0,N,N,2,3,N,4,"Lean+Return: Balance im Center verloren, aber 2-3s gehalten (Trash-Tag war 1s)",N),
+ (D15,"T4",3,"oahs_flag",N,"L",3,N,0,N,N,3,4,N,4,"Straddle Flag Hold 3-4s alle Saetze",N),
+ (D15,"T4",3,"oahs_flag",N,"R",3,N,0,N,N,3,3,N,4,"Straddle Flag Hold ~3s",N),
+ (D15,"T4",3,"90",N,"NA",3,"2 Negativ",0,7,N,N,N,N,4,"gute Spannung, ribs down; Koerper schwer, NS aber gut",N),
+ (D15,"T4",3,"deficit_pushup",N,"NA",3,"7",0,7,N,N,N,N,4,"Deep/High Push-ups (statt Pike)",N),
+ (D15,"T4",3,"chest_row",N,"NA",3,N,0,N,N,N,N,N,4,"Ring Rows horizontal, rueckenschonend (statt Kabelzug); Zahlen ca.",N),
 ]
 def write_logrow(ridx,row):
     rno=ridx+1
